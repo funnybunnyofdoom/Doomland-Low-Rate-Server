@@ -1,0 +1,114 @@
+{
+  "UseWaste": false,
+  "RequireAuthentication": true,
+  "AllowDebugCalls": false,
+  "WhiteList": {
+    "System.String": {
+      "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+      "$values": []
+    }
+  },
+  "BlackList": {
+    "System.String": {
+      "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+      "$values": []
+    }
+  },
+  "Admins": {
+    "System.String": {
+      "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+      "$values": []
+    }
+  },
+  "SpawnLocation": {
+    "x": 330,
+    "y": 0,
+    "z": 130
+  },
+  "UseExactSpawnLocation": false,
+  "Reputations": {
+    "Eco.Gameplay.Economy.ReputationTitle": {
+      "$type": "System.Collections.Generic.List`1[[Eco.Gameplay.Economy.ReputationTitle, Eco.Gameplay]], mscorlib",
+      "$values": [
+        {
+          "MaxReputation": -500.0,
+          "Title": "Reprehensible"
+        },
+        {
+          "MaxReputation": -200.0,
+          "Title": "Abhorred"
+        },
+        {
+          "MaxReputation": -100.0,
+          "Title": "Nefarious"
+        },
+        {
+          "MaxReputation": -50.0,
+          "Title": "Shunned"
+        },
+        {
+          "MaxReputation": -20.0,
+          "Title": "Ill-Regarded"
+        },
+        {
+          "MaxReputation": -10.0,
+          "Title": "Unfavorable"
+        },
+        {
+          "MaxReputation": -5.0,
+          "Title": "Questionable"
+        },
+        {
+          "MaxReputation": -2.0,
+          "Title": "Uncertain"
+        },
+        {
+          "MaxReputation": -1.0,
+          "Title": "Unknown"
+        },
+        {
+          "MaxReputation": 1.0,
+          "Title": "Unknown"
+        },
+        {
+          "MaxReputation": 2.0,
+          "Title": "Helpful"
+        },
+        {
+          "MaxReputation": 5.0,
+          "Title": "Respected"
+        },
+        {
+          "MaxReputation": 10.0,
+          "Title": "Friendly"
+        },
+        {
+          "MaxReputation": 20.0,
+          "Title": "Well-Regarded"
+        },
+        {
+          "MaxReputation": 50.0,
+          "Title": "Esteemed"
+        },
+        {
+          "MaxReputation": 100.0,
+          "Title": "Celebrated"
+        },
+        {
+          "MaxReputation": 200.0,
+          "Title": "Honored"
+        },
+        {
+          "MaxReputation": 500.0,
+          "Title": "Revered"
+        },
+        {
+          "MaxReputation": 1000.0,
+          "Title": "Exalted"
+        }
+      ]
+    }
+  },
+  "UnStuckDisableTime": 60.0,
+  "IgnoreVersionMismatch": false
+}

@@ -1,0 +1,4 @@
+{
+  "EnableStatWrites": true,
+  "EnableStatReads": true
+}

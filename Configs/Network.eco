@@ -1,0 +1,10 @@
+{
+  "PublicServer": false,
+  "Password": "",
+  "Description": "",
+  "IPAddress": "Any",
+  "GameServerPort": 3000,
+  "WebServerPort": 3001,
+  "Rate": 10,
+  "MaxConnections": -1
+}

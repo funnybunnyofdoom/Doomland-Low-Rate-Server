@@ -1,0 +1,307 @@
+{
+  "Dimensions": {
+    "x": 72,
+    "y": 72
+  },
+  "WaterLevel": 40,
+  "Height": 100,
+  "Module": {
+    "$type": "Eco.WorldGenerator.SeamlessNoise, Eco.WorldGenerator",
+    "Source": {
+      "$type": "SharpNoise.Modules.ScaleBias, SharpNoise",
+      "Source0": {
+        "$type": "SharpNoise.Modules.Perlin, SharpNoise",
+        "Frequency": 3.0,
+        "Lacunarity": 2.5,
+        "OctaveCount": 6,
+        "Persistence": 0.5,
+        "Quality": "Fast",
+        "Seed": 0
+      },
+      "Bias": -0.1,
+      "Scale": 1.0
+    }
+  },
+  "Plateau": {
+    "CliffStopsBeingSheerAtAngle": 0.5,
+    "CliffSheernessStartInterpolate": 1.6,
+    "MinPlateauHeight": -0.1,
+    "CliffChance": 0.8,
+    "RadiusRange": {
+      "min": 12.0,
+      "max": 24.0
+    },
+    "SlopeRange": {
+      "min": 3.0,
+      "max": 6.0
+    },
+    "RadiusNoiseFreq": 1.2,
+    "SplitPercentHeight": 0.7,
+    "StartSplittingAtRadiusPercent": 0.7,
+    "MinHeightToCarveUndercut": 2.0,
+    "OverhangChance": 0.5,
+    "MarkWithBlockType": {}
+  },
+  "Crater": {
+    "Frequency": 0.0,
+    "RadiusRange": {
+      "min": 5.0,
+      "max": 50.0
+    },
+    "DepthRange": {
+      "min": 0.1,
+      "max": 0.5
+    }
+  },
+  "AllowRivers": true,
+  "AllowPlateaus": true,
+  "TerrainModule": {
+    "Name": "World",
+    "Modules": [
+      {
+        "$type": "Eco.WorldGenerator.SimpleTerrainModule, Eco.WorldGenerator",
+        "HeightRange": {
+          "min": -0.05,
+          "max": 0.0
+        },
+        "DepthRange": {
+          "min": 0.0,
+          "max": 0.0
+        },
+        "Default": {
+          "Type": "Eco.World.Blocks.SandBlock, Eco.World"
+        },
+        "Name": "Shoreline",
+        "Modules": []
+      },
+      {
+        "$type": "Eco.WorldGenerator.SimpleTerrainModule, Eco.WorldGenerator",
+        "HeightRange": {
+          "min": -1.0,
+          "max": 1.0
+        },
+        "DepthRange": {
+          "min": 0.0,
+          "max": 0.1
+        },
+        "Default": {
+          "Type": "Eco.World.Blocks.DirtBlock, Eco.World"
+        },
+        "Name": "Surface",
+        "Modules": [
+          {
+            "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+            "NoiseRange": {
+              "min": 0.6,
+              "max": 1.0
+            },
+            "NoiseFrequency": 40.0,
+            "NoiseSeed": 477653963,
+            "HeightRange": {
+              "min": -1.0,
+              "max": 1.0
+            },
+            "DepthRange": {
+              "min": 0.0,
+              "max": 1.0
+            },
+            "Default": {
+              "Type": "Eco.Mods.TechTree.StoneBlock, Eco.Mods"
+            },
+            "Modules": [
+              {
+                "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+                "NoiseRange": {
+                  "min": 0.4,
+                  "max": 1.0
+                },
+                "NoiseFrequency": 25.0,
+                "NoiseSeed": 207222451,
+                "HeightRange": {
+                  "min": -1.0,
+                  "max": 1.0
+                },
+                "DepthRange": {
+                  "min": 0.0,
+                  "max": 1.0
+                },
+                "Default": {
+                  "Type": "Eco.Mods.TechTree.CoalBlock, Eco.Mods"
+                },
+                "Modules": []
+              },
+              {
+                "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+                "NoiseRange": {
+                  "min": 0.4,
+                  "max": 1.0
+                },
+                "NoiseFrequency": 30.0,
+                "NoiseSeed": 1597271215,
+                "HeightRange": {
+                  "min": -1.0,
+                  "max": 1.0
+                },
+                "DepthRange": {
+                  "min": 0.0,
+                  "max": 1.0
+                },
+                "Default": {
+                  "Type": "Eco.Mods.TechTree.IronOreBlock, Eco.Mods"
+                },
+                "Modules": []
+              },
+              {
+                "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+                "NoiseRange": {
+                  "min": 0.5,
+                  "max": 1.0
+                },
+                "NoiseFrequency": 35.0,
+                "NoiseSeed": 769074215,
+                "HeightRange": {
+                  "min": -1.0,
+                  "max": 1.0
+                },
+                "DepthRange": {
+                  "min": 0.0,
+                  "max": 1.0
+                },
+                "Default": {
+                  "Type": "Eco.Mods.TechTree.CopperOreBlock, Eco.Mods"
+                },
+                "Modules": []
+              },
+              {
+                "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+                "NoiseRange": {
+                  "min": 0.5,
+                  "max": 1.0
+                },
+                "NoiseFrequency": 40.0,
+                "NoiseSeed": 951863989,
+                "HeightRange": {
+                  "min": -1.0,
+                  "max": 1.0
+                },
+                "DepthRange": {
+                  "min": 0.0,
+                  "max": 1.0
+                },
+                "Default": {
+                  "Type": "Eco.Mods.TechTree.GoldOreBlock, Eco.Mods"
+                },
+                "Modules": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$type": "Eco.WorldGenerator.SimpleTerrainModule, Eco.WorldGenerator",
+        "HeightRange": {
+          "min": -1.0,
+          "max": 1.0
+        },
+        "DepthRange": {
+          "min": 0.1,
+          "max": 0.8
+        },
+        "Default": {
+          "Type": "Eco.Mods.TechTree.StoneBlock, Eco.Mods"
+        },
+        "Name": "Underground",
+        "Modules": [
+          {
+            "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+            "NoiseRange": {
+              "min": 0.4,
+              "max": 1.0
+            },
+            "NoiseFrequency": 15.0,
+            "NoiseSeed": 657904850,
+            "HeightRange": {
+              "min": -1.0,
+              "max": 1.0
+            },
+            "DepthRange": {
+              "min": 0.0,
+              "max": 1.0
+            },
+            "Default": {
+              "Type": "Eco.Mods.TechTree.IronOreBlock, Eco.Mods"
+            },
+            "Name": "Iron",
+            "Modules": []
+          },
+          {
+            "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+            "NoiseRange": {
+              "min": 0.4,
+              "max": 1.0
+            },
+            "NoiseFrequency": 15.0,
+            "NoiseSeed": 592754117,
+            "HeightRange": {
+              "min": -1.0,
+              "max": 1.0
+            },
+            "DepthRange": {
+              "min": 0.0,
+              "max": 1.0
+            },
+            "Default": {
+              "Type": "Eco.Mods.TechTree.CoalBlock, Eco.Mods"
+            },
+            "Name": "Coal",
+            "Modules": []
+          },
+          {
+            "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+            "NoiseRange": {
+              "min": 0.5,
+              "max": 1.0
+            },
+            "NoiseFrequency": 20.0,
+            "NoiseSeed": 2136797294,
+            "HeightRange": {
+              "min": -1.0,
+              "max": 1.0
+            },
+            "DepthRange": {
+              "min": 0.0,
+              "max": 1.0
+            },
+            "Default": {
+              "Type": "Eco.Mods.TechTree.CopperOreBlock, Eco.Mods"
+            },
+            "Name": "Copper",
+            "Modules": []
+          },
+          {
+            "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
+            "NoiseRange": {
+              "min": 0.5,
+              "max": 1.0
+            },
+            "NoiseFrequency": 30.0,
+            "NoiseSeed": 467442256,
+            "HeightRange": {
+              "min": -1.0,
+              "max": 1.0
+            },
+            "DepthRange": {
+              "min": 0.0,
+              "max": 1.0
+            },
+            "Default": {
+              "Type": "Eco.Mods.TechTree.GoldOreBlock, Eco.Mods"
+            },
+            "Name": "Gold",
+            "Modules": []
+          }
+        ]
+      }
+    ]
+  }
+}

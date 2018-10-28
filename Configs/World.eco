@@ -1,0 +1,5 @@
+{
+  "AtmosphereType": {
+    "Type": "Eco.World.DefaultAtmosphere, Eco.World"
+  }
+}

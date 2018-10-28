@@ -1,0 +1,8 @@
+{
+  "CollaborationPreset": "MediumCollaboration",
+  "UnlearnRefundRate": 0.5,
+  "SpecialtyCostMultiplier": 1.0,
+  "SkillGainMultiplier": 1.0,
+  "SkillPointsPerAction": 0.0,
+  "SkillPointsPerCrafttime": 0.0
+}
