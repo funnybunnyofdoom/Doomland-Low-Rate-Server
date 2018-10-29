@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 40, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
             this.Initialize("Notch Belt", typeof(NotchBeltRecipe));

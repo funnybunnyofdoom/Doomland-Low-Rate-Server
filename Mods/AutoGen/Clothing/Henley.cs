@@ -40,8 +40,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 1, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 25, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 100, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
             this.Initialize("Henley", typeof(HenleyRecipe));

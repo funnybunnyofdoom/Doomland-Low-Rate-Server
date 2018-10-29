@@ -45,8 +45,8 @@ public override Dictionary<UserStatType, float> GetFlatStats() { return flatStat
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 4, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<ClothItem>(typeof(ClothesmakingEfficiencySkill), 5, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<ClothItem>(typeof(ClothesmakingEfficiencySkill), 3, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
             this.Initialize("Basic Backpack", typeof(BasicBackpackRecipe));

@@ -17,12 +17,12 @@ namespace Eco.Mods.TechTree
     
     [Serialized]
     [Weight(100)]      
-    public partial class DerpyHatItem :
+    public partial class DoomHatItem :
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Derpy Hat"; } }
-        public override string Description      { get { return "Dorky sombrero that doesn't fit anyone. You feel embarrassed to wear it."; } }
+        public override string FriendlyName     { get { return "Doom Hat"; } }
+        public override string Description      { get { return "Deadly looking sombrero that doesn't fit anyone. You feel scurred to wear it."; } }
         public override string Slot             { get { return ClothingSlot.Head; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -30,21 +30,20 @@ namespace Eco.Mods.TechTree
 
     
     [RequiresSkill(typeof(ClothesmakingSkill), 1)]
-    public class DerpyHatRecipe : Recipe
+    public class DoomHatRecipe : Recipe
     {
-        public DerpyHatRecipe()
+        public DoomHatRecipe()
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<DerpyHatItem>(),
+                new CraftingElement<DoomHatItem>(),
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 10, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 80, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
-            this.Initialize("Derpy Hat", typeof(DerpyHatRecipe));
+            this.Initialize("Doom Hat", typeof(DoomHatRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 
