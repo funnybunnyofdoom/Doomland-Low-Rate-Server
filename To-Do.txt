@@ -6,3 +6,7 @@
 -Go through the ecosim.eco file to see what we haven't utilized
 -Change Salal and other weeds to Weed, cannabis and Marijuana
 -Add the clearrubble mod for future use
+-Revamp the profession/skill tree to be linear and more compact
+-Change the items a player starts with. remove clothing
+-Make starter clothing cheaper than functional clothing so there is a little incentive to dress yourself.
+
