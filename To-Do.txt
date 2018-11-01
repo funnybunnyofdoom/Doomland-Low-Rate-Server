@@ -1,8 +1,8 @@
+-Baking!
 -Set the spawn
 -Create a reputation title list specific to our server
--expand growth areas for crops
+-expand growth areas for crops - NEEDS WORK
 -Update and review the world-gen file for update issues
--Increase plant spread rates in ecosim.eco
 -Go through the ecosim.eco file to see what we haven't utilized
 -Change Salal and other weeds to Weed, cannabis and Marijuana
 -Add the clearrubble mod for future use
@@ -14,5 +14,7 @@ Done:
 -Change the items a player starts with. remove clothing
 -Make starter clothing cheaper than functional clothing so there is a little incentive to dress yourself.
 -remove land claims from skillscrolls so that you must craft/buy them
--added craftable tree seeds: 150 wood pulp
+-Added craftable tree seeds: 150 wood pulp
 -Added craftable land claim: 500 paper
+-Added Paper Pulp item
+-Increase plant spread rates in ecosim.eco

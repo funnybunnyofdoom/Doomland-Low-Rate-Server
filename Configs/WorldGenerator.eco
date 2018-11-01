@@ -1,7 +1,7 @@
 {
   "Dimensions": {
-    "x": 72,
-    "y": 72
+    "x": 172,
+    "y": 172
   },
   "WaterLevel": 40,
   "Height": 100,
@@ -12,8 +12,8 @@
       "Source0": {
         "$type": "SharpNoise.Modules.Perlin, SharpNoise",
         "Frequency": 3.0,
-        "Lacunarity": 2.5,
-        "OctaveCount": 6,
+        "Lacunarity": 0.1,
+        "OctaveCount": 25,
         "Persistence": 0.5,
         "Quality": "Fast",
         "Seed": 0
@@ -32,8 +32,8 @@
       "max": 24.0
     },
     "SlopeRange": {
-      "min": 3.0,
-      "max": 6.0
+      "min": 0.1,
+      "max": 3.0
     },
     "RadiusNoiseFreq": 1.2,
     "SplitPercentHeight": 0.7,
@@ -46,11 +46,11 @@
     "Frequency": 0.0,
     "RadiusRange": {
       "min": 5.0,
-      "max": 50.0
+      "max": 25.0
     },
     "DepthRange": {
       "min": 0.1,
-      "max": 0.5
+      "max": 0.3
     }
   },
   "AllowRivers": true,
@@ -95,7 +95,7 @@
               "min": 0.6,
               "max": 1.0
             },
-            "NoiseFrequency": 40.0,
+            "NoiseFrequency": 2.0,
             "NoiseSeed": 477653963,
             "HeightRange": {
               "min": -1.0,
@@ -115,7 +115,7 @@
                   "min": 0.4,
                   "max": 1.0
                 },
-                "NoiseFrequency": 25.0,
+                "NoiseFrequency": 0.0,
                 "NoiseSeed": 207222451,
                 "HeightRange": {
                   "min": -1.0,
@@ -136,7 +136,7 @@
                   "min": 0.4,
                   "max": 1.0
                 },
-                "NoiseFrequency": 30.0,
+                "NoiseFrequency": 0.0,
                 "NoiseSeed": 1597271215,
                 "HeightRange": {
                   "min": -1.0,
@@ -157,7 +157,7 @@
                   "min": 0.5,
                   "max": 1.0
                 },
-                "NoiseFrequency": 35.0,
+                "NoiseFrequency": 0.0,
                 "NoiseSeed": 769074215,
                 "HeightRange": {
                   "min": -1.0,
@@ -178,7 +178,7 @@
                   "min": 0.5,
                   "max": 1.0
                 },
-                "NoiseFrequency": 40.0,
+                "NoiseFrequency": 0.0,
                 "NoiseSeed": 951863989,
                 "HeightRange": {
                   "min": -1.0,
@@ -215,10 +215,10 @@
           {
             "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
             "NoiseRange": {
-              "min": 0.4,
-              "max": 1.0
+              "min": -0.02,
+              "max": 0.01
             },
-            "NoiseFrequency": 15.0,
+            "NoiseFrequency": 3.0,
             "NoiseSeed": 657904850,
             "HeightRange": {
               "min": -1.0,
@@ -237,10 +237,10 @@
           {
             "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
             "NoiseRange": {
-              "min": 0.4,
-              "max": 1.0
+              "min": -0.01,
+              "max": 0.005
             },
-            "NoiseFrequency": 15.0,
+            "NoiseFrequency": 2.0,
             "NoiseSeed": 592754117,
             "HeightRange": {
               "min": -1.0,
@@ -259,10 +259,10 @@
           {
             "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
             "NoiseRange": {
-              "min": 0.5,
-              "max": 1.0
+              "min": -0.01,
+              "max": 0.005
             },
-            "NoiseFrequency": 20.0,
+            "NoiseFrequency": 5.0,
             "NoiseSeed": 2136797294,
             "HeightRange": {
               "min": -1.0,
@@ -281,11 +281,11 @@
           {
             "$type": "Eco.WorldGenerator.StandardTerrainModule, Eco.WorldGenerator",
             "NoiseRange": {
-              "min": 0.5,
-              "max": 1.0
+              "min": -0.005,
+              "max": 0.005
             },
-            "NoiseFrequency": 30.0,
-            "NoiseSeed": 467442256,
+            "NoiseFrequency": 5.0,
+            "NoiseSeed": 2136797294,
             "HeightRange": {
               "min": -1.0,
               "max": 1.0
