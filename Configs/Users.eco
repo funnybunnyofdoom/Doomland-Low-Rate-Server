@@ -1,7 +1,7 @@
 {
   "UseWaste": false,
-  "MaxRepFromOnPerson": 30.0,
-  "MinRepFromOnePerson": -10.0,
+  "MaxRepFromOnPerson": 100.0,
+  "MinRepFromOnePerson": -100.0,
   "RequireAuthentication": true,
   "AllowDebugCalls": false,
   "WhiteList": {
@@ -26,9 +26,9 @@
     }
   },
   "SpawnLocation": {
-    "x": 330,
+    "x": 35,
     "y": 0,
-    "z": 130
+    "z": 905
   },
   "UseExactSpawnLocation": false,
   "Reputations": {
@@ -77,15 +77,15 @@
         },
         {
           "MaxReputation": 2.0,
-          "Title": "Helpful"
+          "Title": "Unknown"
         },
         {
           "MaxReputation": 5.0,
-          "Title": "Respected"
+          "Title": "Unknown"
         },
         {
           "MaxReputation": 10.0,
-          "Title": "Friendly"
+          "Title": "Hoppin"
         },
         {
           "MaxReputation": 20.0,
