@@ -88,20 +88,20 @@
             }
           },
           "IdealTemperatureRange": {
-            "min": 13.0,
-            "max": 13.2
+            "min": 0.0,
+            "max": 99.0
           },
           "IdealMoistureRange": {
-            "min": 0.33,
-            "max": 0.35
+            "min": 0.0,
+            "max": 99.0
           },
           "TemperatureExtremes": {
-            "min": 10.0,
-            "max": 15.5
+            "min": 0.0,
+            "max": 99.0
           },
           "MoistureExtremes": {
-            "min": 0.18,
-            "max": 0.5
+            "min": 0.0,
+            "max": 99.0
           },
           "MaxPollutionDensity": 0.7,
           "PollutionDensityTolerance": 0.1,
@@ -135,7 +135,7 @@
             "Type": "Eco.Gameplay.Plants.PlantEntity, Eco.Gameplay"
           },
           "Water": false,
-          "SeedDropChance": 0.75,
+          "SeedDropChance": 0.0,
           "SeedsAtGrowth": 0.6,
           "SeedsBonusAtGrowth": 0.9,
           "SeedRange": {

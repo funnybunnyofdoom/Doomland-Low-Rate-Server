@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class AdvancedCookingSkillScroll : SkillScroll<AdvancedCookingSkill, AdvancedCookingSkillBook>
+    public partial class AdvancedCookingSkillScroll : NewSkillScroll<AdvancedCookingSkill, AdvancedCookingSkillBook>
     {
         public override string FriendlyName { get { return "Advanced Cooking Skill Scroll"; } }
     }

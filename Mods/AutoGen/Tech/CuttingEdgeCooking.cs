@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class CuttingEdgeCookingSkillScroll : SkillScroll<CuttingEdgeCookingSkill, CuttingEdgeCookingSkillBook>
+    public partial class CuttingEdgeCookingSkillScroll : NewSkillScroll<CuttingEdgeCookingSkill, CuttingEdgeCookingSkillBook>
     {
         public override string FriendlyName { get { return "Cutting Edge Cooking Skill Scroll"; } }
     }

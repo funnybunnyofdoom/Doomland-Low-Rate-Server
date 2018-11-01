@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class BricklayingSkillScroll : SkillScroll<BricklayingSkill, BricklayingSkillBook>
+    public partial class BricklayingSkillScroll : NewSkillScroll<BricklayingSkill, BricklayingSkillBook>
     {
         public override string FriendlyName { get { return "Bricklaying Skill Scroll"; } }
     }

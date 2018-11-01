@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class SmeltingSkillScroll : SkillScroll<SmeltingSkill, SmeltingSkillBook>
+    public partial class SmeltingSkillScroll : NewSkillScroll<SmeltingSkill, SmeltingSkillBook>
     {
         public override string FriendlyName { get { return "Smelting Skill Scroll"; } }
     }

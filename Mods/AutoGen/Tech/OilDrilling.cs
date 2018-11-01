@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class OilDrillingSkillScroll : SkillScroll<OilDrillingSkill, OilDrillingSkillBook>
+    public partial class OilDrillingSkillScroll : NewSkillScroll<OilDrillingSkill, OilDrillingSkillBook>
     {
         public override string FriendlyName { get { return "Oil Drilling Skill Scroll"; } }
     }

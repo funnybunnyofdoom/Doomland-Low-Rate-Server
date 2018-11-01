@@ -17,6 +17,7 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Services;
     using Eco.Shared.Utils;
     using Gameplay.Systems.Tooltip;
+	//using Eco.Mods.NewSkillScroll;
 
     [Serialized]
     [RequiresSkill(typeof(ChefSkill), 0)]    
@@ -38,7 +39,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class AdvancedCampfireCookingSkillScroll : SkillScroll<AdvancedCampfireCookingSkill, AdvancedCampfireCookingSkillBook>
+    public partial class AdvancedCampfireCookingSkillScroll : NewSkillScroll<AdvancedCampfireCookingSkill, AdvancedCampfireCookingSkillBook>
     {
         public override string FriendlyName { get { return "Advanced Campfire Cooking Skill Scroll"; } }
     }

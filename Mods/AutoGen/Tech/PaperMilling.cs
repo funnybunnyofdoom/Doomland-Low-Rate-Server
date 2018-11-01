@@ -36,7 +36,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class PaperMillingSkillScroll : SkillScroll<PaperMillingSkill, PaperMillingSkillBook>
+    public partial class PaperMillingSkillScroll : NewSkillScroll<PaperMillingSkill, PaperMillingSkillBook>
     {
         public override string FriendlyName { get { return "Paper Milling Skill Scroll"; } }
     }

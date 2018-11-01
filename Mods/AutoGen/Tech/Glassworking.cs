@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class GlassworkingSkillScroll : SkillScroll<GlassworkingSkill, GlassworkingSkillBook>
+    public partial class GlassworkingSkillScroll : NewSkillScroll<GlassworkingSkill, GlassworkingSkillBook>
     {
         public override string FriendlyName { get { return "Glassworking Skill Scroll"; } }
     }

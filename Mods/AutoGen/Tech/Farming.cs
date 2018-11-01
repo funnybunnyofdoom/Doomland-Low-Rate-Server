@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class FarmingSkillScroll : SkillScroll<FarmingSkill, FarmingSkillBook>
+    public partial class FarmingSkillScroll : NewSkillScroll<FarmingSkill, FarmingSkillBook>
     {
         public override string FriendlyName { get { return "Farming Skill Scroll"; } }
     }

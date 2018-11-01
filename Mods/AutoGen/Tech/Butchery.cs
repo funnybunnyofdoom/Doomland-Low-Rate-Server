@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class ButcherySkillScroll : SkillScroll<ButcherySkill, ButcherySkillBook>
+    public partial class ButcherySkillScroll : NewSkillScroll<ButcherySkill, ButcherySkillBook>
     {
         public override string FriendlyName { get { return "Butchery Skill Scroll"; } }
     }

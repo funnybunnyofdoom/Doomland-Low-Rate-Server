@@ -38,7 +38,7 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    public partial class ElectronicsSkillScroll : SkillScroll<ElectronicsSkill, ElectronicsSkillBook>
+    public partial class ElectronicsSkillScroll : NewSkillScroll<ElectronicsSkill, ElectronicsSkillBook>
     {
         public override string FriendlyName { get { return "Electronics Skill Scroll"; } }
     }

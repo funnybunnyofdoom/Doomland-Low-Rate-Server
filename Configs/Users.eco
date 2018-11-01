@@ -1,5 +1,7 @@
 {
   "UseWaste": false,
+  "MaxRepFromOnPerson": 30.0,
+  "MinRepFromOnePerson": -10.0,
   "RequireAuthentication": true,
   "AllowDebugCalls": false,
   "WhiteList": {
@@ -17,7 +19,10 @@
   "Admins": {
     "System.String": {
       "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
-      "$values": []
+      "$values": [
+        "76561198040307723",
+        "slg132656"
+      ]
     }
   },
   "SpawnLocation": {
@@ -109,6 +114,5 @@
       ]
     }
   },
-  "UnStuckDisableTime": 60.0,
-  "IgnoreVersionMismatch": false
+  "UnStuckDisableTime": 60.0
 }
