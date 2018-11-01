@@ -7,6 +7,11 @@
 -Change Salal and other weeds to Weed, cannabis and Marijuana
 -Add the clearrubble mod for future use
 -Revamp the profession/skill tree to be linear and more compact
+-add craftable land claims
+
+
+
+Done:
 -Change the items a player starts with. remove clothing
 -Make starter clothing cheaper than functional clothing so there is a little incentive to dress yourself.
-
+-remove land claims from skillscrolls so that you must craft/buy them
