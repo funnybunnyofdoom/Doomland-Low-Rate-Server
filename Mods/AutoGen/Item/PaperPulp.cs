@@ -19,10 +19,10 @@ namespace Eco.Mods.TechTree
     using Eco.World.Blocks;
     using Eco.Gameplay.Pipes;
 
-    [RequiresSkill(typeof(PaperSkill), 2)]   
-    public partial class PaperRecipe : Recipe
+    [RequiresSkill(typeof(PaperSkill), 1)]   
+    public partial class PaperPulpRecipe : Recipe
     {
-        public PaperRecipe()
+        public PaperPulpRecipe()
         {
             this.Products = new CraftingElement[]
             {
@@ -30,10 +30,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<WoodPulpItem>(typeof(PaperEfficiencySkill), 10, PaperEfficiencySkill.MultiplicativeStrategy), 
+                new CraftingElement<WoodPulpItem>(typeof(PaperEfficiencySkill), 5, PaperEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(PaperRecipe), Item.Get<PaperItem>().UILink(), 0.25f, typeof(PaperSpeedSkill));    
-            this.Initialize("Paper", typeof(PaperRecipe));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(PaperPulpRecipe), Item.Get<PaperPulpItem>().UILink(), 0.25f, typeof(PaperSpeedSkill));    
+            this.Initialize("Paper", typeof(PaperPulpRecipe));
 
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
@@ -43,11 +43,11 @@ namespace Eco.Mods.TechTree
     [Serialized]
     [Weight(100)]      
     [Currency]                                              
-    public partial class PaperItem :
+    public partial class PaperPulpItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Paper"; } } 
-        public override string Description { get { return "It's paper."; } }
+        public override string FriendlyName { get { return "Paper Pulp"; } } 
+        public override string Description { get { return "A collection of pulp to be turned into paper."; } }
 
     }
 

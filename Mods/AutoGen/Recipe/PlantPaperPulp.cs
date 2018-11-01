@@ -11,22 +11,22 @@ namespace Eco.Mods.TechTree
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
 
-    [RequiresSkill(typeof(PaperSkill), 3)] 
-    public class LandPaperRecipe : Recipe
+    [RequiresSkill(typeof(PaperSkill), 1)] 
+    public class PlantPaperPulpRecipe : Recipe
     {
-        public LandPaperRecipe()
+        public PlantPaperPulpRecipe()
         {
             this.Products = new CraftingElement[]
             {
 
-               new CraftingElement<PropertyClaimItem>(1f),
+               new CraftingElement<PaperPulpItem>(1f),
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PaperItem>(typeof(PaperEfficiencySkill), 500, PaperEfficiencySkill.MultiplicativeStrategy), 
+                new CraftingElement<PlantFibersItem>(typeof(PaperEfficiencySkill), 15, PaperEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Land Claim Paper", typeof(LandPaperRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(LandPaperRecipe), this.UILink(), 0.05f, typeof(PaperSpeedSkill));
+            this.Initialize("Paper Pulp", typeof(LandPaperRecipe));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(LandPaperRecipe), this.UILink(), 0.25f, typeof(PaperSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }
