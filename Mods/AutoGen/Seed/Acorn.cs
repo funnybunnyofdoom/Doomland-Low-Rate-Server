@@ -6,7 +6,6 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Skills;
-    using Eco.Gameplay.Systems;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Mods.TechTree;
     using Eco.Shared.Localization;
@@ -44,6 +43,29 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName { get { return "Acorn Pack"; } }
         public override string Description  { get { return "Plant to grow an oak tree."; } }
         public override string SpeciesName  { get { return "Oak"; } }
+    }
+	
+	[RequiresSkill(typeof(SeedProductionSkill), 3)]    
+    public class AcornRecipe : Recipe
+    {
+        public AcornRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<AcornItem>(),
+            };
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<WoodPulpItem>(typeof(SeedProductionEfficiencySkill), 150, SeedProductionEfficiencySkill.MultiplicativeStrategy),   
+            };
+            SkillModifiedValue value = new SkillModifiedValue(10, SeedProductionSpeedSkill.MultiplicativeStrategy, typeof(SeedProductionSpeedSkill), Localizer.DoStr("craft time"));
+            SkillModifiedValueManager.AddBenefitForObject(typeof(AcornRecipe), Item.Get<AcornItem>().UILink(), value);
+            SkillModifiedValueManager.AddSkillBenefit(Item.Get<AcornItem>().UILink(), value);
+            this.CraftMinutes = value;
+
+            this.Initialize("Acorn", typeof(AcornRecipe));
+            CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
+        }
     }
 
 }

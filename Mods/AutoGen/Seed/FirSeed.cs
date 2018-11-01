@@ -6,7 +6,6 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Skills;
-    using Eco.Gameplay.Systems;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Mods.TechTree;
     using Eco.Shared.Localization;
@@ -25,7 +24,7 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Fir Seed"; } }
+        public override string FriendlyName { get { return "Fir Cone"; } }
         public override string Description  { get { return "Plant to grow a fir tree."; } }
         public override string SpeciesName  { get { return "Fir"; } }
 
@@ -44,6 +43,29 @@ namespace Eco.Mods.TechTree
         public override string FriendlyName { get { return "Fir Seed Pack"; } }
         public override string Description  { get { return "Plant to grow a fir tree."; } }
         public override string SpeciesName  { get { return "Fir"; } }
+    }
+	
+	[RequiresSkill(typeof(SeedProductionSkill), 4)]    
+    public class FirSeedRecipe : Recipe
+    {
+        public FirSeedRecipe()
+        {
+            this.Products = new CraftingElement[]
+            {
+                new CraftingElement<FirSeedItem>(),
+            };
+            this.Ingredients = new CraftingElement[]
+            {
+                new CraftingElement<WoodPulpItem>(typeof(SeedProductionEfficiencySkill), 150, SeedProductionEfficiencySkill.MultiplicativeStrategy),   
+            };
+            SkillModifiedValue value = new SkillModifiedValue(10, SeedProductionSpeedSkill.MultiplicativeStrategy, typeof(SeedProductionSpeedSkill), Localizer.DoStr("craft time"));
+            SkillModifiedValueManager.AddBenefitForObject(typeof(FirSeedRecipe), Item.Get<FirSeedItem>().UILink(), value);
+            SkillModifiedValueManager.AddSkillBenefit(Item.Get<FirSeedItem>().UILink(), value);
+            this.CraftMinutes = value;
+
+            this.Initialize("Fir Cone", typeof(FirSeedRecipe));
+            CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
+        }
     }
 
 }
