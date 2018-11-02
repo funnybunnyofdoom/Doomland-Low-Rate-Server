@@ -1,12 +1,10 @@
 -Baking!
 -Set the spawn
 -Create a reputation title list specific to our server
--expand growth areas for crops - NEEDS WORK
--Update and review the world-gen file for update issues
 -Go through the ecosim.eco file to see what we haven't utilized
--Change Salal and other weeds to Weed, cannabis and Marijuana
 -Add the clearrubble mod for future use
 -Revamp the profession/skill tree to be linear and more compact
+-Pellets item (burnable fuel made from wood pulp/wood waste items)
 
 
 
@@ -18,3 +16,7 @@ Done:
 -Added craftable land claim: 500 paper
 -Added Paper Pulp item
 -Increase plant spread rates in ecosim.eco
+-Change Salal and other weeds to Weed, cannabis and Marijuana
+-Change Salal drop item to wood pulp
+-Update and review the world-gen file for update issues
+-expand growth areas for crops -NEEDS IMPROVEMENT- World generated on a normal eco-sim file, and then switched to ours will function correctly

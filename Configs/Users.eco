@@ -73,31 +73,31 @@
         },
         {
           "MaxReputation": 1.0,
-          "Title": "Unknown"
+          "Title": "Novice"
         },
         {
           "MaxReputation": 2.0,
-          "Title": "Unknown"
+          "Title": "Novice"
         },
         {
           "MaxReputation": 5.0,
-          "Title": "Unknown"
+          "Title": "Student"
         },
         {
           "MaxReputation": 10.0,
-          "Title": "Hoppin"
+          "Title": "Understudy"
         },
         {
           "MaxReputation": 20.0,
-          "Title": "Well-Regarded"
+          "Title": "Scholar"
         },
         {
           "MaxReputation": 50.0,
-          "Title": "Esteemed"
+          "Title": "Journeyman"
         },
         {
           "MaxReputation": 100.0,
-          "Title": "Celebrated"
+          "Title": "Master Craftsman"
         },
         {
           "MaxReputation": 200.0,
