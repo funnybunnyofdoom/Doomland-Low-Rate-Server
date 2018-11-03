@@ -30,7 +30,7 @@
            };
            this.Ingredients = new CraftingElement[]
            {
-               new CraftingElement<WoodPulpItem>(typeof(LoggingEfficiencySkill), 3, LoggingEfficiencySkill.MultiplicativeStrategy), 
+               new CraftingElement<WoodPulpItem>(typeof(LoggingEfficiencySkill), 15, LoggingEfficiencySkill.MultiplicativeStrategy), 
            };
            this.CraftMinutes = CreateCraftTimeValue(typeof(WoodPelletRecipe), Item.Get<WoodPelletItem>().UILink(), 0.5f, typeof(LoggingDamageSkill));    
            this.Initialize("Wood Pellets", typeof(WoodPelletRecipe));
