@@ -60,7 +60,8 @@ namespace Eco.Mods.TechTree
             typeof(BoardItem),
             typeof(CoalItem),
             typeof(PetroleumItem),
-            typeof(GasolineItem)
+            typeof(GasolineItem),
+			typeof(WoodPelletItem)
         };
 
         protected override void Initialize()
