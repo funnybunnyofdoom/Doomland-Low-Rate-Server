@@ -1,0 +1,59 @@
+namespace Eco.Mods.TechTree
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using Eco.Gameplay.Blocks;
+    using Eco.Gameplay.Components;
+    using Eco.Gameplay.DynamicValues;
+    using Eco.Gameplay.Items;
+    using Eco.Gameplay.Objects;
+    using Eco.Gameplay.Players;
+    using Eco.Gameplay.Skills;
+    using Eco.Gameplay.Systems;
+    using Eco.Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
+    using Eco.Shared.Serialization;
+    using Eco.Shared.Utils;
+    using Eco.World;
+    using Eco.World.Blocks;
+    using Eco.Gameplay.Pipes;
+
+
+    [Serialized]
+    [Minable, Solid,Wall]
+    public partial class StoneBlock :
+        Block            
+        , IRepresentsItem     
+    {
+        public Type RepresentedItemType { get { return typeof(StoneItem); } }    
+    }
+
+    [Serialized]
+    [MaxStackSize(20)]                           
+    [Weight(7000)]      
+    [ResourcePile]                                          
+    [Currency]                                              
+    public partial class StoneItem :
+    BlockItem<StoneBlock>
+    {
+        public override string FriendlyName { get { return "Stone"; } } 
+        public override string FriendlyNamePlural { get { return "Stone"; } } 
+        public override string Description { get { return "A pile of stones."; } }
+
+        public override bool CanStickToWalls { get { return false; } }  
+
+        private static Type[] blockTypes = new Type[] {
+            typeof(StoneStacked1Block),
+            typeof(StoneStacked2Block),
+            typeof(StoneStacked3Block),
+            typeof(StoneStacked4Block)
+        };
+        public override Type[] BlockTypes { get { return blockTypes; } }
+    }
+
+    [Serialized, Solid] public class StoneStacked1Block : PickupableBlock { }
+    [Serialized, Solid] public class StoneStacked2Block : PickupableBlock { }
+    [Serialized, Solid] public class StoneStacked3Block : PickupableBlock { }
+    [Serialized, Solid,Wall] public class StoneStacked4Block : PickupableBlock { } //Only a wall if it's all 4 Stone
+}
