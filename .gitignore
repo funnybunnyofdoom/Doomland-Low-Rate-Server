@@ -2,3 +2,9 @@
 *.ecodmp
 *.gif
 WebClient/WebBin/Layers/Terrain.png
+*.dll
+Storage/Game.db
+Storage/Game.eco
+Storage/Gameworld.db
+Storage/Gameworld.eco
+*.js
