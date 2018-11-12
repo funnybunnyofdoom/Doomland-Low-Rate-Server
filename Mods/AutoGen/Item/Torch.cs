@@ -29,9 +29,9 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(2)    
+                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 2, BasicCraftingEfficiencySkill.MultiplicativeStrategy),    
             };
-            this.CraftMinutes = new ConstantValue(0.5f);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(TorchRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill));
             this.Initialize("Torch", typeof(TorchRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
