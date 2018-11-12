@@ -42,7 +42,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<BeansItem>(4)    
+                new CraftingElement<BeansItem>(typeof(CampfireCreationsEfficiencySkill), 4, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(2);     
             this.Initialize("Campfire Beans", typeof(CampfireBeansRecipe));

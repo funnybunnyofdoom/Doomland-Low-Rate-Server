@@ -42,7 +42,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<CornItem>(1)    
+                new CraftingElement<CornItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(2);     
             this.Initialize("Charred Corn", typeof(CharredCornRecipe));

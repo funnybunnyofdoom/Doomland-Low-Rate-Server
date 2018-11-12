@@ -42,7 +42,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<RawMeatItem>(1)    
+                new CraftingElement<RawMeatItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)   
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CharredMeatRecipe), Item.Get<CharredMeatItem>().UILink(), 3, typeof(CampfireCreationsSpeedSkill)); 
             this.Initialize("Charred Meat", typeof(CharredMeatRecipe));

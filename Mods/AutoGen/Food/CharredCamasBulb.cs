@@ -41,7 +41,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<CamasBulbItem>(1)    
+                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)   
             };
             this.CraftMinutes = new ConstantValue(2);     
             this.Initialize("Charred Camas Bulb", typeof(CharredCamasBulbRecipe));

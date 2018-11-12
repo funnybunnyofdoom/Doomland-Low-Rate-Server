@@ -1,7 +1,7 @@
 {
   "Dimensions": {
-    "x": 172,
-    "y": 172
+    "x": 144,
+    "y": 144
   },
   "WaterLevel": 40,
   "Height": 100,
@@ -54,7 +54,7 @@
     }
   },
   "AllowRivers": true,
-  "AllowPlateaus": true,
+  "AllowPlateaus": false,
   "TerrainModule": {
     "Name": "World",
     "Modules": [

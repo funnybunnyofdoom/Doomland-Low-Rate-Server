@@ -42,7 +42,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<RawFishItem>(1)    
+                new CraftingElement<RawFishItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(3);     
             this.Initialize("Charred Fish", typeof(CharredFishRecipe));

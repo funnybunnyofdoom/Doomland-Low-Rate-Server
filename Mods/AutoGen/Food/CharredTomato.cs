@@ -41,7 +41,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<TomatoItem>(1)    
+                new CraftingElement<TomatoItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(3);     
             this.Initialize("Charred Tomato", typeof(CharredTomatoRecipe));
