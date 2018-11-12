@@ -90,7 +90,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(0.5f); 
             this.Initialize("Workbench", typeof(WorkbenchRecipe));
-            CraftingComponent.AddRecipe(typeof(CampsiteObject), this);
+            CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }
 }

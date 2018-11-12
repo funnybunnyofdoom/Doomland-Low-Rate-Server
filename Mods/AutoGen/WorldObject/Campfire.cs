@@ -106,7 +106,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CampfireRecipe), this.UILink(), 1f, typeof(BasicCraftingSpeedSkill)); 
             this.Initialize("Campfire", typeof(CampfireRecipe));
-            CraftingComponent.AddRecipe(typeof(CampsiteObject), this);
+            CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }
 }
