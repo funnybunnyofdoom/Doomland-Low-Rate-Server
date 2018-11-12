@@ -118,6 +118,11 @@ public static class PlayerDefaults
     {
         return new Type[]
         {
+			typeof(TrousersItem),
+            typeof(HenleyItem),
+            typeof(NormalHairItem),
+            typeof(TallBootsItem),
+            typeof(SquareBeltItem),
         };
     }
 }
