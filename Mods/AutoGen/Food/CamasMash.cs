@@ -42,8 +42,8 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 2, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)
-                new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)   
+                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 2, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),  
             };
             this.CraftMinutes = new ConstantValue(2);     
             this.Initialize("Camas Mash", typeof(CamasMashRecipe));

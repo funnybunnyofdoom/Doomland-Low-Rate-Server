@@ -1,10 +1,10 @@
 {
   "PublicServer": true,
   "Password": "",
-  "Description": "<color=green>Doom<color=black>land <color=#A9A9A9>Muninn <color=#710627>-Super-Low Rate Server- <color=yellow>-No Meteor- <color=#9E1946>-0.15x SP- <color=#DE0D92>-Craft-only land Claims<color=#4D6CFA><color=white>",
-  "IPAddress": "Any",
-  "GameServerPort": 3000,
-  "WebServerPort": 3001,
+  "Description": "<color=green>Doom<color=black>land <color=#A9A9A9>Muninn <color=#710627>-Super-Low Rate Server- <color=yellow>-No Meteor- <color=#9E1946>-0.2x SP- <color=#DE0D92>-Craft-only land Claims<color=#4D6CFA><color=white>",
+"IPAddress": "181.214.149.100",
+"GameServerPort": 3000,
+"WebServerPort": 3001,
   "Rate": 10,
   "MaxConnections": -1
 }

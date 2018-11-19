@@ -24,6 +24,7 @@ public static class PlayerDefaults
         return new Dictionary<Type, int>
         {
             { typeof(TinyStockpileItem), 1 },
+			{ typeof(WorkbenchItem), 1 },
             { typeof(PropertyClaimItem), 20 },
 			{ typeof(PropertyToolItem), 1 },
 			{ typeof(StoneAxeItem), 1 },
