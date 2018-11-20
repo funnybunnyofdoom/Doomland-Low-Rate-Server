@@ -19,7 +19,7 @@ namespace Eco.Mods.TechTree
     using Eco.World.Blocks;
     using Eco.Gameplay.Pipes;
 
-    [RequiresSkill(typeof(MetalworkingSkill), 4)]   
+    [RequiresSkill(typeof(SmeltingSkill), 4)]   
     public partial class HewnCharcoalRecipe : Recipe
     {
         public HewnCharcoalRecipe()
@@ -30,9 +30,9 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<HewnLogItem>(typeof(SteelworkingEfficiencySkill), 10, MetalworkingEfficiencySkill.MultiplicativeStrategy), 
+                new CraftingElement<HewnLogItem>(typeof(SmeltingEfficiencySkill), 10, SmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalRecipe), Item.Get<CharcoalItem>().UILink(), 1, typeof(MetalworkingSpeedSkill));    
+            this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalRecipe), Item.Get<CharcoalItem>().UILink(), 1, typeof(SmeltingSpeedSkill));    
             this.Initialize("Charcoal", typeof(CharcoalRecipe));
 
             CraftingComponent.AddRecipe(typeof(BloomeryObject), this);
