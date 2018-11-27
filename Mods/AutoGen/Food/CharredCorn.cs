@@ -37,7 +37,7 @@ namespace Eco.Mods.TechTree
         {
             this.Products = new CraftingElement[]
             {
-                new CraftingElement<CharredCornItem>(),
+                new CraftingElement<CharredCornItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                
             };
             this.Ingredients = new CraftingElement[]
