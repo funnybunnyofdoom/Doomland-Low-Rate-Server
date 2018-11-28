@@ -87,10 +87,10 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(20),
-                new CraftingElement<StoneItem>(10)                                                                    
+                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 20, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                    
             };
-            this.CraftMinutes = new ConstantValue(1); 
+            this.CraftMinutes = CreateCraftTimeValue(typeof(RepairStationRecipe), this.UILink(), 1f, typeof(BasicCraftingSpeedSkill));
             this.Initialize(Localizer.DoStr("Repair Station"), typeof(RepairStationRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }

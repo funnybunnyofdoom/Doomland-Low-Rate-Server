@@ -41,7 +41,7 @@ namespace Eco.Mods.TechTree
         private static IDynamicValue caloriesBurn = CreateCalorieValue(20, typeof(HoeEfficiencySkill), typeof(WoodenHoeItem), new WoodenHoeItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 
-        private static IDynamicValue skilledRepairCost = new ConstantValue(5);  
+        private static IDynamicValue skilledRepairCost = new SkillModifiedValue(5, BasicCraftingEfficiencySkill.MultiplicativeStrategy, typeof(BasicCraftingEfficiencySkill), Localizer.DoStr("repair cost"));  
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
 

@@ -29,10 +29,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<BoardItem>(4),
-                new CraftingElement<PlantFibersItem>(20)    
+                new CraftingElement<BoardItem>(typeof(BasicCraftingEfficiencySkill), 4, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PlantFibersItem>(typeof(BasicCraftingEfficiencySkill), 20, BasicCraftingEfficiencySkill.MultiplicativeStrategy),    
             };
-            this.CraftMinutes = new ConstantValue(0.5f);
+            this.CraftMinutes = CreateCraftTimeValue(typeof(BowRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill)); 
             this.Initialize(Localizer.DoStr("Bow"), typeof(BowRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);

@@ -106,9 +106,9 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<TallowItem>(3)                                                                    
+                new CraftingElement<TallowItem>(typeof(BasicCraftingEfficiencySkill), 3, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                  
             };
-            this.CraftMinutes = new ConstantValue(2.5f); 
+            this.CraftMinutes = CreateCraftTimeValue(typeof(TallowCandleRecipe), this.UILink(), 2.5f, typeof(BasicCraftingSpeedSkill));  
             this.Initialize(Localizer.DoStr("Tallow Candle"), typeof(TallowCandleRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
