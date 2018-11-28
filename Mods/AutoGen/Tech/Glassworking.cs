@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(MasonSkill), 0)]    
     public partial class GlassworkingSkill : Skill
     {
-        public override string FriendlyName { get { return "Glassworking"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Glassworking"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class GlassworkingSkillBook : SkillBook<GlassworkingSkill, GlassworkingSkillScroll>
     {
-        public override string FriendlyName { get { return "Glassworking Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Glassworking Skill Book"); } }
     }
 
     [Serialized]
     public partial class GlassworkingSkillScroll : NewSkillScroll<GlassworkingSkill, GlassworkingSkillBook>
     {
-        public override string FriendlyName { get { return "Glassworking Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Glassworking Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(MortaringSkill), 0)] 
@@ -55,12 +55,11 @@ namespace Eco.Mods.TechTree
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<SandItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<MortaredStoneItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<MortaredStoneItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(15);
 
-            this.Initialize("Glassworking Skill Book", typeof(GlassworkingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Glassworking Skill Book"), typeof(GlassworkingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

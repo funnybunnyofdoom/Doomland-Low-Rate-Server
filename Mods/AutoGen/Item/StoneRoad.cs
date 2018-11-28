@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(RoadConstructionEfficiencySkill), 4, RoadConstructionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(StoneRoadRecipe), Item.Get<StoneRoadItem>().UILink(), 2, typeof(RoadConstructionSkill));    
-            this.Initialize("Stone Road", typeof(StoneRoadRecipe));
+            this.Initialize(Localizer.DoStr("Stone Road"), typeof(StoneRoadRecipe));
 
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
         }
@@ -59,8 +59,8 @@ namespace Eco.Mods.TechTree
     public partial class StoneRoadItem :
     RoadItem<StoneRoadBlock>
     {
-        public override string FriendlyName { get { return "Stone Road"; } } 
-        public override string Description { get { return "A rocky surface formed from smoothed rubble. It's fairly durable and efficient for any wheeled vehicle."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Road"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A rocky surface formed from smoothed rubble. It's fairly durable and efficient for any wheeled vehicle."); } }
 
     }
 

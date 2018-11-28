@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CamasBreadItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Camas Bread"; } }
-        public override string FriendlyNamePlural               { get { return "Camas Bread"; } } 
-        public override string Description                      { get { return "A bread with a camas twist for a bit of flavor and fun. "; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Camas Bread"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Camas Bread"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A bread with a camas twist for a bit of flavor and fun. "); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 15, Fat = 13, Protein = 5, Vitamins = 9};
         public override float Calories                          { get { return 800; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<YeastItem>(typeof(LeavenedBakingEfficiencySkill), 3, LeavenedBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CamasBreadRecipe), Item.Get<CamasBreadItem>().UILink(), 8, typeof(LeavenedBakingSpeedSkill)); 
-            this.Initialize("Camas Bread", typeof(CamasBreadRecipe));
+            this.Initialize(Localizer.DoStr("Camas Bread"), typeof(CamasBreadRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

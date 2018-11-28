@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(HuntingSkill), 1)]    
     public partial class PredatoryInstinctsSkill : Skill
     {
-        public override string FriendlyName { get { return "Predatory Instincts"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Predatory Instincts"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static ModificationStrategy MultiplicativeStrategy = 
             new MultiplicativeStrategy(new float[] { 1, 1 - 2, 1 - 3.5f, 1 - 5, 1 - 6.5f, 1 - 8 });

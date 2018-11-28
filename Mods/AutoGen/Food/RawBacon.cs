@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class RawBaconItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Raw Bacon"; } }
-        public override string FriendlyNamePlural               { get { return "Raw Bacon"; } } 
-        public override string Description                      { get { return "A fatty cut of meat that happens to be inexplicably tastier than other cuts."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Raw Bacon"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Raw Bacon"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A fatty cut of meat that happens to be inexplicably tastier than other cuts."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 9, Protein = 3, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawMeatItem>(typeof(MeatPrepEfficiencySkill), 20, MeatPrepEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RawBaconRecipe), Item.Get<RawBaconItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
-            this.Initialize("Raw Bacon", typeof(RawBaconRecipe));
+            this.Initialize(Localizer.DoStr("Raw Bacon"), typeof(RawBaconRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }
     }

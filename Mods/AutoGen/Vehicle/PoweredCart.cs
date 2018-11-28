@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(15000)]  
     public class PoweredCartItem : WorldObjectItem<PoweredCartObject>
     {
-        public override string FriendlyName         { get { return "Powered Cart"; } }
-        public override string Description          { get { return "Large cart for hauling sizable loads."; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Powered Cart"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Large cart for hauling sizable loads."); } }
     }
 
     [RequiresSkill(typeof(MechanicalEngineeringSkill), 0)] 
@@ -43,7 +43,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(25);
 
-            this.Initialize("Powered Cart", typeof(PoweredCartRecipe));
+            this.Initialize(Localizer.DoStr("Powered Cart"), typeof(PoweredCartRecipe));
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
         }
     }
@@ -71,7 +71,7 @@ namespace Eco.Mods.TechTree
             { typeof(AsphaltRoadBlock), 1.6f }, { typeof(AsphaltRoadWorldObjectBlock), 1.6f }
         };
 
-        public override string FriendlyName { get { return "Powered Cart"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Powered Cart"); } }
         public Type RepresentedItemType { get { return typeof(PoweredCartItem); } }
 
         private static Type[] fuelTypeList = new Type[]

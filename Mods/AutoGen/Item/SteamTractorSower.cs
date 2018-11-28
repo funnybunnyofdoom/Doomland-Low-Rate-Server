@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronPipeItem>(typeof(MechanicsAssemblyEfficiencySkill), 10, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteamTractorSowerRecipe), Item.Get<SteamTractorSowerItem>().UILink(), 15, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Steam Tractor Sower", typeof(SteamTractorSowerRecipe));
+            this.Initialize(Localizer.DoStr("Steam Tractor Sower"), typeof(SteamTractorSowerRecipe));
 
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
@@ -48,8 +48,8 @@ namespace Eco.Mods.TechTree
     public partial class SteamTractorSowerItem :
     VehicleToolItem                        
     {
-        public override string FriendlyName { get { return "Steam Tractor Sower"; } } 
-        public override string Description { get { return "An attachment for the steam tractor that allows for quick planting of seeds."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steam Tractor Sower"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An attachment for the steam tractor that allows for quick planting of seeds."); } }
 
     }
 

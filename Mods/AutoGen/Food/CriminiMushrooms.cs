@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class CriminiMushroomsItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Crimini Mushrooms"; } }
-        public override string Description                      { get { return "Edible mushrooms that are quite tasty."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Crimini Mushrooms"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Edible mushrooms that are quite tasty."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 1, Protein = 3, Vitamins = 1};
         public override float Calories                          { get { return 200; } }

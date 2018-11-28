@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(MortarProductionSkill), 4)] 
     public class WheatPitchRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<WheatItem>(typeof(MortarProductionEfficiencySkill), 10, MortarProductionEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Wheat Pitch", typeof(WheatPitchRecipe));
+            this.Initialize(Localizer.DoStr("Wheat Pitch"), typeof(WheatPitchRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(WheatPitchRecipe), this.UILink(), 0.1f, typeof(MortarProductionSpeedSkill));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }

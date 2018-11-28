@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class WildMixItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Wild Mix"; } }
-        public override string Description                      { get { return "A dressed salad that, with the added sweetness, its pretty tasty."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Wild Mix"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A dressed salad that, with the added sweetness, its pretty tasty."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 11, Fat = 6, Protein = 8, Vitamins = 21};
         public override float Calories                          { get { return 800; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberryExtractItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(WildMixRecipe), Item.Get<WildMixItem>().UILink(), 10, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Wild Mix", typeof(WildMixRecipe));
+            this.Initialize(Localizer.DoStr("Wild Mix"), typeof(WildMixRecipe));
             CraftingComponent.AddRecipe(typeof(KitchenObject), this);
         }
     }

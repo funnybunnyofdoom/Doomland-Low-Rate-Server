@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(5000)]  
     public class SmallWoodCartItem : WorldObjectItem<SmallWoodCartObject>
     {
-        public override string FriendlyName         { get { return "Small Wood Cart"; } }
-        public override string Description          { get { return "Small wood cart for hauling minimal loads."; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Small Wood Cart"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Small wood cart for hauling minimal loads."); } }
     }
 
     [RequiresSkill(typeof(WoodworkingSkill), 1)] 
@@ -41,7 +41,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(5);
 
-            this.Initialize("Small Wood Cart", typeof(SmallWoodCartRecipe));
+            this.Initialize(Localizer.DoStr("Small Wood Cart"), typeof(SmallWoodCartRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }
@@ -66,7 +66,7 @@ namespace Eco.Mods.TechTree
             { typeof(AsphaltRoadBlock), 1.4f }, { typeof(AsphaltRoadWorldObjectBlock), 1.4f }
         };
 
-        public override string FriendlyName { get { return "Small Wood Cart"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Wood Cart"); } }
         public Type RepresentedItemType { get { return typeof(SmallWoodCartItem); } }
 
 

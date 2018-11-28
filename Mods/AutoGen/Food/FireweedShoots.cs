@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class FireweedShootsItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Fireweed Shoots"; } }
-        public override string Description                      { get { return "A bitter, brightly colored shoot similar to asparagus."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Fireweed Shoots"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A bitter, brightly colored shoot similar to asparagus."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 0, Protein = 0, Vitamins = 4};
         public override float Calories                          { get { return 150; } }

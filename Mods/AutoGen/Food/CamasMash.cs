@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CamasMashItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Camas Mash"; } }
-        public override string FriendlyNamePlural               { get { return "Camas Mash"; } } 
-        public override string Description                      { get { return "A mushy camas paste with some fat added for flavor and texture."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Camas Mash"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Camas Mash"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A mushy camas paste with some fat added for flavor and texture."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 1, Fat = 9, Protein = 2, Vitamins = 1};
         public override float Calories                          { get { return 500; } }
@@ -43,10 +43,10 @@ namespace Eco.Mods.TechTree
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 2, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),  
+                new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),    
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Camas Mash", typeof(CamasMashRecipe));
+            this.Initialize(Localizer.DoStr("Camas Mash"), typeof(CamasMashRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

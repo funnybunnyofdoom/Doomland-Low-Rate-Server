@@ -118,9 +118,9 @@ namespace Eco.Mods
                 sw.WriteLine("\nUncraftable Accessed");
                 foreach(var recipe in data.unusableRecipes)
                 {
-                    sw.WriteLine("  " + recipe.FriendlyName);
-                    recipe.Ingredients.ForEach(x => sw.WriteLine("    I: " + x.Item.FriendlyName));
-                    recipe.Products.ForEach(x => sw.WriteLine("    P: " + x.Item.FriendlyName));
+                    sw.WriteLine("  " + recipe.DisplayName);
+                    recipe.Ingredients.ForEach(x => sw.WriteLine("    I: " + x.Item.DisplayName));
+                    recipe.Products.ForEach(x => sw.WriteLine("    P: " + x.Item.DisplayName));
 
                     if (!data.craftableItems.Contains(recipe.Ingredients.Select(x => x.Item.Type)))
                         sw.WriteLine("    missing ingredients");
@@ -130,9 +130,9 @@ namespace Eco.Mods
                 sw.WriteLine("\nUncraftable Unaccessed");
                 foreach (var recipe in Recipe.AllRecipes.Except(data.curRecipes))
                 {
-                    sw.WriteLine("  " + recipe.FriendlyName);
-                    recipe.Ingredients.ForEach(x => sw.WriteLine("    I: " + x.Item.FriendlyName));
-                    recipe.Products.ForEach(x => sw.WriteLine("    P: " + x.Item.FriendlyName));
+                    sw.WriteLine("  " + recipe.DisplayName);
+                    recipe.Ingredients.ForEach(x => sw.WriteLine("    I: " + x.Item.DisplayName));
+                    recipe.Products.ForEach(x => sw.WriteLine("    P: " + x.Item.DisplayName));
 
                     if (!data.curSkills.Contains(recipe.RequiredSkills.Select(x => x.SkillType)))
                         sw.WriteLine("    missing skills");

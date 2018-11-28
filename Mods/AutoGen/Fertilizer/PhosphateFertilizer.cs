@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<StoneItem>(typeof(FertilizerEfficiencySkill), 10, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PhosphateFertilizerRecipe), Item.Get<PhosphateFertilizerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Phosphate Fertilizer", typeof(PhosphateFertilizerRecipe));
+            this.Initialize(Localizer.DoStr("Phosphate Fertilizer"), typeof(PhosphateFertilizerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class PhosphateFertilizerItem : FertilizerItem<PhosphateFertilizerItem>
     {
-        public override string FriendlyName { get { return "Phosphate Fertilizer"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Phosphate Fertilizer"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static PhosphateFertilizerItem()
         {

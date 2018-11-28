@@ -33,7 +33,7 @@
                new CraftingElement<WoodPulpItem>(typeof(LoggingEfficiencySkill), 15, LoggingEfficiencySkill.MultiplicativeStrategy), 
            };
            this.CraftMinutes = CreateCraftTimeValue(typeof(WoodPelletRecipe), Item.Get<WoodPelletItem>().UILink(), 0.5f, typeof(LoggingDamageSkill));    
-           this.Initialize("Wood Pellets", typeof(WoodPelletRecipe));
+           this.Initialize(Localizer.DoStr("Wood Pellets"), typeof(WoodPelletRecipe));
 
            CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
        }
@@ -47,8 +47,8 @@
    public partial class WoodPelletItem :
    Item                                     
    {
-       public override string FriendlyName { get { return "Wood Pellets"; } } 
-       public override string Description { get { return "Can be used as solid fuel."; } }
+       public override LocString DisplayName { get { return Localizer.DoStr("Wood Pellets"); } } 
+       public override LocString DisplayDescription { get { return Localizer.DoStr("Can be used as solid fuel."); } }
 
    }
 

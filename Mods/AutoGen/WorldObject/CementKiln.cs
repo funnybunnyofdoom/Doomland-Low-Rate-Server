@@ -49,9 +49,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Cement Kiln"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Cement Kiln"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CementKilnItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -60,8 +61,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -95,8 +95,8 @@ namespace Eco.Mods.TechTree
     public partial class CementKilnItem :
         WorldObjectItem<CementKilnObject> 
     {
-        public override string FriendlyName { get { return "Cement Kiln"; } } 
-        public override string Description  { get { return  "A rotary kiln that produces cement and concrete products."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cement Kiln"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A rotary kiln that produces cement and concrete products."); } }
 
         static CementKilnItem()
         {
@@ -137,7 +137,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CementKilnRecipe), Item.Get<CementKilnItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CementKilnItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Cement Kiln", typeof(CementKilnRecipe));
+            this.Initialize(Localizer.DoStr("Cement Kiln"), typeof(CementKilnRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }

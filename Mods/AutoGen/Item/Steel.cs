@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(AlloySmeltingEfficiencySkill), 5, AlloySmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteelRecipe), Item.Get<SteelItem>().UILink(), 3, typeof(AlloySmeltingSpeedSkill));    
-            this.Initialize("Steel", typeof(SteelRecipe));
+            this.Initialize(Localizer.DoStr("Steel"), typeof(SteelRecipe));
 
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class SteelItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Steel"; } } 
-        public override string Description { get { return "A strong alloy of iron and other elements."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A strong alloy of iron and other elements."); } }
 
     }
 

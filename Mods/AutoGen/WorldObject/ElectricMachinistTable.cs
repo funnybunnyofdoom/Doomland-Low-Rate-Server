@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Electric Machinist Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Machinist Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElectricMachinistTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -73,8 +74,8 @@ namespace Eco.Mods.TechTree
     public partial class ElectricMachinistTableItem :
         WorldObjectItem<ElectricMachinistTableObject> 
     {
-        public override string FriendlyName { get { return "Electric Machinist Table"; } } 
-        public override string Description  { get { return  "A fancy toolbench that creates equally fancy toys."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Machinist Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A fancy toolbench that creates equally fancy toys."); } }
 
         static ElectricMachinistTableItem()
         {
@@ -112,7 +113,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ElectricMachinistTableRecipe), Item.Get<ElectricMachinistTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ElectricMachinistTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Electric Machinist Table", typeof(ElectricMachinistTableRecipe));
+            this.Initialize(Localizer.DoStr("Electric Machinist Table"), typeof(ElectricMachinistTableRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }

@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(FishingSkill), 2)] 
     public class ShredKelpRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<KelpItem>(typeof(FishCleaningEfficiencySkill), 4, FishCleaningEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Shred Kelp", typeof(ShredKelpRecipe));
+            this.Initialize(Localizer.DoStr("Shred Kelp"), typeof(ShredKelpRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(ShredKelpRecipe), this.UILink(), 1, typeof(FishCleaningSpeedSkill));
             CraftingComponent.AddRecipe(typeof(FisheryObject), this);
         }

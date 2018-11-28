@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(BrickProductionEfficiencySkill), 1)]    
     public partial class BrickProductionSpeedSkill : Skill
     {
-        public override string FriendlyName { get { return "Brick Production Speed"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Brick Production Speed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static ModificationStrategy MultiplicativeStrategy = 
             new MultiplicativeStrategy(new float[] { 1, 1 - 0.2f, 1 - 0.35f, 1 - 0.5f, 1 - 0.65f, 1 - 0.8f });

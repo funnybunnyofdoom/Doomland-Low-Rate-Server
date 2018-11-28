@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class KelpItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Kelp"; } } 
-        public override string Description { get { return "Some creepy kelp."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Kelp"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Some creepy kelp."); } }
 
     }
 

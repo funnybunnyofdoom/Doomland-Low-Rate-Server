@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(25000)]  
     public class CraneItem : WorldObjectItem<CraneObject>
     {
-        public override string FriendlyName         { get { return "Crane"; } }
-        public override string Description          { get { return "Allows the placement and transport of materials in an area."; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Crane"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Allows the placement and transport of materials in an area."); } }
     }
 
     [RequiresSkill(typeof(IndustrialEngineeringSkill), 1)] 
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(25);
 
-            this.Initialize("Crane", typeof(CraneRecipe));
+            this.Initialize(Localizer.DoStr("Crane"), typeof(CraneRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BoiledSausageItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Boiled Sausage"; } }
-        public override string Description                      { get { return "Boiled sausages might not be as pretty as grilled ones, but they're still tasty."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Boiled Sausage"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Boiled sausages might not be as pretty as grilled ones, but they're still tasty."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 22, Protein = 27, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<MeatStockItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BoiledSausageRecipe), Item.Get<BoiledSausageItem>().UILink(), 10, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Boiled Sausage", typeof(BoiledSausageRecipe));
+            this.Initialize(Localizer.DoStr("Boiled Sausage"), typeof(BoiledSausageRecipe));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }

@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wooden Ceiling Light"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Ceiling Light"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WoodenCeilingLightItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class WoodenCeilingLightItem :
         WorldObjectItem<WoodenCeilingLightObject> 
     {
-        public override string FriendlyName { get { return "Wooden Ceiling Light"; } } 
-        public override string Description  { get { return  "A more modern way to light up a room."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Ceiling Light"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A more modern way to light up a room."); } }
 
         static WoodenCeilingLightItem()
         {
@@ -109,7 +110,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WoodenCeilingLightRecipe), Item.Get<WoodenCeilingLightItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WoodenCeilingLightItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wooden Ceiling Light", typeof(WoodenCeilingLightRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Ceiling Light"), typeof(WoodenCeilingLightRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<EpoxyItem>(typeof(SteelworkingEfficiencySkill), 1, SteelworkingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FlatSteelRecipe), Item.Get<FlatSteelItem>().UILink(), 5, typeof(SteelworkingSpeedSkill));    
-            this.Initialize("Flat Steel", typeof(FlatSteelRecipe));
+            this.Initialize(Localizer.DoStr("Flat Steel"), typeof(FlatSteelRecipe));
 
             CraftingComponent.AddRecipe(typeof(RollingMillObject), this);
         }
@@ -59,8 +59,8 @@ namespace Eco.Mods.TechTree
     public partial class FlatSteelItem :
     BlockItem<FlatSteelBlock>
     {
-        public override string FriendlyName { get { return "Flat Steel"; } } 
-        public override string Description { get { return "Coated with a layer of epoxy, this steel refuses to rust."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Flat Steel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Coated with a layer of epoxy, this steel refuses to rust."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

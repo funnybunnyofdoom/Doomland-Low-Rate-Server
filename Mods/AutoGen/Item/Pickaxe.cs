@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class PickaxeItem :
     ToolItem                        
     {
-        public override string FriendlyName { get { return "Pickaxe"; } } 
-        public override string Description { get { return "A pointy implement to break down stone and ore into managable rubble."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Pickaxe"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A pointy implement to break down stone and ore into managable rubble."); } }
 
     }
 

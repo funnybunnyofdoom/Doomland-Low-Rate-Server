@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(typeof(PetrolRefiningEfficiencySkill), 10, PetrolRefiningEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BiodieselRecipe), Item.Get<BiodieselItem>().UILink(), 2, typeof(PetrolRefiningSpeedSkill));    
-            this.Initialize("Biodiesel", typeof(BiodieselRecipe));
+            this.Initialize(Localizer.DoStr("Biodiesel"), typeof(BiodieselRecipe));
 
             CraftingComponent.AddRecipe(typeof(OilRefineryObject), this);
         }
@@ -58,9 +58,9 @@ namespace Eco.Mods.TechTree
     public partial class BiodieselItem :
     BlockItem<BiodieselBlock>
     {
-        public override string FriendlyName { get { return "Biodiesel"; } } 
-        public override string FriendlyNamePlural { get { return "Biodiesel"; } } 
-        public override string Description { get { return "A vegetable or animal fat-based diesel fuel."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Biodiesel"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Biodiesel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A vegetable or animal fat-based diesel fuel."); } }
 
     }
 

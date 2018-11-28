@@ -4,6 +4,7 @@
 using Eco.Gameplay.Components;
 using Eco.Gameplay.Components.Auth;
 using Eco.Gameplay.Objects;
+using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
 
 [Serialized]
@@ -11,7 +12,7 @@ using Eco.Shared.Serialization;
 [RequireComponent(typeof(PropertyAuthComponent))]
 public class TreasuryObject : WorldObject
 {
-    public override string FriendlyName { get { return "Treasury"; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Treasury"); } }
 
     protected override void PostInitialize()
     {

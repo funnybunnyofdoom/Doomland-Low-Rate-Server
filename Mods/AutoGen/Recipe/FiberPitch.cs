@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(MortarProductionSkill), 2)] 
     public class FiberPitchRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<PlantFibersItem>(typeof(MortarProductionEfficiencySkill), 15, MortarProductionEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Fiber Pitch", typeof(FiberPitchRecipe));
+            this.Initialize(Localizer.DoStr("Fiber Pitch"), typeof(FiberPitchRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(FiberPitchRecipe), this.UILink(), 0.2f, typeof(MortarProductionSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

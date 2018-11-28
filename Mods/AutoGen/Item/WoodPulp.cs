@@ -27,9 +27,9 @@ namespace Eco.Mods.TechTree
     public partial class WoodPulpItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Wood Pulp"; } } 
-        public override string FriendlyNamePlural { get { return "Wood Pulp"; } } 
-        public override string Description { get { return "A byproduct of processing lumber, wood pulp can be burned for pitch or pressed into paper."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wood Pulp"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Wood Pulp"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A byproduct of processing lumber, wood pulp can be burned for pitch or pressed into paper."); } }
 
     }
 

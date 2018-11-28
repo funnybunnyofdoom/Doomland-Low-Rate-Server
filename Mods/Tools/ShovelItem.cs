@@ -12,6 +12,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Plants;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Shared.Items;
+    using Eco.Shared.Localization;
     using Eco.Shared.Math;
     using Eco.Simulation;
     using Eco.World;
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 
         public override ClientPredictedBlockAction LeftAction { get { return ClientPredictedBlockAction.PickupBlock; } }
-        public override string LeftActionDescription     { get { return "Dig"; } }
+        public override LocString LeftActionDescription     { get { return Localizer.DoStr("Dig"); } }
 
         private static IDynamicValue skilledRepairCost = new ConstantValue(1);
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
@@ -53,7 +54,7 @@ namespace Eco.Mods.TechTree
                 else if (context.Block.Is<Diggable>())
                 {
                     if (TreeEntity.TreeRootsBlockDigging(context))
-                        return InteractResult.FailureLocStr("You attempt to dig up the soil, but the roots are too strong!");
+                        return InteractResult.Failure(Localizer.DoStr("You attempt to dig up the soil, but the roots are too strong!"));
 
                     IAtomicAction destroyAction = UsableItemUtils.TryDestroyPlant(context.Player, context.BlockPosition.Value + Vector3i.Up);
                     return (InteractResult)this.PlayerDeleteBlock(

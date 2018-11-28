@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(MortarProductionEfficiencySkill), 3, MortarProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(MortaredStoneRecipe), Item.Get<MortaredStoneItem>().UILink(), 0.3f, typeof(MortarProductionSpeedSkill));    
-            this.Initialize("Mortared Stone", typeof(MortaredStoneRecipe));
+            this.Initialize(Localizer.DoStr("Mortared Stone"), typeof(MortaredStoneRecipe));
 
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }
@@ -59,8 +59,8 @@ namespace Eco.Mods.TechTree
     public partial class MortaredStoneItem :
     BlockItem<MortaredStoneBlock>
     {
-        public override string FriendlyName { get { return "Mortared Stone"; } } 
-        public override string Description { get { return "Used to create tough but rudimentary buildings."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Mortared Stone"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Used to create tough but rudimentary buildings."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

@@ -11,6 +11,7 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Networking;
     using Eco.Shared.Serialization;
     using Eco.Gameplay.Players;
+    using Eco.Shared.Localization;
 
     public partial class TinyStockpileItem : WorldObjectItem<TinyStockpileObject>
     {
@@ -28,7 +29,7 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(LinkComponent))]
     public partial class TinyStockpileObject : WorldObject
     {
-        public override string FriendlyName { get { return "Tiny Stockpile"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tiny Stockpile"); } }
 
         public static readonly Vector3i DefaultDim = new Vector3i(2, 3, 2);
 

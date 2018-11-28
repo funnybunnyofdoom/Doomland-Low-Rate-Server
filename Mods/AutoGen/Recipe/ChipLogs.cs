@@ -7,6 +7,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Skills;
     using Eco.Shared.Utils;
+	using Eco.Shared.Localization;
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<LogItem>(typeof(WoodworkingEfficiencySkill), 1, WoodworkingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Chip Logs", typeof(ChipLogsRecipe));
+            this.Initialize(Localizer.DoStr("Chip Logs"), typeof(ChipLogsRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(HewLogsRecipe), this.UILink(), 0.05f, typeof(WoodworkingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }

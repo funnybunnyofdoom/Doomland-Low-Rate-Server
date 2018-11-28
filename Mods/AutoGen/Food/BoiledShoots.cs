@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class BoiledShootsItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Boiled Shoots"; } }
-        public override string FriendlyNamePlural               { get { return "Boiled Shoots"; } } 
-        public override string Description                      { get { return "Boiled in water to remove the inherent bitterness, this shoot is much tastier."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Boiled Shoots"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Boiled Shoots"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Boiled in water to remove the inherent bitterness, this shoot is much tastier."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 1, Protein = 0, Vitamins = 9};
         public override float Calories                          { get { return 510; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FireweedShootsItem>(2)    
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Boiled Shoots", typeof(BoiledShootsRecipe));
+            this.Initialize(Localizer.DoStr("Boiled Shoots"), typeof(BoiledShootsRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

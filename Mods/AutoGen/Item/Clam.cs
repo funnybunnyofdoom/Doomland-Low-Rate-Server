@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class ClamItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Clam"; } } 
-        public override string Description { get { return "A clam."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Clam"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A clam."); } }
 
     }
 

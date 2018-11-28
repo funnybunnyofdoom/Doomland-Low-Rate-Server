@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Scruffy Hair"; } }
-        public override string Description      { get { return "Rockstar cool-person hair. This finely crafted hairpiece says \"I don't care what you think. I'm wearing an awesome toupee\"."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Scruffy Hair"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Rockstar cool-person hair. This finely crafted hairpiece says \"I don't care what you think. I'm wearing an awesome toupee\"."); } }
         public override string Slot             { get { return ClothingSlot.Hair; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -44,7 +44,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FurPeltItem>(typeof(ClothesmakingEfficiencySkill), 5, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
-            this.Initialize("Scruffy Hair", typeof(ScruffyHairRecipe));
+            this.Initialize(Localizer.DoStr("Scruffy Hair"), typeof(ScruffyHairRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

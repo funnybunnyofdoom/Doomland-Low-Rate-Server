@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Mill"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Mill"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(MillItem); } } 
+
 
 
         protected override void Initialize()
@@ -73,8 +74,8 @@ namespace Eco.Mods.TechTree
     public partial class MillItem :
         WorldObjectItem<MillObject> 
     {
-        public override string FriendlyName { get { return "Mill"; } } 
-        public override string Description  { get { return  "Refines food resources by crushing them under a stone millstone."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Mill"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Refines food resources by crushing them under a stone millstone."); } }
 
         static MillItem()
         {
@@ -113,7 +114,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(MillRecipe), Item.Get<MillItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<MillItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Mill", typeof(MillRecipe));
+            this.Initialize(Localizer.DoStr("Mill"), typeof(MillRecipe));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }
     }

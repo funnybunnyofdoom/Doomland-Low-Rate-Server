@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(HewingSkill), 1)] 
     public class HewLogsRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<LogItem>(typeof(HewnLogProcessingEfficiencySkill), 2, HewnLogProcessingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Hew Logs", typeof(HewLogsRecipe));
+            this.Initialize(Localizer.DoStr("Hew Logs"), typeof(HewLogsRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(HewLogsRecipe), this.UILink(), 0.05f, typeof(HewnLogProcessingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }

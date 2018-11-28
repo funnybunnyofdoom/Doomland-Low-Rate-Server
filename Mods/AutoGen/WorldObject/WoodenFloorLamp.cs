@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wooden Floor Lamp"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Floor Lamp"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WoodenFloorLampItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class WoodenFloorLampItem :
         WorldObjectItem<WoodenFloorLampObject> 
     {
-        public override string FriendlyName { get { return "Wooden Floor Lamp"; } } 
-        public override string Description  { get { return  "A more modern way to light up a room. This time from the floor."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Floor Lamp"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A more modern way to light up a room. This time from the floor."); } }
 
         static WoodenFloorLampItem()
         {
@@ -109,7 +110,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WoodenFloorLampRecipe), Item.Get<WoodenFloorLampItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WoodenFloorLampItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wooden Floor Lamp", typeof(WoodenFloorLampRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Floor Lamp"), typeof(WoodenFloorLampRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class HuckleberryPieItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Huckleberry Pie"; } }
-        public override string Description                      { get { return "A fantastic combination of flaky crust and scrumptious berries."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Huckleberry Pie"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A fantastic combination of flaky crust and scrumptious berries."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 9, Fat = 4, Protein = 5, Vitamins = 16};
         public override float Calories                          { get { return 1300; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(HuckleberryPieRecipe), Item.Get<HuckleberryPieItem>().UILink(), 5, typeof(BasicBakingSpeedSkill)); 
-            this.Initialize("Huckleberry Pie", typeof(HuckleberryPieRecipe));
+            this.Initialize(Localizer.DoStr("Huckleberry Pie"), typeof(HuckleberryPieRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

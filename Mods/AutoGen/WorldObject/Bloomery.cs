@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Bloomery"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Bloomery"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(BloomeryItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -54,8 +55,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -79,8 +79,8 @@ namespace Eco.Mods.TechTree
     public partial class BloomeryItem :
         WorldObjectItem<BloomeryObject> 
     {
-        public override string FriendlyName { get { return "Bloomery"; } } 
-        public override string Description  { get { return  "A chimney-shaped furnace for smelting ores."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Bloomery"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A chimney-shaped furnace for smelting ores."); } }
 
         static BloomeryItem()
         {
@@ -118,7 +118,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(BloomeryRecipe), Item.Get<BloomeryItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BloomeryItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Bloomery", typeof(BloomeryRecipe));
+            this.Initialize(Localizer.DoStr("Bloomery"), typeof(BloomeryRecipe));
             CraftingComponent.AddRecipe(typeof(KilnObject), this);
         }
     }

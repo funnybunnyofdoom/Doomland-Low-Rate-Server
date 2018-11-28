@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Washing Machine"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Washing Machine"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WashingMachineItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class WashingMachineItem :
         WorldObjectItem<WashingMachineObject> 
     {
-        public override string FriendlyName { get { return "Washing Machine"; } } 
-        public override string Description  { get { return  "Why hand scrub your clothes on a washboard when you could throw them into this magical cleaning machine?"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Washing Machine"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Why hand scrub your clothes on a washboard when you could throw them into this magical cleaning machine?"); } }
 
         static WashingMachineItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WashingMachineRecipe), Item.Get<WashingMachineItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WashingMachineItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Washing Machine", typeof(WashingMachineRecipe));
+            this.Initialize(Localizer.DoStr("Washing Machine"), typeof(WashingMachineRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

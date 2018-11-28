@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Doom Hat"; } }
-        public override string Description      { get { return "Deadly looking sombrero that doesn't fit anyone. You feel scurred to wear it."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Derpy Hat"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Dorky sombrero that doesn't fit anyone. You feel embarrassed to wear it."); } }
         public override string Slot             { get { return ClothingSlot.Head; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,11 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 80, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 10, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
-            this.Initialize("Doom Hat", typeof(DerpyHatRecipe));
+            this.Initialize(Localizer.DoStr("Derpy Hat"), typeof(DerpyHatRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

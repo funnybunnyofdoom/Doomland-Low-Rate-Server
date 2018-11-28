@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class EcoylentItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Ecoylent"; } }
-        public override string Description                      { get { return "A complete meal replacement solution."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Ecoylent"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A complete meal replacement solution."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 500, Fat = 500, Protein = 500, Vitamins = 500};
         public override float Calories                          { get { return 1500; } }

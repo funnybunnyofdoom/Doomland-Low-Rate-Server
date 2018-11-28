@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class TomatoItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Tomato"; } }
-        public override string Description                      { get { return "Intelligence is knowing this is a fruit; wisdom is not putting it in a fruit salad."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Tomato"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Intelligence is knowing this is a fruit; wisdom is not putting it in a fruit salad."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 4, Fat = 0, Protein = 1, Vitamins = 3};
         public override float Calories                          { get { return 240; } }

@@ -23,9 +23,9 @@ namespace Eco.Mods.TechTree
     public partial class OilItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Oil"; } }
-        public override string FriendlyNamePlural               { get { return "Oil"; } } 
-        public override string Description                      { get { return "A plant fat extracted for use in cooking."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Oil"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Oil"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A plant fat extracted for use in cooking."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 15, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 120; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CerealGermItem>(typeof(MillProcessingEfficiencySkill), 30, MillProcessingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(OilRecipe), Item.Get<OilItem>().UILink(), 5, typeof(MillProcessingSpeedSkill)); 
-            this.Initialize("Oil", typeof(OilRecipe));
+            this.Initialize(Localizer.DoStr("Oil"), typeof(OilRecipe));
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }
     }

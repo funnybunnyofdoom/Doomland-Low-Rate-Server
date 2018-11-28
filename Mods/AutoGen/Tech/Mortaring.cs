@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(MasonSkill), 0)]    
     public partial class MortaringSkill : Skill
     {
-        public override string FriendlyName { get { return "Mortaring"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Mortaring"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class StuffedTurkeyItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Stuffed Turkey"; } }
-        public override string Description                      { get { return "To give thanks for fact that this food items gives two nutrients more than other food at the same tier."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Stuffed Turkey"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("To give thanks for fact that this food items gives two nutrients more than other food at the same tier."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 9, Fat = 12, Protein = 16, Vitamins = 7};
         public override float Calories                          { get { return 1500; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<VegetableMedleyItem>(typeof(HomeCookingEfficiencySkill), 4, HomeCookingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(StuffedTurkeyRecipe), Item.Get<StuffedTurkeyItem>().UILink(), 30, typeof(HomeCookingSpeedSkill)); 
-            this.Initialize("Stuffed Turkey", typeof(StuffedTurkeyRecipe));
+            this.Initialize(Localizer.DoStr("Stuffed Turkey"), typeof(StuffedTurkeyRecipe));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }

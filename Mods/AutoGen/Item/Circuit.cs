@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<GoldFlakesItem>(typeof(ElectronicEngineeringEfficiencySkill), 20, ElectronicEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CircuitRecipe), Item.Get<CircuitItem>().UILink(), 2, typeof(ElectronicEngineeringSpeedSkill));    
-            this.Initialize("Circuit", typeof(CircuitRecipe));
+            this.Initialize(Localizer.DoStr("Circuit"), typeof(CircuitRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
@@ -48,8 +48,8 @@ namespace Eco.Mods.TechTree
     public partial class CircuitItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Circuit"; } } 
-        public override string Description { get { return "A complex electrical component used in advanced electronics."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Circuit"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A complex electrical component used in advanced electronics."); } }
 
     }
 

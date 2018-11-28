@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class VegetableStockItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Vegetable Stock"; } }
-        public override string Description                      { get { return "A hearty stock full of assorted vegetables."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Vegetable Stock"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A hearty stock full of assorted vegetables."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 11, Fat = 2, Protein = 1, Vitamins = 11};
         public override float Calories                          { get { return 700; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<VegetableMedleyItem>(typeof(HomeCookingEfficiencySkill), 4, HomeCookingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(VegetableStockRecipe), Item.Get<VegetableStockItem>().UILink(), 20, typeof(HomeCookingSpeedSkill)); 
-            this.Initialize("Vegetable Stock", typeof(VegetableStockRecipe));
+            this.Initialize(Localizer.DoStr("Vegetable Stock"), typeof(VegetableStockRecipe));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }

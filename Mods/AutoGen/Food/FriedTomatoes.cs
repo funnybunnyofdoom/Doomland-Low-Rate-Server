@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class FriedTomatoesItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Fried Tomatoes"; } }
-        public override string Description                      { get { return "Secret's in the sauce."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Fried Tomatoes"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Secret's in the sauce."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 9, Protein = 3, Vitamins = 2};
         public override float Calories                          { get { return 560; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 5, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FriedTomatoesRecipe), Item.Get<FriedTomatoesItem>().UILink(), 5, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Fried Tomatoes", typeof(FriedTomatoesRecipe));
+            this.Initialize(Localizer.DoStr("Fried Tomatoes"), typeof(FriedTomatoesRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

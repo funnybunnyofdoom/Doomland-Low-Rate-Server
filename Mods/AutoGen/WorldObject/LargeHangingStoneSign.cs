@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Large Hanging Stone Sign"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Hanging Stone Sign"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(LargeHangingStoneSignItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class LargeHangingStoneSignItem :
         WorldObjectItem<LargeHangingStoneSignObject> 
     {
-        public override string FriendlyName { get { return "Large Hanging Stone Sign"; } } 
-        public override string Description  { get { return  "A large sign for all your large text needs!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Hanging Stone Sign"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large sign for all your large text needs!"); } }
 
         static LargeHangingStoneSignItem()
         {
@@ -92,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LargeHangingStoneSignRecipe), Item.Get<LargeHangingStoneSignItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LargeHangingStoneSignItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Large Hanging Stone Sign", typeof(LargeHangingStoneSignRecipe));
+            this.Initialize(Localizer.DoStr("Large Hanging Stone Sign"), typeof(LargeHangingStoneSignRecipe));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }
     }

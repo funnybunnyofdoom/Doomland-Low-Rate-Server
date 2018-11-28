@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Basic Backpack"; } }
-        public override string Description      { get { return ""; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Basic Backpack"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
         public override string Slot             { get { return ClothingSlot.Back; } }             
         public override bool Starter            { get { return false ; } }                       
 
@@ -45,11 +45,11 @@ public override Dictionary<UserStatType, float> GetFlatStats() { return flatStat
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<ClothItem>(typeof(ClothesmakingEfficiencySkill), 3, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 4, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<ClothItem>(typeof(ClothesmakingEfficiencySkill), 5, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Basic Backpack", typeof(BasicBackpackRecipe));
+            this.Initialize(Localizer.DoStr("Basic Backpack"), typeof(BasicBackpackRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

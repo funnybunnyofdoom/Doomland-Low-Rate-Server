@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class VegetableSoupItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Vegetable Soup"; } }
-        public override string Description                      { get { return "Who knew plants in plant broth could be so tasty?"; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Vegetable Soup"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Who knew plants in plant broth could be so tasty?"); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 7, Protein = 4, Vitamins = 19};
         public override float Calories                          { get { return 1200; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<VegetableMedleyItem>(typeof(HomeCookingEfficiencySkill), 2, HomeCookingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(VegetableSoupRecipe), Item.Get<VegetableSoupItem>().UILink(), 10, typeof(HomeCookingSpeedSkill)); 
-            this.Initialize("Vegetable Soup", typeof(VegetableSoupRecipe));
+            this.Initialize(Localizer.DoStr("Vegetable Soup"), typeof(VegetableSoupRecipe));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }

@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class MacaroonsItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Macaroons"; } }
-        public override string FriendlyNamePlural               { get { return "Macaroons"; } } 
-        public override string Description                      { get { return "A small circular biscuit with a sweet huckleberry filling."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Macaroons"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Macaroons"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A small circular biscuit with a sweet huckleberry filling."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 16, Fat = 14, Protein = 7, Vitamins = 10};
         public override float Calories                          { get { return 250; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberryExtractItem>(typeof(LeavenedBakingEfficiencySkill), 10, LeavenedBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(MacaroonsRecipe), Item.Get<MacaroonsItem>().UILink(), 8, typeof(LeavenedBakingSpeedSkill)); 
-            this.Initialize("Macaroons", typeof(MacaroonsRecipe));
+            this.Initialize(Localizer.DoStr("Macaroons"), typeof(MacaroonsRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

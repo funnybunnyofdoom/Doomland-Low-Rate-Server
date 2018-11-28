@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Henley"; } }
-        public override string Description      { get { return "A Henley shirt is a collarless pullover shirt, characterized by a placket beneath the round neckline, about 8 to 13 cm long and usually having 2?5 buttons. It essentially resembles a collarless polo shirt."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Henley"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A Henley shirt is a collarless pullover shirt, characterized by a placket beneath the round neckline, about 8 to 13 cm long and usually having 2?5 buttons. It essentially resembles a collarless polo shirt."); } }
         public override string Slot             { get { return ClothingSlot.Shirt; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,11 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 100, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 1, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 25, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
-            this.Initialize("Henley", typeof(HenleyRecipe));
+            this.Initialize(Localizer.DoStr("Henley"), typeof(HenleyRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

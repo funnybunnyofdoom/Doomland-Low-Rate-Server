@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<StoneItem>(typeof(CementProductionEfficiencySkill), 40, CementProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ConcreteRecipe), Item.Get<ConcreteItem>().UILink(), 2, typeof(CementProductionSpeedSkill));    
-            this.Initialize("Concrete", typeof(ConcreteRecipe));
+            this.Initialize(Localizer.DoStr("Concrete"), typeof(ConcreteRecipe));
 
             CraftingComponent.AddRecipe(typeof(CementKilnObject), this);
         }
@@ -46,9 +46,9 @@ namespace Eco.Mods.TechTree
     public partial class ConcreteItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Concrete"; } } 
-        public override string FriendlyNamePlural { get { return "Concrete"; } } 
-        public override string Description { get { return "A material made from cement and an aggregate like crushed stone. In order to be usable it needs to be reinforced."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Concrete"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Concrete"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A material made from cement and an aggregate like crushed stone. In order to be usable it needs to be reinforced."); } }
 
     }
 

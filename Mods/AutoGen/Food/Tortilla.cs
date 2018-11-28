@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class TortillaItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Tortilla"; } }
-        public override string Description                      { get { return "A thin, unleavened flatbread."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Tortilla"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A thin, unleavened flatbread."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 20, Fat = 0, Protein = 10, Vitamins = 0};
         public override float Calories                          { get { return 350; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CornmealItem>(typeof(CulinaryArtsEfficiencySkill), 5, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(TortillaRecipe), Item.Get<TortillaItem>().UILink(), 5, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Tortilla", typeof(TortillaRecipe));
+            this.Initialize(Localizer.DoStr("Tortilla"), typeof(TortillaRecipe));
             CraftingComponent.AddRecipe(typeof(KitchenObject), this);
         }
     }

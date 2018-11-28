@@ -32,7 +32,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 1, BasicCraftingEfficiencySkill.MultiplicativeStrategy),    
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ArrowRecipe), this.UILink(), 0.1f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Arrow", typeof(ArrowRecipe));
+            this.Initialize(Localizer.DoStr("Arrow"), typeof(ArrowRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class ArrowItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Arrow"; } } 
-        public override string Description { get { return "Use with the bow to hunt for food (or amaze your friends by shooting apples off of their heads)."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Arrow"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Use with the bow to hunt for food (or amaze your friends by shooting apples off of their heads)."); } }
 
     }
 

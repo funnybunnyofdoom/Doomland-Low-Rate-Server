@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Pump Jack"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Pump Jack"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(PumpJackItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class PumpJackItem :
         WorldObjectItem<PumpJackObject> 
     {
-        public override string FriendlyName { get { return "Pump Jack"; } } 
-        public override string Description  { get { return  "Drill, baby! Drill!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Pump Jack"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Drill, baby! Drill!"); } }
 
         static PumpJackItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(PumpJackRecipe), Item.Get<PumpJackItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<PumpJackItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Pump Jack", typeof(PumpJackRecipe));
+            this.Initialize(Localizer.DoStr("Pump Jack"), typeof(PumpJackRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }

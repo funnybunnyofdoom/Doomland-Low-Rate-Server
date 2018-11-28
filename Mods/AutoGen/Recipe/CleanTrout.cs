@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(FishingSkill), 1)] 
     public class CleanTroutRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<TroutItem>(typeof(FishCleaningEfficiencySkill), 1, FishCleaningEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Clean Trout", typeof(CleanTroutRecipe));
+            this.Initialize(Localizer.DoStr("Clean Trout"), typeof(CleanTroutRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(CleanTroutRecipe), this.UILink(), 1.5f, typeof(FishCleaningSpeedSkill));
             CraftingComponent.AddRecipe(typeof(FisheryObject), this);
         }

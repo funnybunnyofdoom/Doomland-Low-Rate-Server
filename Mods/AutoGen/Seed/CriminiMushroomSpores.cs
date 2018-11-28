@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Crimini Mushroom Spores"; } }
-        public override string Description  { get { return "Plant to grow crimini mushrooms."; } }
-        public override string SpeciesName  { get { return "CriminiMushroom"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Crimini Mushroom Spores"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow crimini mushrooms."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("CriminiMushroom"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static CriminiMushroomSporesPackItem() { }
 
-        public override string FriendlyName { get { return "Crimini Mushroom Spores Pack"; } }
-        public override string Description  { get { return "Plant to grow crimini mushrooms."; } }
-        public override string SpeciesName  { get { return "CriminiMushroom"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Crimini Mushroom Spores Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow crimini mushrooms."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("CriminiMushroom"); } }
     }
 
     [RequiresSkill(typeof(SeedProductionSkill), 2)]    
@@ -64,7 +64,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CriminiMushroomSporesItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Crimini Mushroom Spores", typeof(CriminiMushroomSporesRecipe));
+            this.Initialize(Localizer.DoStr("Crimini Mushroom Spores"), typeof(CriminiMushroomSporesRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

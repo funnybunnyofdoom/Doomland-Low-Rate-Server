@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CornFrittersItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Corn Fritters"; } }
-        public override string FriendlyNamePlural               { get { return "Corn Fritters"; } } 
-        public override string Description                      { get { return "These deep fried corn treats are both crispy and delicious."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Corn Fritters"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Corn Fritters"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("These deep fried corn treats are both crispy and delicious."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 15, Fat = 17, Protein = 7, Vitamins = 8};
         public override float Calories                          { get { return 500; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<OilItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CornFrittersRecipe), Item.Get<CornFrittersItem>().UILink(), 5, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Corn Fritters", typeof(CornFrittersRecipe));
+            this.Initialize(Localizer.DoStr("Corn Fritters"), typeof(CornFrittersRecipe));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }

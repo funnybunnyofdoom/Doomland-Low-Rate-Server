@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class ElkWellingtonItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Elk Wellington"; } }
-        public override string Description                      { get { return "A prime cut of meat surrounded by pastry."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Elk Wellington"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A prime cut of meat surrounded by pastry."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 12, Protein = 20, Vitamins = 8};
         public override float Calories                          { get { return 1400; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PrimeCutItem>(typeof(LeavenedBakingEfficiencySkill), 5, LeavenedBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ElkWellingtonRecipe), Item.Get<ElkWellingtonItem>().UILink(), 8, typeof(LeavenedBakingSpeedSkill)); 
-            this.Initialize("Elk Wellington", typeof(ElkWellingtonRecipe));
+            this.Initialize(Localizer.DoStr("Elk Wellington"), typeof(ElkWellingtonRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

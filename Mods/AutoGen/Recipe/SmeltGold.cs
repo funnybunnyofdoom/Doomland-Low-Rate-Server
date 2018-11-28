@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(BasicSmeltingSkill), 4)] 
     public class SmeltGoldRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<GoldOreItem>(typeof(BasicSmeltingEfficiencySkill), 10, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Smelt Gold", typeof(SmeltGoldRecipe));
+            this.Initialize(Localizer.DoStr("Smelt Gold"), typeof(SmeltGoldRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(SmeltGoldRecipe), this.UILink(), 0.5f, typeof(BasicSmeltingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }

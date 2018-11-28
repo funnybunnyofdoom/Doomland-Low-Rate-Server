@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MetalworkingEfficiencySkill), 20, MetalworkingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronHoeRecipe), Item.Get<IronHoeItem>().UILink(), 0.5f, typeof(MetalworkingSpeedSkill));    
-            this.Initialize("Iron Hoe", typeof(IronHoeRecipe));
+            this.Initialize(Localizer.DoStr("Iron Hoe"), typeof(IronHoeRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }
@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
     public partial class IronHoeItem : HoeItem
     {
 
-        public override string FriendlyName { get { return "Iron Hoe"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Hoe"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(17, typeof(HoeEfficiencySkill), typeof(IronHoeItem), new IronHoeItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 

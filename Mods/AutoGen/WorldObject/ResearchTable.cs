@@ -44,9 +44,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Research Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Research Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ResearchTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class ResearchTableItem :
         WorldObjectItem<ResearchTableObject> 
     {
-        public override string FriendlyName { get { return "Research Table"; } } 
-        public override string Description  { get { return  "A basic table for researching new technologies and skills."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Research Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A basic table for researching new technologies and skills."); } }
 
         static ResearchTableItem()
         {
@@ -90,12 +91,12 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 30, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 40, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PlantFibersItem>(typeof(BasicCraftingEfficiencySkill), 30, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                   
+                new CraftingElement<LogItem>(30),
+                new CraftingElement<StoneItem>(40),
+                new CraftingElement<PlantFibersItem>(30)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(ResearchTableRecipe), this.UILink(), 5f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Research Table", typeof(ResearchTableRecipe));
+            this.CraftMinutes = new ConstantValue(5); 
+            this.Initialize(Localizer.DoStr("Research Table"), typeof(ResearchTableRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

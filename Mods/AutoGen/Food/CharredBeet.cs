@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CharredBeetItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Charred Beet"; } }
-        public override string Description                      { get { return "Perhaps not the best raw vegetable to char, this beet seems to have held up well enough."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Charred Beet"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Perhaps not the best raw vegetable to char, this beet seems to have held up well enough."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 3, Protein = 0, Vitamins = 7};
         public override float Calories                          { get { return 470; } }
@@ -44,7 +44,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<BeetItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Charred Beet", typeof(CharredBeetRecipe));
+            this.Initialize(Localizer.DoStr("Charred Beet"), typeof(CharredBeetRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

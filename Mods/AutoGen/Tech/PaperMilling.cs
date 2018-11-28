@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(CarpenterSkill), 0)]    
     public partial class PaperMillingSkill : Skill
     {
-        public override string FriendlyName { get { return "Paper Milling"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Paper Milling"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public override int RequiredPoint { get { return 0; } }
         public override int MaxLevel { get { return 1; } }
@@ -32,13 +32,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class PaperMillingSkillBook : SkillBook<PaperMillingSkill, PaperMillingSkillScroll>
     {
-        public override string FriendlyName { get { return "Paper Milling Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Paper Milling Skill Book"); } }
     }
 
     [Serialized]
     public partial class PaperMillingSkillScroll : NewSkillScroll<PaperMillingSkill, PaperMillingSkillBook>
     {
-        public override string FriendlyName { get { return "Paper Milling Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Paper Milling Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(HewingSkill), 0)] 
@@ -57,7 +57,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(15);
 
-            this.Initialize("Paper Milling Skill Book", typeof(PaperMillingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Paper Milling Skill Book"), typeof(PaperMillingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

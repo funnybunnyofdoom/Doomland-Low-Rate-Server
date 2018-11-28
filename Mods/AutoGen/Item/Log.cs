@@ -38,8 +38,8 @@ namespace Eco.Mods.TechTree
     public partial class LogItem :
     BlockItem<LogBlock>
     {
-        public override string FriendlyName { get { return "Log"; } } 
-        public override string Description { get { return "A stack of logs."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Log"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A stack of logs."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

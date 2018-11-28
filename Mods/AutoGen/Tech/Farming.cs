@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(FarmerSkill), 0)]    
     public partial class FarmingSkill : Skill
     {
-        public override string FriendlyName { get { return "Farming"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Farming"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class FarmingSkillBook : SkillBook<FarmingSkill, FarmingSkillScroll>
     {
-        public override string FriendlyName { get { return "Farming Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Farming Skill Book"); } }
     }
 
     [Serialized]
     public partial class FarmingSkillScroll : NewSkillScroll<FarmingSkill, FarmingSkillBook>
     {
-        public override string FriendlyName { get { return "Farming Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Farming Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(GatheringSkill), 0)] 
@@ -60,7 +60,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(5);
 
-            this.Initialize("Farming Skill Book", typeof(FarmingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Farming Skill Book"), typeof(FarmingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

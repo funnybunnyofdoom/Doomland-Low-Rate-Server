@@ -37,9 +37,12 @@ namespace Eco.Mods.TechTree
         DoorObject, 
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Hewn Log Door"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Hewn Log Door"); } } 
 
         public override Type RepresentedItemType { get { return typeof(HewnLogDoorItem); } } 
+
+        public override bool HasTier { get { return true; } } 
+        public override int Tier { get { return 1; } } 
 
 
         protected override void Initialize()
@@ -60,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class HewnLogDoorItem :
         WorldObjectItem<HewnLogDoorObject> 
     {
-        public override string FriendlyName { get { return "Hewn Log Door"; } } 
-        public override string Description  { get { return  "A door made from roughly hewn logs."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Hewn Log Door"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A door made from roughly hewn logs."); } }
 
         static HewnLogDoorItem()
         {
@@ -90,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(HewnLogDoorRecipe), Item.Get<HewnLogDoorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<HewnLogDoorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Hewn Log Door", typeof(HewnLogDoorRecipe));
+            this.Initialize(Localizer.DoStr("Hewn Log Door"), typeof(HewnLogDoorRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

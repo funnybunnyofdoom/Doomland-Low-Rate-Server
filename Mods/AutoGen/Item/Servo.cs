@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FiberglassItem>(typeof(MechanicsComponentsEfficiencySkill), 6, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ServoRecipe), Item.Get<ServoItem>().UILink(), 8, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Servo", typeof(ServoRecipe));
+            this.Initialize(Localizer.DoStr("Servo"), typeof(ServoRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class ServoItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Servo"; } } 
-        public override string Description { get { return "A rotary actuator that allows for control over angular position."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Servo"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A rotary actuator that allows for control over angular position."); } }
 
     }
 

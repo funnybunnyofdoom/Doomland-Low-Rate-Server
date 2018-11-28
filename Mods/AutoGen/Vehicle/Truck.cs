@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(25000)]  
     public class TruckItem : WorldObjectItem<TruckObject>
     {
-        public override string FriendlyName         { get { return "Truck"; } }
-        public override string Description          { get { return "Modern truck for hauling sizable loads."; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Truck"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Modern truck for hauling sizable loads."); } }
     }
 
     [RequiresSkill(typeof(IndustrialEngineeringSkill), 0)] 
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(25);
 
-            this.Initialize("Truck", typeof(TruckRecipe));
+            this.Initialize(Localizer.DoStr("Truck"), typeof(TruckRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }
@@ -74,7 +74,7 @@ namespace Eco.Mods.TechTree
             { typeof(AsphaltRoadBlock), 1.8f }, { typeof(AsphaltRoadWorldObjectBlock), 1.8f }
         };
 
-        public override string FriendlyName { get { return "Truck"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Truck"); } }
         public Type RepresentedItemType { get { return typeof(TruckItem); } }
 
         private static Type[] fuelTypeList = new Type[]

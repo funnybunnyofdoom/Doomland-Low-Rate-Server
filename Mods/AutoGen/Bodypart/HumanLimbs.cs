@@ -20,8 +20,8 @@ namespace Eco.Mods.TechTree
     public partial class HumanLimbsItem :
         ClothingItem
     {
-        public override string FriendlyName { get { return "Human Limbs"; } }
-        public override string Description  { get { return "Limbs"; } }
-        public override string Slot         { get { return ClothingSlot.Limbs; } } 
+        public override LocString DisplayName        { get { return Localizer.DoStr("Human Limbs"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Limbs"); } }
+        public override string Slot                  { get { return ClothingSlot.Limbs; } } 
     }
 }

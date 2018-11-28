@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Farmers Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Farmers Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(FarmersTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -66,8 +67,8 @@ namespace Eco.Mods.TechTree
     public partial class FarmersTableItem :
         WorldObjectItem<FarmersTableObject> 
     {
-        public override string FriendlyName { get { return "Farmers Table"; } } 
-        public override string Description  { get { return  "A basic table for creating farming tools and similar products."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Farmers Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A basic table for creating farming tools and similar products."); } }
 
         static FarmersTableItem()
         {
@@ -90,11 +91,11 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<DirtItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 20, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                   
+                new CraftingElement<DirtItem>(10),
+                new CraftingElement<LogItem>(20)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(FarmersTableRecipe), this.UILink(), 10f, typeof(BasicCraftingSpeedSkill)); 
-            this.Initialize("Farmers Table", typeof(FarmersTableRecipe));
+            this.CraftMinutes = new ConstantValue(10); 
+            this.Initialize(Localizer.DoStr("Farmers Table"), typeof(FarmersTableRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

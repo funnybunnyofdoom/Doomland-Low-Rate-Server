@@ -27,9 +27,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 1, Fat = 5, Protein = 2, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Camas Bulb"; } }
-        public override string Description  { get { return "Plant to grow a camas plant."; } }
-        public override string SpeciesName  { get { return "Camas"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Camas Bulb"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow a camas plant."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Camas"); } }
 
         public override float Calories { get { return 120; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -43,9 +43,9 @@ namespace Eco.Mods.TechTree
     {
         static CamasBulbPackItem() { }
 
-        public override string FriendlyName { get { return "Camas Bulb Pack"; } }
-        public override string Description  { get { return "Plant to grow a camas plant."; } }
-        public override string SpeciesName  { get { return "Camas"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Camas Bulb Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow a camas plant."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Camas"); } }
     }
 
 }

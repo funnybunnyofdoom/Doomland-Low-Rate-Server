@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     public class CampfireElkRecipe : Recipe
     {
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<ElkCarcassItem>(1)  
             };
-            this.Initialize("Campfire Elk", typeof(CampfireElkRecipe));
+            this.Initialize(Localizer.DoStr("Campfire Elk"), typeof(CampfireElkRecipe));
             this.CraftMinutes = new ConstantValue(10); 
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

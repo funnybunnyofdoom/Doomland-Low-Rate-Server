@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Kiln"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Kiln"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(KilnItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -57,8 +58,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -81,8 +81,8 @@ namespace Eco.Mods.TechTree
     public partial class KilnItem :
         WorldObjectItem<KilnObject> 
     {
-        public override string FriendlyName { get { return "Kiln"; } } 
-        public override string Description  { get { return  "Useful for baking bricks and finishing pottery."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Kiln"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Useful for baking bricks and finishing pottery."); } }
 
         static KilnItem()
         {
@@ -112,7 +112,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(KilnRecipe), Item.Get<KilnItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<KilnItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Kiln", typeof(KilnRecipe));
+            this.Initialize(Localizer.DoStr("Kiln"), typeof(KilnRecipe));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }
     }

@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Windmill"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Windmill"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WindmillItem); } } 
+
 
 
         protected override void Initialize()
@@ -66,8 +67,8 @@ namespace Eco.Mods.TechTree
     public partial class WindmillItem :
         WorldObjectItem<WindmillObject> 
     {
-        public override string FriendlyName { get { return "Windmill"; } } 
-        public override string Description  { get { return  "Use wind to produce mechanical power."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Windmill"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Use wind to produce mechanical power."); } }
 
         static WindmillItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WindmillRecipe), Item.Get<WindmillItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WindmillItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Windmill", typeof(WindmillRecipe));
+            this.Initialize(Localizer.DoStr("Windmill"), typeof(WindmillRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

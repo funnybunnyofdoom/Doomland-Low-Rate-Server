@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CharredCamasBulbItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Charred Camas Bulb"; } }
-        public override string Description                      { get { return "A fibrous and sweet treat much like a sweet potato, though slightly blackened over the heat of a campfire."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Charred Camas Bulb"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A fibrous and sweet treat much like a sweet potato, though slightly blackened over the heat of a campfire."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 2, Fat = 7, Protein = 3, Vitamins = 1};
         public override float Calories                          { get { return 510; } }
@@ -41,10 +41,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)   
+                new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Charred Camas Bulb", typeof(CharredCamasBulbRecipe));
+            this.Initialize(Localizer.DoStr("Charred Camas Bulb"), typeof(CharredCamasBulbRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Storage Chest"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Storage Chest"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(StorageChestItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class StorageChestItem :
         WorldObjectItem<StorageChestObject> 
     {
-        public override string FriendlyName { get { return "Storage Chest"; } } 
-        public override string Description  { get { return  "A container you can store items in."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Storage Chest"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A container you can store items in."); } }
 
         static StorageChestItem()
         {
@@ -88,10 +89,10 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<LogItem>(10)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(StorageChestRecipe), this.UILink(), 2f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Storage Chest", typeof(StorageChestRecipe));
+            this.CraftMinutes = new ConstantValue(2); 
+            this.Initialize(Localizer.DoStr("Storage Chest"), typeof(StorageChestRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

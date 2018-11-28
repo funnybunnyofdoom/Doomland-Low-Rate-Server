@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class MeatPieItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Meat Pie"; } }
-        public override string Description                      { get { return "Much like a huckleberry pie, but filled to the brim with succulent meat."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Meat Pie"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Much like a huckleberry pie, but filled to the brim with succulent meat."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 7, Fat = 11, Protein = 11, Vitamins = 5};
         public override float Calories                          { get { return 1300; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(MeatPieRecipe), Item.Get<MeatPieItem>().UILink(), 5, typeof(BasicBakingSpeedSkill)); 
-            this.Initialize("Meat Pie", typeof(MeatPieRecipe));
+            this.Initialize(Localizer.DoStr("Meat Pie"), typeof(MeatPieRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

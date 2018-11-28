@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Sagebrush Seed"; } }
-        public override string Description  { get { return "Plant to grow sagebrush."; } }
-        public override string SpeciesName  { get { return "Sagebrush"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Sagebrush Seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow sagebrush."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Sagebrush"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static SagebrushSeedPackItem() { }
 
-        public override string FriendlyName { get { return "Sagebrush Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow sagebrush."; } }
-        public override string SpeciesName  { get { return "Sagebrush"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Sagebrush Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow sagebrush."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Sagebrush"); } }
     }
 
 }

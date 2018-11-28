@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Laboratory"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Laboratory"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(LaboratoryItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class LaboratoryItem :
         WorldObjectItem<LaboratoryObject> 
     {
-        public override string FriendlyName { get { return "Laboratory"; } } 
-        public override string Description  { get { return  "For researching the science side of cooking. Science rules!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Laboratory"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("For researching the science side of cooking. Science rules!"); } }
 
         static LaboratoryItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LaboratoryRecipe), Item.Get<LaboratoryItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LaboratoryItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Laboratory", typeof(LaboratoryRecipe));
+            this.Initialize(Localizer.DoStr("Laboratory"), typeof(LaboratoryRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

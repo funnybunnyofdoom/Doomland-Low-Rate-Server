@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class VegetableMedleyItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Vegetable Medley"; } }
-        public override string Description                      { get { return "An eclectic arrangement of vegetables."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Vegetable Medley"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("An eclectic arrangement of vegetables."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 9, Fat = 8, Protein = 5, Vitamins = 20};
         public override float Calories                          { get { return 900; } }

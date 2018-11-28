@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class WiltedFiddleheadsItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Wilted Fiddleheads"; } }
-        public override string FriendlyNamePlural               { get { return "Wilted Fiddleheads"; } } 
-        public override string Description                      { get { return "While a bunch of wilted fiddleheads may seem a bit sad, at least they're nutritious."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Wilted Fiddleheads"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Wilted Fiddleheads"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("While a bunch of wilted fiddleheads may seem a bit sad, at least they're nutritious."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 4, Fat = 0, Protein = 1, Vitamins = 8};
         public override float Calories                          { get { return 500; } }
@@ -42,10 +42,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FiddleheadsItem>(6)    
+                new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 6, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)     
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Wilted Fiddleheads", typeof(WiltedFiddleheadsRecipe));
+            this.Initialize(Localizer.DoStr("Wilted Fiddleheads"), typeof(WiltedFiddleheadsRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

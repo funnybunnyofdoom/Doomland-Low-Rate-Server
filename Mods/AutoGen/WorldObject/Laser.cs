@@ -35,8 +35,8 @@ namespace Eco.Mods.TechTree
     public partial class LaserItem :
         WorldObjectItem<LaserObject> 
     {
-        public override string FriendlyName { get { return "Laser"; } } 
-        public override string Description  { get { return  "AVOID DIRECT EYE EXPOSURE"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Laser"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("AVOID DIRECT EYE EXPOSURE"); } }
 
         static LaserItem()
         {
@@ -74,7 +74,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LaserRecipe), Item.Get<LaserItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LaserItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Laser", typeof(LaserRecipe));
+            this.Initialize(Localizer.DoStr("Laser"), typeof(LaserRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

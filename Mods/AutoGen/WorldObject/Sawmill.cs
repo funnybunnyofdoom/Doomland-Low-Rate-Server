@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Sawmill"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Sawmill"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SawmillItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class SawmillItem :
         WorldObjectItem<SawmillObject> 
     {
-        public override string FriendlyName { get { return "Sawmill"; } } 
-        public override string Description  { get { return  "Used to saw wood into lumber."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Sawmill"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Used to saw wood into lumber."); } }
 
         static SawmillItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SawmillRecipe), Item.Get<SawmillItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SawmillItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Sawmill", typeof(SawmillRecipe));
+            this.Initialize(Localizer.DoStr("Sawmill"), typeof(SawmillRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

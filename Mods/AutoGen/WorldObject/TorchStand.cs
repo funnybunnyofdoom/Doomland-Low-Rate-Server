@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Torch Stand"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Torch Stand"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(TorchStandItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -73,8 +74,8 @@ namespace Eco.Mods.TechTree
     public partial class TorchStandItem :
         WorldObjectItem<TorchStandObject> 
     {
-        public override string FriendlyName { get { return "Torch Stand"; } } 
-        public override string Description  { get { return  "A stand for a torch."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Torch Stand"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A stand for a torch."); } }
 
         static TorchStandItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(10)                                                                    
             };
             this.CraftMinutes = new ConstantValue(2); 
-            this.Initialize("Torch Stand", typeof(TorchStandRecipe));
+            this.Initialize(Localizer.DoStr("Torch Stand"), typeof(TorchStandRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(BasicSmeltingSkill), 2)] 
     public class SmeltCopperRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<CopperOreItem>(typeof(BasicSmeltingEfficiencySkill), 10, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Smelt Copper", typeof(SmeltCopperRecipe));
+            this.Initialize(Localizer.DoStr("Smelt Copper"), typeof(SmeltCopperRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(SmeltCopperRecipe), this.UILink(), 0.5f, typeof(BasicSmeltingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }

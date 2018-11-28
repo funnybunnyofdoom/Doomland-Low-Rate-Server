@@ -44,9 +44,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Fishery"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Fishery"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(FisheryItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class FisheryItem :
         WorldObjectItem<FisheryObject> 
     {
-        public override string FriendlyName { get { return "Fishery"; } } 
-        public override string Description  { get { return  "A place to create fishing poles and traps."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fishery"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A place to create fishing poles and traps."); } }
 
         static FisheryItem()
         {
@@ -91,10 +92,10 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 20, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                   
+                new CraftingElement<LogItem>(20)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(FisheryRecipe), this.UILink(), 1f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Fishery", typeof(FisheryRecipe));
+            this.CraftMinutes = new ConstantValue(1); 
+            this.Initialize(Localizer.DoStr("Fishery"), typeof(FisheryRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

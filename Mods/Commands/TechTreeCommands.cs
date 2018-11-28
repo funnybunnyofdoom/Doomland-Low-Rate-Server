@@ -26,15 +26,15 @@ namespace Eco.Mods
             text.AppendLine("");
             text.AppendLine("ITEMS");
             foreach (var item in this.Items)
-                text.AppendLine(Item.Get(item.Key).FriendlyName + ": " + item.Value);
+                text.AppendLine(Item.Get(item.Key).DisplayName + ": " + item.Value);
             text.AppendLine("");
             text.AppendLine("BASE ITEMS");
             foreach (var item in this.BaseItems)
-                text.AppendLine(Item.Get(item.Key).FriendlyName + ": " + item.Value + "(approx " + Math.Ceiling(item.Value * 0.2) + " min)");
+                text.AppendLine(Item.Get(item.Key).DisplayName + ": " + item.Value + "(approx " + Math.Ceiling(item.Value * 0.2) + " min)");
             text.AppendLine("");
             text.AppendLine("SKILLS");
             foreach (var skill in this.Skills)
-                text.AppendLine(Item.Get(skill.Key).FriendlyName + ": " + skill.Value);
+                text.AppendLine(Item.Get(skill.Key).DisplayName + ": " + skill.Value);
             return text.ToString();
         }
     }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(MasonSkill), 0)]    
     public partial class CementSkill : Skill
     {
-        public override string FriendlyName { get { return "Cement"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Cement"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class CementSkillBook : SkillBook<CementSkill, CementSkillScroll>
     {
-        public override string FriendlyName { get { return "Cement Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cement Skill Book"); } }
     }
 
     [Serialized]
     public partial class CementSkillScroll : NewSkillScroll<CementSkill, CementSkillBook>
     {
-        public override string FriendlyName { get { return "Cement Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cement Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(BricklayingSkill), 0)] 
@@ -56,12 +56,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<BrickItem>(typeof(ResearchEfficiencySkill), 80, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<LumberItem>(typeof(ResearchEfficiencySkill), 40, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 50, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 50, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(30);
 
-            this.Initialize("Cement Skill Book", typeof(CementSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Cement Skill Book"), typeof(CementSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

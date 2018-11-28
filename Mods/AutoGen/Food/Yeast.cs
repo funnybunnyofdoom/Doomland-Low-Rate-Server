@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class YeastItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Yeast"; } }
-        public override string Description                      { get { return "A fungus that acts as an amazing leavening agent."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Yeast"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A fungus that acts as an amazing leavening agent."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 8, Vitamins = 7};
         public override float Calories                          { get { return 60; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SugarItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(YeastRecipe), Item.Get<YeastItem>().UILink(), 5, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Yeast", typeof(YeastRecipe));
+            this.Initialize(Localizer.DoStr("Yeast"), typeof(YeastRecipe));
             CraftingComponent.AddRecipe(typeof(KitchenObject), this);
         }
     }

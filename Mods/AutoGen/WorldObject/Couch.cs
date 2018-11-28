@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Couch"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Couch"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CouchItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class CouchItem :
         WorldObjectItem<CouchObject> 
     {
-        public override string FriendlyName { get { return "Couch"; } } 
-        public override string Description  { get { return  "A sweet couch to lounge on. Now with room for your friends!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Couch"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A sweet couch to lounge on. Now with room for your friends!"); } }
 
         static CouchItem()
         {
@@ -105,7 +106,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CouchRecipe), Item.Get<CouchItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CouchItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Couch", typeof(CouchRecipe));
+            this.Initialize(Localizer.DoStr("Couch"), typeof(CouchRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

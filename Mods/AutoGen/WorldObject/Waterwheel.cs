@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Waterwheel"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Waterwheel"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WaterwheelItem); } } 
+
 
 
         protected override void Initialize()
@@ -66,8 +67,8 @@ namespace Eco.Mods.TechTree
     public partial class WaterwheelItem :
         WorldObjectItem<WaterwheelObject> 
     {
-        public override string FriendlyName { get { return "Waterwheel"; } } 
-        public override string Description  { get { return  "Use the power of flowing water to produce mechanical power."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Waterwheel"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Use the power of flowing water to produce mechanical power."); } }
 
         static WaterwheelItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WaterwheelRecipe), Item.Get<WaterwheelItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WaterwheelItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Waterwheel", typeof(WaterwheelRecipe));
+            this.Initialize(Localizer.DoStr("Waterwheel"), typeof(WaterwheelRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

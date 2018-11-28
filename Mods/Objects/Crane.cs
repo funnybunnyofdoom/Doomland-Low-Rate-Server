@@ -9,6 +9,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Objects;
     using Eco.Gameplay.Players;
+    using Eco.Shared.Localization;
     using Eco.Shared.Serialization;
     using Gameplay.Components.Auth;
 
@@ -27,7 +28,7 @@ namespace Eco.Mods.TechTree
         private static Dictionary<Type, float> roadEfficiency = new Dictionary<Type, float>();
 
         protected CraneObject() { }
-        public override string FriendlyName                     { get { return "Crane"; } }
+        public override LocString DisplayName                     { get { return Localizer.DoStr("Crane"); } }
 
         private static Type[] fuelTypeList = new Type[]
         {

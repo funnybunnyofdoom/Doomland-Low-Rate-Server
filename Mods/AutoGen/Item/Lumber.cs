@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(typeof(LumberProcessingEfficiencySkill), 10, LumberProcessingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(LumberRecipe), Item.Get<LumberItem>().UILink(), 1, typeof(LumberProcessingSpeedSkill));    
-            this.Initialize("Lumber", typeof(LumberRecipe));
+            this.Initialize(Localizer.DoStr("Lumber"), typeof(LumberRecipe));
 
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
@@ -62,8 +62,8 @@ namespace Eco.Mods.TechTree
     public partial class LumberItem :
     BlockItem<LumberBlock>
     {
-        public override string FriendlyName { get { return "Lumber"; } } 
-        public override string Description { get { return "Can be fashioned into various usable equipment."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Lumber"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Can be fashioned into various usable equipment."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

@@ -10,6 +10,7 @@ using Eco.Gameplay.Interactions;
 using Eco.Gameplay.Items;
 using Eco.Gameplay.Objects;
 using Eco.Shared.Items;
+using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
 using Eco.World;
 using Eco.World.Blocks;
@@ -19,14 +20,14 @@ using Eco.World.Blocks;
 [CanMakeBlockForm(new[] {"Wall", "Floor", "Roof", "Stairs", "Window", "Fence", "Aqueduct", "Cube", "Column", "Ladder"})]
 public class HammerItem : ToolItem
 {
-    public override string Description                    { get { return "Destroys constructed materials."; } }
-    public override string FriendlyName                   { get { return "Hammer"; } }
+    public override LocString DisplayDescription                    { get { return Localizer.DoStr("Destroys constructed materials."); } }
+    public override LocString DisplayName                   { get { return Localizer.DoStr("Hammer"); } }
 
     private static IDynamicValue skilledRepairCost = new ConstantValue(1);
     public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
     public override ClientPredictedBlockAction LeftAction { get { return ClientPredictedBlockAction.PickupBlock; } }
-    public override string LeftActionDescription          { get { return "Pick Up"; } }
+    public override LocString LeftActionDescription          { get { return Localizer.DoStr("Pick Up"); } }
 
     static IDynamicValue caloriesBurn = new ConstantValue(1);
     public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }

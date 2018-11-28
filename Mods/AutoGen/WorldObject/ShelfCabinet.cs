@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Shelf Cabinet"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Shelf Cabinet"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ShelfCabinetItem); } } 
+
 
 
         protected override void Initialize()
@@ -68,8 +69,8 @@ namespace Eco.Mods.TechTree
     public partial class ShelfCabinetItem :
         WorldObjectItem<ShelfCabinetObject> 
     {
-        public override string FriendlyName { get { return "Shelf Cabinet"; } } 
-        public override string Description  { get { return  "When a shelf and a cabinet aren't enough individually."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Shelf Cabinet"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("When a shelf and a cabinet aren't enough individually."); } }
 
         static ShelfCabinetItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ShelfCabinetRecipe), Item.Get<ShelfCabinetItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ShelfCabinetItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Shelf Cabinet", typeof(ShelfCabinetRecipe));
+            this.Initialize(Localizer.DoStr("Shelf Cabinet"), typeof(ShelfCabinetRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

@@ -13,7 +13,11 @@
   "BlackList": {
     "System.String": {
       "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
-      "$values": []
+      "$values": [
+        "76561198799914512",
+        "76561198206916543",
+        "slg45342"
+      ]
     }
   },
   "Admins": {

@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MetalworkingEfficiencySkill), 20, MetalworkingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronScytheRecipe), Item.Get<IronScytheItem>().UILink(), 0.5f, typeof(MetalworkingSpeedSkill));    
-            this.Initialize("Iron Scythe", typeof(IronScytheRecipe));
+            this.Initialize(Localizer.DoStr("Iron Scythe"), typeof(IronScytheRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }
@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
     public partial class IronScytheItem : ScytheItem
     {
 
-        public override string FriendlyName { get { return "Iron Scythe"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Scythe"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(17, typeof(ScytheEfficiencySkill), typeof(IronScytheItem), new IronScytheItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 

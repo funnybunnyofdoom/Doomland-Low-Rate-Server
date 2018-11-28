@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FiberFillerItem>(typeof(FertilizerEfficiencySkill), 1, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CompositeFillerRecipe), Item.Get<CompositeFillerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Composite Filler", typeof(CompositeFillerRecipe));
+            this.Initialize(Localizer.DoStr("Composite Filler"), typeof(CompositeFillerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class CompositeFillerItem : FertilizerItem<CompositeFillerItem>
     {
-        public override string FriendlyName { get { return "Composite Filler"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Composite Filler"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static CompositeFillerItem()
         {

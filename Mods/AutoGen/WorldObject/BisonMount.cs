@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Bison Mount"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Bison Mount"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(BisonMountItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class BisonMountItem :
         WorldObjectItem<BisonMountObject> 
     {
-        public override string FriendlyName { get { return "Bison Mount"; } } 
-        public override string Description  { get { return  "A fluffy, but very dead, bison head on a mount."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Bison Mount"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A fluffy, but very dead, bison head on a mount."); } }
 
         static BisonMountItem()
         {
@@ -101,7 +102,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(BisonMountRecipe), Item.Get<BisonMountItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BisonMountItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Bison Mount", typeof(BisonMountRecipe));
+            this.Initialize(Localizer.DoStr("Bison Mount"), typeof(BisonMountRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

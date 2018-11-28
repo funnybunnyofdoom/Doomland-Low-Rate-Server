@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class BreadItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Bread"; } }
-        public override string FriendlyNamePlural               { get { return "Bread"; } } 
-        public override string Description                      { get { return "A delicious, crispy crust hides the soft interior."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Bread"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Bread"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A delicious, crispy crust hides the soft interior."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 20, Fat = 10, Protein = 5, Vitamins = 5};
         public override float Calories                          { get { return 750; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<YeastItem>(typeof(LeavenedBakingEfficiencySkill), 3, LeavenedBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BreadRecipe), Item.Get<BreadItem>().UILink(), 8, typeof(LeavenedBakingSpeedSkill)); 
-            this.Initialize("Bread", typeof(BreadRecipe));
+            this.Initialize(Localizer.DoStr("Bread"), typeof(BreadRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

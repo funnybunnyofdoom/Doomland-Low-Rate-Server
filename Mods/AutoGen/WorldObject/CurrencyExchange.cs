@@ -42,9 +42,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Currency Exchange"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Currency Exchange"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CurrencyExchangeItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class CurrencyExchangeItem :
         WorldObjectItem<CurrencyExchangeObject> 
     {
-        public override string FriendlyName { get { return "Currency Exchange"; } } 
-        public override string Description  { get { return  "Allows players to exchange currency."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Currency Exchange"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Allows players to exchange currency."); } }
 
         static CurrencyExchangeItem()
         {
@@ -98,7 +99,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CurrencyExchangeRecipe), Item.Get<CurrencyExchangeItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CurrencyExchangeItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Currency Exchange", typeof(CurrencyExchangeRecipe));
+            this.Initialize(Localizer.DoStr("Currency Exchange"), typeof(CurrencyExchangeRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

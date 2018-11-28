@@ -37,9 +37,9 @@ namespace Eco.Mods.TechTree
     public partial class GoldOreItem :
     BlockItem<GoldOreBlock>
     {
-        public override string FriendlyName { get { return "Gold Ore"; } } 
-        public override string FriendlyNamePlural { get { return "Gold Ore"; } } 
-        public override string Description { get { return "Unrefined ore with traces of gold."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Gold Ore"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Gold Ore"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Unrefined ore with traces of gold."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CopperIngotItem>(typeof(MechanicsComponentsEfficiencySkill), 10, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(HeatSinkRecipe), Item.Get<HeatSinkItem>().UILink(), 5, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Heat Sink", typeof(HeatSinkRecipe));
+            this.Initialize(Localizer.DoStr("Heat Sink"), typeof(HeatSinkRecipe));
 
             CraftingComponent.AddRecipe(typeof(ShaperObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class HeatSinkItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Heat Sink"; } } 
-        public override string Description { get { return "A copper plate to draw and disperse heat."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Heat Sink"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A copper plate to draw and disperse heat."); } }
 
     }
 

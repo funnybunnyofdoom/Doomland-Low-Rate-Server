@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BakedRoastItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Baked Roast"; } }
-        public override string Description                      { get { return "A trussed roast baked to perfection."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Baked Roast"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A trussed roast baked to perfection."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 4, Fat = 8, Protein = 13, Vitamins = 7};
         public override float Calories                          { get { return 900; } }
@@ -49,7 +49,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CamasBulbItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BakedRoastRecipe), Item.Get<BakedRoastItem>().UILink(), 5, typeof(BasicBakingSpeedSkill)); 
-            this.Initialize("Baked Roast", typeof(BakedRoastRecipe));
+            this.Initialize(Localizer.DoStr("Baked Roast"), typeof(BakedRoastRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

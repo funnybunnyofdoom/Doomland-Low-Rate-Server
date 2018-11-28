@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CerealGermItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Cereal Germ"; } }
-        public override string Description                      { get { return "A by-product of milling, the germ is the reproductive part of the cereal that germinates."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Cereal Germ"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A by-product of milling, the germ is the reproductive part of the cereal that germinates."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 5, Fat = 7, Protein = 0, Vitamins = 3};
         public override float Calories                          { get { return 20; } }

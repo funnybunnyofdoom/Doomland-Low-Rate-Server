@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wooden Fabric Bed"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Fabric Bed"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WoodenFabricBedItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class WoodenFabricBedItem :
         WorldObjectItem<WoodenFabricBedObject> 
     {
-        public override string FriendlyName { get { return "Wooden Fabric Bed"; } } 
-        public override string Description  { get { return  "A much more comfortable bed made with fabric."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Fabric Bed"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A much more comfortable bed made with fabric."); } }
 
         static WoodenFabricBedItem()
         {
@@ -104,7 +105,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WoodenFabricBedRecipe), Item.Get<WoodenFabricBedItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WoodenFabricBedItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wooden Fabric Bed", typeof(WoodenFabricBedRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Fabric Bed"), typeof(WoodenFabricBedRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

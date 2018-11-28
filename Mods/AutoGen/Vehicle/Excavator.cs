@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(30000)]  
     public class ExcavatorItem : WorldObjectItem<ExcavatorObject>
     {
-        public override string FriendlyName         { get { return "Excavator"; } }
-        public override string Description          { get { return "I EAT DIRT!"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Excavator"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("I EAT DIRT!"); } }
     }
 
     [RequiresSkill(typeof(IndustrialEngineeringSkill), 1)] 
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(50);
 
-            this.Initialize("Excavator", typeof(ExcavatorRecipe));
+            this.Initialize(Localizer.DoStr("Excavator"), typeof(ExcavatorRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

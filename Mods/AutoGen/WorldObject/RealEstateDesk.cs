@@ -42,9 +42,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Real Estate Desk"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Real Estate Desk"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RealEstateDeskItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class RealEstateDeskItem :
         WorldObjectItem<RealEstateDeskObject> 
     {
-        public override string FriendlyName { get { return "Real Estate Desk"; } } 
-        public override string Description  { get { return  "A place to manage the sale and transfer of deeds and property."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Real Estate Desk"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A place to manage the sale and transfer of deeds and property."); } }
 
         static RealEstateDeskItem()
         {
@@ -97,7 +98,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RealEstateDeskRecipe), Item.Get<RealEstateDeskItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RealEstateDeskItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Real Estate Desk", typeof(RealEstateDeskRecipe));
+            this.Initialize(Localizer.DoStr("Real Estate Desk"), typeof(RealEstateDeskRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

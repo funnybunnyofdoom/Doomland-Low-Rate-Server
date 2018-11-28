@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Garden Boots"; } }
-        public override string Description      { get { return ""; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Garden Boots"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
         public override string Slot             { get { return ClothingSlot.Shoes; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,11 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 60, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FurPeltItem>(typeof(ClothesmakingEfficiencySkill), 6, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
-            this.Initialize("Garden Boots", typeof(GardenBootsRecipe));
+            this.Initialize(Localizer.DoStr("Garden Boots"), typeof(GardenBootsRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

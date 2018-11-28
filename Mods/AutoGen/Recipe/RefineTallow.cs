@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(CulinaryArtsSkill), 2)] 
     public class RefineTallowRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<TallowItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Refine Tallow", typeof(RefineTallowRecipe));
+            this.Initialize(Localizer.DoStr("Refine Tallow"), typeof(RefineTallowRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(RefineTallowRecipe), this.UILink(), 2, typeof(CulinaryArtsSpeedSkill));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }

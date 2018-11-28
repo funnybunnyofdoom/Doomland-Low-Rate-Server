@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(EngineerSkill), 0)]    
     public partial class OilDrillingSkill : Skill
     {
-        public override string FriendlyName { get { return "Oil Drilling"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Oil Drilling"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class OilDrillingSkillBook : SkillBook<OilDrillingSkill, OilDrillingSkillScroll>
     {
-        public override string FriendlyName { get { return "Oil Drilling Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Oil Drilling Skill Book"); } }
     }
 
     [Serialized]
     public partial class OilDrillingSkillScroll : NewSkillScroll<OilDrillingSkill, OilDrillingSkillBook>
     {
-        public override string FriendlyName { get { return "Oil Drilling Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Oil Drilling Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(MechanicsSkill), 0)] 
@@ -56,12 +56,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<ReinforcedConcreteItem>(typeof(ResearchEfficiencySkill), 50, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<CombustionEngineItem>(typeof(ResearchEfficiencySkill), 4, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<LumberItem>(typeof(ResearchEfficiencySkill), 80, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<LumberItem>(typeof(ResearchEfficiencySkill), 80, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(30);
 
-            this.Initialize("Oil Drilling Skill Book", typeof(OilDrillingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Oil Drilling Skill Book"), typeof(OilDrillingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

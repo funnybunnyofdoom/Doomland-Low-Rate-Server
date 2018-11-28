@@ -37,7 +37,7 @@ namespace Eco.Mods.TechTree
             , CreateCraftTimeValue(typeof(PetroleumRecipe), Item.Get<PetroleumItem>().UILink(), 30, typeof(PetrolRefiningSpeedSkill))   
             , new LayerModifiedValue(Eco.Simulation.WorldLayers.LayerNames.Oil,3)    
             );
-            this.Initialize("Petroleum", typeof(PetroleumRecipe));
+            this.Initialize(Localizer.DoStr("Petroleum"), typeof(PetroleumRecipe));
 
             CraftingComponent.AddRecipe(typeof(PumpJackObject), this);
         }
@@ -60,9 +60,9 @@ namespace Eco.Mods.TechTree
     public partial class PetroleumItem :
     BlockItem<PetroleumBlock>
     {
-        public override string FriendlyName { get { return "Petroleum"; } } 
-        public override string FriendlyNamePlural { get { return "Petroleum"; } } 
-        public override string Description { get { return "A fossil fuel essential for manufacturing gasoline, plastics, and asphalt. It's extraction, transport, and burning all have environmental impacts."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Petroleum"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Petroleum"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A fossil fuel essential for manufacturing gasoline, plastics, and asphalt. It's extraction, transport, and burning all have environmental impacts."); } }
 
     }
 

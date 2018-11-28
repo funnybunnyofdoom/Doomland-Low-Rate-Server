@@ -20,8 +20,8 @@ namespace Eco.Mods.TechTree
     public partial class SquareJawItem :
         ClothingItem
     {
-        public override string FriendlyName { get { return "Square Jaw"; } }
-        public override string Description  { get { return "Jaw"; } }
-        public override string Slot         { get { return ClothingSlot.Face; } } 
+        public override LocString DisplayName        { get { return Localizer.DoStr("Square Jaw"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Jaw"); } }
+        public override string Slot                  { get { return ClothingSlot.Face; } } 
     }
 }

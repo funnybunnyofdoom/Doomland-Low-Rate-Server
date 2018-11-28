@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(SelfImprovementSkill), 0)]    
     public partial class StrongBackSkill : Skill
     {
-        public override string FriendlyName { get { return "Strong Back"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Strong Back"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static ModificationStrategy MultiplicativeStrategy = 
             new MultiplicativeStrategy(new float[] { 1, 1 - 5000, 1 - 10000, 1 - 15000, 1 - 20000, 1 - 25000 });

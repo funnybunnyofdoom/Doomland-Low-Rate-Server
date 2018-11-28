@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PetroleumItem>(typeof(PetrolRefiningEfficiencySkill), 5, PetrolRefiningEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(GasolineRecipe), Item.Get<GasolineItem>().UILink(), 2, typeof(PetrolRefiningSpeedSkill));    
-            this.Initialize("Gasoline", typeof(GasolineRecipe));
+            this.Initialize(Localizer.DoStr("Gasoline"), typeof(GasolineRecipe));
 
             CraftingComponent.AddRecipe(typeof(OilRefineryObject), this);
         }
@@ -58,9 +58,9 @@ namespace Eco.Mods.TechTree
     public partial class GasolineItem :
     BlockItem<GasolineBlock>
     {
-        public override string FriendlyName { get { return "Gasoline"; } } 
-        public override string FriendlyNamePlural { get { return "Gasoline"; } } 
-        public override string Description { get { return "Refined petroleum useful for fueling machines and generators."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Gasoline"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Gasoline"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Refined petroleum useful for fueling machines and generators."); } }
 
     }
 

@@ -35,8 +35,8 @@ namespace Eco.Mods.TechTree
     public partial class SmallStockpileItem :
         WorldObjectItem<SmallStockpileObject> 
     {
-        public override string FriendlyName { get { return "Small Stockpile"; } } 
-        public override string Description  { get { return  "Designates a 3x3x3 area as storage for large items."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Stockpile"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Designates a 3x3x3 area as storage for large items."); } }
 
         static SmallStockpileItem()
         {
@@ -58,10 +58,10 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 5, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                      
+                new CraftingElement<LogItem>(5)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(SmallStockpileRecipe), this.UILink(), 1f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Small Stockpile", typeof(SmallStockpileRecipe));
+            this.CraftMinutes = new ConstantValue(1); 
+            this.Initialize(Localizer.DoStr("Small Stockpile"), typeof(SmallStockpileRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

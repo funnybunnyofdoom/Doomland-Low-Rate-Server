@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Elk Skypiercer"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Elk Skypiercer"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElkSkypiercerItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class ElkSkypiercerItem :
         WorldObjectItem<ElkSkypiercerObject> 
     {
-        public override string FriendlyName { get { return "Elk Skypiercer"; } } 
-        public override string Description  { get { return  "You can hear the faint cries of Ecko when this mythical elk antler is held aloft."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Elk Skypiercer"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("You can hear the faint cries of Ecko when this mythical elk antler is held aloft."); } }
 
         static ElkSkypiercerItem()
         {
@@ -96,7 +97,7 @@ namespace Eco.Mods.TechTree
             {
             };
             this.CraftMinutes = new ConstantValue(); 
-            this.Initialize("Elk Skypiercer", typeof(ElkSkypiercerRecipe));
+            this.Initialize(Localizer.DoStr("Elk Skypiercer"), typeof(ElkSkypiercerRecipe));
             CraftingComponent.AddRecipe(typeof(Object), this);
         }
     }

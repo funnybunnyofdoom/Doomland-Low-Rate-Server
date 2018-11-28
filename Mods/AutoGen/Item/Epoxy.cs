@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PetroleumItem>(typeof(PetrolRefiningEfficiencySkill), 5, PetrolRefiningEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(EpoxyRecipe), Item.Get<EpoxyItem>().UILink(), 2, typeof(PetrolRefiningSpeedSkill));    
-            this.Initialize("Epoxy", typeof(EpoxyRecipe));
+            this.Initialize(Localizer.DoStr("Epoxy"), typeof(EpoxyRecipe));
 
             CraftingComponent.AddRecipe(typeof(OilRefineryObject), this);
         }
@@ -46,9 +46,9 @@ namespace Eco.Mods.TechTree
     public partial class EpoxyItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Epoxy"; } } 
-        public override string FriendlyNamePlural { get { return "Epoxy"; } } 
-        public override string Description { get { return "A useful material for hardening, curing, and other various uses."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Epoxy"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Epoxy"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A useful material for hardening, curing, and other various uses."); } }
 
     }
 

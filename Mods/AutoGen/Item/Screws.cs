@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MechanicsComponentsEfficiencySkill), 2, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ScrewsRecipe), Item.Get<ScrewsItem>().UILink(), 5, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Screws", typeof(ScrewsRecipe));
+            this.Initialize(Localizer.DoStr("Screws"), typeof(ScrewsRecipe));
 
             CraftingComponent.AddRecipe(typeof(LatheObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class ScrewsItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Screws"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Screws"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class PrimeCutItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Prime Cut"; } }
-        public override string Description                      { get { return "A perfectly marbled piece of meat."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Prime Cut"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A perfectly marbled piece of meat."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 4, Protein = 9, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawMeatItem>(typeof(MeatPrepEfficiencySkill), 40, MeatPrepEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PrimeCutRecipe), Item.Get<PrimeCutItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
-            this.Initialize("Prime Cut", typeof(PrimeCutRecipe));
+            this.Initialize(Localizer.DoStr("Prime Cut"), typeof(PrimeCutRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }
     }

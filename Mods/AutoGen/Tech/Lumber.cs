@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(CarpenterSkill), 0)]    
     public partial class LumberSkill : Skill
     {
-        public override string FriendlyName { get { return "Lumber"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Lumber"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public override int RequiredPoint { get { return 0; } }
         public override int MaxLevel { get { return 1; } }
@@ -32,13 +32,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class LumberSkillBook : SkillBook<LumberSkill, LumberSkillScroll>
     {
-        public override string FriendlyName { get { return "Lumber Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Lumber Skill Book"); } }
     }
 
     [Serialized]
     public partial class LumberSkillScroll : NewSkillScroll<LumberSkill, LumberSkillBook>
     {
-        public override string FriendlyName { get { return "Lumber Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Lumber Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(HewingSkill), 0)] 
@@ -54,12 +54,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<HewnLogItem>(typeof(ResearchEfficiencySkill), 40, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<ClothItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<ClothItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(15);
 
-            this.Initialize("Lumber Skill Book", typeof(LumberSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Lumber Skill Book"), typeof(LumberSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

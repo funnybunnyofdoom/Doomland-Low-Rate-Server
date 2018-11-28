@@ -19,8 +19,8 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public class StarterCampItem : WorldObjectItem<StarterCampObject>
     {
-        public override string FriendlyName { get { return "Starter Camp"; } }
-        public override string Description { get { return Localizer.DoStr("A combination of a small tent and a tiny stockpile."); } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Starter Camp"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A combination of a small tent and a tiny stockpile."); } }
 
         public override Result OnAreaValid(Player player, Vector3i position, Quaternion rotation)
         {
@@ -65,7 +65,7 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public class StarterCampObject : WorldObject
     {
-        public override string FriendlyName { get { return Localizer.DoStr("Starting Camp"); } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Starting Camp"); } }
 
         public static readonly Vector3i DefaultDim = new Vector3i(6, 3, 2);
     }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class PreparedMeatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Prepared Meat"; } }
-        public override string Description                      { get { return "Carefully butchered meat, ready to cook."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Prepared Meat"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Carefully butchered meat, ready to cook."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 6, Protein = 4, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawMeatItem>(typeof(MeatPrepEfficiencySkill), 10, MeatPrepEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PreparedMeatRecipe), Item.Get<PreparedMeatItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
-            this.Initialize("Prepared Meat", typeof(PreparedMeatRecipe));
+            this.Initialize(Localizer.DoStr("Prepared Meat"), typeof(PreparedMeatRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }
     }

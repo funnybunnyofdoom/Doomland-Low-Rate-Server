@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(StrongBackSkill), 1)]    
     public partial class BigStomachSkill : Skill
     {
-        public override string FriendlyName { get { return "Big Stomach"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Big Stomach"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static ModificationStrategy MultiplicativeStrategy = 
             new MultiplicativeStrategy(new float[] { 1, 1 - 500, 1 - 1000, 1 - 1500, 1 - 2000, 1 - 2500 });

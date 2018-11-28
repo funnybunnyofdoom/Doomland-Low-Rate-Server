@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(CastingEfficiencySkill), 5, CastingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RebarRecipe), Item.Get<RebarItem>().UILink(), 0.5f, typeof(CastingSpeedSkill));    
-            this.Initialize("Rebar", typeof(RebarRecipe));
+            this.Initialize(Localizer.DoStr("Rebar"), typeof(RebarRecipe));
 
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class RebarItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Rebar"; } } 
-        public override string Description { get { return "Ribbed steel bars for reinforcing stuctures."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Rebar"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Ribbed steel bars for reinforcing stuctures."); } }
 
     }
 

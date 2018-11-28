@@ -27,9 +27,9 @@ namespace Eco.Mods.TechTree
     public partial class PitchItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Pitch"; } } 
-        public override string FriendlyNamePlural { get { return "Pitch"; } } 
-        public override string Description { get { return "A binding pitch useful as a mortar. Used as pitch."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Pitch"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Pitch"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A binding pitch useful as a mortar. Used as pitch."); } }
 
     }
 

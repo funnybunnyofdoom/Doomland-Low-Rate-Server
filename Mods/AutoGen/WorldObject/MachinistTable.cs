@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Machinist Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Machinist Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(MachinistTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class MachinistTableItem :
         ModuleItem<MachinistTableObject> 
     {
-        public override string FriendlyName { get { return "Machinist Table"; } } 
-        public override string Description  { get { return  "A fancy tool bench that creates equally fancy toys."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Machinist Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A fancy tool bench that creates equally fancy toys."); } }
 
         static MachinistTableItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(MachinistTableRecipe), Item.Get<MachinistTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<MachinistTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Machinist Table", typeof(MachinistTableRecipe));
+            this.Initialize(Localizer.DoStr("Machinist Table"), typeof(MachinistTableRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class PricklyPearFruitItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Prickly Pear Fruit"; } }
-        public override string Description                      { get { return "A succulent fruit coated in a rather terrifying array of spines."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Prickly Pear Fruit"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A succulent fruit coated in a rather terrifying array of spines."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 2, Fat = 1, Protein = 1, Vitamins = 3};
         public override float Calories                          { get { return 190; } }

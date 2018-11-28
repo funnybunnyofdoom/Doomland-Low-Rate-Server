@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class MaltodextrinItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Maltodextrin"; } }
-        public override string Description                      { get { return "For powdering high-fat liquids."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Maltodextrin"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("For powdering high-fat liquids."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 10; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CornStarchItem>(typeof(MolecularGastronomyEfficiencySkill), 20, MolecularGastronomyEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(MaltodextrinRecipe), Item.Get<MaltodextrinItem>().UILink(), 20, typeof(MolecularGastronomySpeedSkill)); 
-            this.Initialize("Maltodextrin", typeof(MaltodextrinRecipe));
+            this.Initialize(Localizer.DoStr("Maltodextrin"), typeof(MaltodextrinRecipe));
             CraftingComponent.AddRecipe(typeof(LaboratoryObject), this);
         }
     }

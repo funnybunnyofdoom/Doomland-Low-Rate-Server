@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CampfireRoastItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Campfire Roast"; } }
-        public override string Description                      { get { return "The uneven flame might be mediocre for cooking, but the open flame imparts a great flavor."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Campfire Roast"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("The uneven flame might be mediocre for cooking, but the open flame imparts a great flavor."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 12, Protein = 16, Vitamins = 0};
         public override float Calories                          { get { return 1000; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawRoastItem>(typeof(CampfireCreationsEfficiencySkill), 3, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CampfireRoastRecipe), Item.Get<CampfireRoastItem>().UILink(), 10, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Campfire Roast", typeof(CampfireRoastRecipe));
+            this.Initialize(Localizer.DoStr("Campfire Roast"), typeof(CampfireRoastRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

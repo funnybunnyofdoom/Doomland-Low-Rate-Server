@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class ElkTacoItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Elk Taco"; } }
-        public override string Description                      { get { return "A tasty treat made from corn tortillas and meat."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Elk Taco"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A tasty treat made from corn tortillas and meat."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 10, Protein = 15, Vitamins = 14};
         public override float Calories                          { get { return 650; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<WildMixItem>(typeof(CulinaryArtsEfficiencySkill), 5, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ElkTacoRecipe), Item.Get<ElkTacoItem>().UILink(), 15, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Elk Taco", typeof(ElkTacoRecipe));
+            this.Initialize(Localizer.DoStr("Elk Taco"), typeof(ElkTacoRecipe));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }

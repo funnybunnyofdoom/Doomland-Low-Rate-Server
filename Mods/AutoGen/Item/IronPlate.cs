@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MechanicsComponentsEfficiencySkill), 4, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronPlateRecipe), Item.Get<IronPlateItem>().UILink(), 5, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Iron Plate", typeof(IronPlateRecipe));
+            this.Initialize(Localizer.DoStr("Iron Plate"), typeof(IronPlateRecipe));
 
             CraftingComponent.AddRecipe(typeof(ScrewPressObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class IronPlateItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Iron Plate"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Plate"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

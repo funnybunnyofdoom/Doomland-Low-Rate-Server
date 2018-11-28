@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Big Backpack"; } }
-        public override string Description      { get { return "BIGGER BACKPACKS????"; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Big Backpack"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("BIGGER BACKPACKS????"); } }
         public override string Slot             { get { return ClothingSlot.Back; } }             
         public override bool Starter            { get { return false ; } }                       
 
@@ -49,7 +49,7 @@ public override Dictionary<UserStatType, float> GetFlatStats() { return flatStat
                 new CraftingElement<ClothItem>(typeof(ClothesmakingEfficiencySkill), 10, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Big Backpack", typeof(BigBackpackRecipe));
+            this.Initialize(Localizer.DoStr("Big Backpack"), typeof(BigBackpackRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

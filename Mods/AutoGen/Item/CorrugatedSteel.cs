@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(SteelworkingEfficiencySkill), 2, SteelworkingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CorrugatedSteelRecipe), Item.Get<CorrugatedSteelItem>().UILink(), 2, typeof(SteelworkingSpeedSkill));    
-            this.Initialize("Corrugated Steel", typeof(CorrugatedSteelRecipe));
+            this.Initialize(Localizer.DoStr("Corrugated Steel"), typeof(CorrugatedSteelRecipe));
 
             CraftingComponent.AddRecipe(typeof(RollingMillObject), this);
         }
@@ -58,8 +58,8 @@ namespace Eco.Mods.TechTree
     public partial class CorrugatedSteelItem :
     BlockItem<CorrugatedSteelBlock>
     {
-        public override string FriendlyName { get { return "Corrugated Steel"; } } 
-        public override string Description { get { return "Especially useful for industrial buildings."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Corrugated Steel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Especially useful for industrial buildings."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

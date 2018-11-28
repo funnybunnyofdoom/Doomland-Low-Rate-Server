@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PlantFibersItem>(typeof(ClothProductionEfficiencySkill), 20, ClothProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CelluloseFiberRecipe), Item.Get<CelluloseFiberItem>().UILink(), 2, typeof(ClothProductionSpeedSkill));    
-            this.Initialize("Cellulose Fiber", typeof(CelluloseFiberRecipe));
+            this.Initialize(Localizer.DoStr("Cellulose Fiber"), typeof(CelluloseFiberRecipe));
 
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class CelluloseFiberItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Cellulose Fiber"; } } 
-        public override string Description { get { return "Created by taking pulped plants and extruding them similarly to synthetic fibers."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cellulose Fiber"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Created by taking pulped plants and extruding them similarly to synthetic fibers."); } }
 
     }
 

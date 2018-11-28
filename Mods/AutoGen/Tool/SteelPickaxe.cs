@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(SteelworkingEfficiencySkill), 20, SteelworkingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteelPickaxeRecipe), Item.Get<SteelPickaxeItem>().UILink(), 0.5f, typeof(SteelworkingSpeedSkill));    
-            this.Initialize("Steel Pickaxe", typeof(SteelPickaxeRecipe));
+            this.Initialize(Localizer.DoStr("Steel Pickaxe"), typeof(SteelPickaxeRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }
@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
     public partial class SteelPickaxeItem : PickaxeItem
     {
 
-        public override string FriendlyName { get { return "Steel Pickaxe"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel Pickaxe"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(15, typeof(MiningEfficiencySkill), typeof(SteelPickaxeItem), new SteelPickaxeItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 

@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "SolarPanels"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("SolarPanels"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SolarGeneratorItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class SolarGeneratorItem :
         WorldObjectItem<SolarGeneratorObject> 
     {
-        public override string FriendlyName { get { return "SolarPanels"; } } 
-        public override string Description  { get { return  "Generates electrical power from the sun! It also stores energy to work at night."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("SolarPanels"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Generates electrical power from the sun! It also stores energy to work at night."); } }
 
         static SolarGeneratorItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SolarGeneratorRecipe), Item.Get<SolarGeneratorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SolarGeneratorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Solar Generator", typeof(SolarGeneratorRecipe));
+            this.Initialize(Localizer.DoStr("Solar Generator"), typeof(SolarGeneratorRecipe));
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
     }

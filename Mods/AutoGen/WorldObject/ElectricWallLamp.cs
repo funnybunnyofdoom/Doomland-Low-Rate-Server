@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Electric Wall Lamp"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Wall Lamp"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElectricWallLampItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class ElectricWallLampItem :
         WorldObjectItem<ElectricWallLampObject> 
     {
-        public override string FriendlyName { get { return "Electric Wall Lamp"; } } 
-        public override string Description  { get { return  "A wall mounted lamp that requires electricity to turn on."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Wall Lamp"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A wall mounted lamp that requires electricity to turn on."); } }
 
         static ElectricWallLampItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ElectricWallLampRecipe), Item.Get<ElectricWallLampItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ElectricWallLampItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Electric Wall Lamp", typeof(ElectricWallLampRecipe));
+            this.Initialize(Localizer.DoStr("Electric Wall Lamp"), typeof(ElectricWallLampRecipe));
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
     }

@@ -4,6 +4,7 @@
 namespace Eco.Mods.TechTree
 {
     using Eco.Gameplay.Items;
+    using Eco.Shared.Localization;
     using Eco.Shared.Serialization;
 
     [Serialized]
@@ -11,9 +12,9 @@ namespace Eco.Mods.TechTree
     [RequiresTool(typeof(ShovelItem))]
     public partial class GarbageItem : BlockItem<GarbageBlock>
     {
-        public override string FriendlyName { get { return "Garbage"; } }
-        public override string FriendlyNamePlural { get { return "Garbage"; } }
-        public override string Description { get { return "A disgusting pile of garbage."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Garbage"); } }
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Garbage"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A disgusting pile of garbage."); } }
         public override bool CanStickToWalls { get { return false; } }
     }
     [Serialized]

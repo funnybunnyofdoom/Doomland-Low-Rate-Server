@@ -21,7 +21,7 @@ namespace Eco.Mods.TechTree
 
         private static SkillModifiedValue skilledRepairCost = new SkillModifiedValue(10, FishingSkill.MultiplicativeStrategy, typeof(FishingSkill), Localizer.DoStr("repair cost"));
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
-        public override string FriendlyName { get { return "Fishing Pole"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fishing Pole"); } }
 
         static FishingPoleItem() { }
 

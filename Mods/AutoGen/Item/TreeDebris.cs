@@ -38,8 +38,8 @@ namespace Eco.Mods.TechTree
     public partial class TreeDebrisItem :
     BlockItem<TreeDebrisBlock>
     {
-        public override string FriendlyName { get { return "Tree Debris"; } } 
-        public override string Description { get { return "Clear cut debris that needs to be broken down to be more usable."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tree Debris"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Clear cut debris that needs to be broken down to be more usable."); } }
 
     }
 

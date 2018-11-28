@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LumberItem>(typeof(SteelworkingEfficiencySkill), 5, SteelworkingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalRecipe), Item.Get<CharcoalItem>().UILink(), 1, typeof(SteelworkingSpeedSkill));    
-            this.Initialize("Charcoal", typeof(CharcoalRecipe));
+            this.Initialize(Localizer.DoStr("Charcoal"), typeof(CharcoalRecipe));
 
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class CharcoalItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Charcoal"; } } 
-        public override string Description { get { return "A black residue, consisting of carbon and any remaining ash."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Charcoal"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A black residue, consisting of carbon and any remaining ash."); } }
 
     }
 

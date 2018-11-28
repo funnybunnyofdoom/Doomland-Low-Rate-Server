@@ -28,7 +28,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(StoneHammerRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Stone Hammer", typeof(StoneHammerRecipe));
+            this.Initialize(Localizer.DoStr("Stone Hammer"), typeof(StoneHammerRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }
@@ -38,11 +38,11 @@ namespace Eco.Mods.TechTree
     public partial class StoneHammerItem : HammerItem
     {
 
-        public override string FriendlyName { get { return "Stone Hammer"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Hammer"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(20, typeof(CalorieEfficiencySkill), typeof(StoneHammerItem), new StoneHammerItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 
-        private static IDynamicValue skilledRepairCost = new SkillModifiedValue(5, BasicCraftingEfficiencySkill.MultiplicativeStrategy, typeof(BasicCraftingEfficiencySkill), Localizer.DoStr("repair cost"));  
+        private static IDynamicValue skilledRepairCost = new ConstantValue(5);  
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
 

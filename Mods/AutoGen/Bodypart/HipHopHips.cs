@@ -20,8 +20,8 @@ namespace Eco.Mods.TechTree
     public partial class HipHopHipsItem :
         ClothingItem
     {
-        public override string FriendlyName { get { return "Hip Hop Hips"; } }
-        public override string Description  { get { return "Hips"; } }
-        public override string Slot         { get { return ClothingSlot.Hips; } } 
+        public override LocString DisplayName        { get { return Localizer.DoStr("Hip Hop Hips"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Hips"); } }
+        public override string Slot                  { get { return ClothingSlot.Hips; } } 
     }
 }

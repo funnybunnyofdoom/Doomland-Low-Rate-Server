@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Contract Board"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Contract Board"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ContractBoardItem); } } 
+
 
 
         protected override void Initialize()
@@ -61,8 +62,8 @@ namespace Eco.Mods.TechTree
     public partial class ContractBoardItem :
         WorldObjectItem<ContractBoardObject> 
     {
-        public override string FriendlyName { get { return "Contract Board"; } } 
-        public override string Description  { get { return  "A board to post contracts."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Contract Board"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A board to post contracts."); } }
 
         static ContractBoardItem()
         {
@@ -91,7 +92,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ContractBoardRecipe), Item.Get<ContractBoardItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ContractBoardItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Contract Board", typeof(ContractBoardRecipe));
+            this.Initialize(Localizer.DoStr("Contract Board"), typeof(ContractBoardRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

@@ -5,15 +5,16 @@ using System.ComponentModel;
 using Eco.Gameplay.Components;
 using Eco.Gameplay.Items;
 using Eco.Gameplay.Objects;
+using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
 
 [Serialized]
 [Category("Hidden")]
 public class TransmissionPoleItem : WorldObjectItem<TransmissionPoleObject>
 {
-    public override string FriendlyName { get { return "Transmission Pole"; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Transmission Pole"); } }
 
-    public override string Description  { get { return "Can link energy."; } }
+    public override LocString DisplayDescription  { get { return Localizer.DoStr("Can link energy."); } }
 }
 
 [Serialized]
@@ -21,7 +22,7 @@ public class TransmissionPoleItem : WorldObjectItem<TransmissionPoleObject>
 [RequireComponent(typeof(MinimapComponent))]
 public class TransmissionPoleObject : WorldObject
 {
-    public override string FriendlyName { get { return "Transmission Pole"; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Transmission Pole"); } }
 
     private TransmissionPoleObject()
     { }
@@ -31,6 +32,6 @@ public class TransmissionPoleObject : WorldObject
         base.Initialize();
 
         this.GetComponent<PowerGridComponent>().Initialize(10f, new ElectricPower());
-        this.GetComponent<MinimapComponent>().Initialize("Power Structures");
+        this.GetComponent<MinimapComponent>().Initialize(Localizer.DoStr("Power Structures"));
     }
 }

@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Carved Pumpkin"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Carved Pumpkin"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CarvedPumpkinItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class CarvedPumpkinItem :
         WorldObjectItem<CarvedPumpkinObject> 
     {
-        public override string FriendlyName { get { return "Carved Pumpkin"; } } 
-        public override string Description  { get { return  "Spooky pumpkin that emits a magic light."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Carved Pumpkin"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Spooky pumpkin that emits a magic light."); } }
 
         static CarvedPumpkinItem()
         {
@@ -96,7 +97,7 @@ namespace Eco.Mods.TechTree
             {
             };
             this.CraftMinutes = new ConstantValue(); 
-            this.Initialize("Carved Pumpkin", typeof(CarvedPumpkinRecipe));
+            this.Initialize(Localizer.DoStr("Carved Pumpkin"), typeof(CarvedPumpkinRecipe));
             CraftingComponent.AddRecipe(typeof(Object), this);
         }
     }

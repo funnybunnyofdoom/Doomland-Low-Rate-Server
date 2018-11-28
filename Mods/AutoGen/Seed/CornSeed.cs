@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Corn Seed"; } }
-        public override string Description  { get { return "Plant to grow corn."; } }
-        public override string SpeciesName  { get { return "Corn"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Corn Seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow corn."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Corn"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static CornSeedPackItem() { }
 
-        public override string FriendlyName { get { return "Corn Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow corn."; } }
-        public override string SpeciesName  { get { return "Corn"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Corn Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow corn."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Corn"); } }
     }
 
     [RequiresSkill(typeof(SeedProductionSkill), 4)]    
@@ -64,7 +64,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CornSeedItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Corn Seed", typeof(CornSeedRecipe));
+            this.Initialize(Localizer.DoStr("Corn Seed"), typeof(CornSeedRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class AmanitaMushroomsItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Amanita Mushrooms"; } }
-        public override string Description                      { get { return "A potentially poisonous mushroom. It might be wise to not eat it."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Amanita Mushrooms"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A potentially poisonous mushroom. It might be wise to not eat it."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return -200; } }

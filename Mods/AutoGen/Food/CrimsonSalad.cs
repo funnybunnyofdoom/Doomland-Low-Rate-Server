@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CrimsonSaladItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Crimson Salad"; } }
-        public override string Description                      { get { return "Just in case you want to eat red things without eating meat."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Crimson Salad"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Just in case you want to eat red things without eating meat."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 15, Fat = 12, Protein = 9, Vitamins = 20};
         public override float Calories                          { get { return 1100; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TomatoItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CrimsonSaladRecipe), Item.Get<CrimsonSaladItem>().UILink(), 15, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Crimson Salad", typeof(CrimsonSaladRecipe));
+            this.Initialize(Localizer.DoStr("Crimson Salad"), typeof(CrimsonSaladRecipe));
             CraftingComponent.AddRecipe(typeof(KitchenObject), this);
         }
     }

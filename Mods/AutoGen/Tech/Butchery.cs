@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(HunterSkill), 0)]    
     public partial class ButcherySkill : Skill
     {
-        public override string FriendlyName { get { return "Butchery"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Butchery"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class ButcherySkillBook : SkillBook<ButcherySkill, ButcherySkillScroll>
     {
-        public override string FriendlyName { get { return "Butchery Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Butchery Skill Book"); } }
     }
 
     [Serialized]
     public partial class ButcherySkillScroll : NewSkillScroll<ButcherySkill, ButcherySkillBook>
     {
-        public override string FriendlyName { get { return "Butchery Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Butchery Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(HuntingSkill), 0)] 
@@ -60,7 +60,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(5);
 
-            this.Initialize("Butchery Skill Book", typeof(ButcherySkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Butchery Skill Book"), typeof(ButcherySkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

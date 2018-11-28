@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     public class CampfireHareRecipe : Recipe
     {
@@ -24,7 +25,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<HareCarcassItem>(1)  
             };
-            this.Initialize("Campfire Hare", typeof(CampfireHareRecipe));
+            this.Initialize(Localizer.DoStr("Campfire Hare"), typeof(CampfireHareRecipe));
             this.CraftMinutes = new ConstantValue(1); 
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

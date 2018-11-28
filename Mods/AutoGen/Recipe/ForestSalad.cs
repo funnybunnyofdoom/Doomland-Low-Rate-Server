@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(HomeCookingSkill), 1)] 
     public class ForestSaladRecipe : Recipe
@@ -27,7 +28,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberriesItem>(typeof(HomeCookingEfficiencySkill), 30, HomeCookingEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<BeansItem>(typeof(HomeCookingEfficiencySkill), 20, HomeCookingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Forest Salad", typeof(ForestSaladRecipe));
+            this.Initialize(Localizer.DoStr("Forest Salad"), typeof(ForestSaladRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(ForestSaladRecipe), this.UILink(), 2, typeof(HomeCookingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }

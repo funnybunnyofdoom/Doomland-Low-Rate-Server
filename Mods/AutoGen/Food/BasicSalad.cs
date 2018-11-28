@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BasicSaladItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Basic Salad"; } }
-        public override string Description                      { get { return "A seemingly random assortment of wild plants that form a sort of salad."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Basic Salad"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A seemingly random assortment of wild plants that form a sort of salad."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 13, Fat = 6, Protein = 6, Vitamins = 13};
         public override float Calories                          { get { return 800; } }

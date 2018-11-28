@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class AxeItem :
     WeaponItem                        
     {
-        public override string FriendlyName { get { return "Axe"; } } 
-        public override string Description { get { return "A broadheaded axe useful for felling trees."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Axe"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A broadheaded axe useful for felling trees."); } }
 
     }
 

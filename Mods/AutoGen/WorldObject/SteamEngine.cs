@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Steam Engine"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Steam Engine"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SteamEngineItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -56,8 +57,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -83,8 +83,8 @@ namespace Eco.Mods.TechTree
     public partial class SteamEngineItem :
         WorldObjectItem<SteamEngineObject> 
     {
-        public override string FriendlyName { get { return "Steam Engine"; } } 
-        public override string Description  { get { return  "A large steam engine for generating power."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steam Engine"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large steam engine for generating power."); } }
 
         static SteamEngineItem()
         {
@@ -125,7 +125,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SteamEngineRecipe), Item.Get<SteamEngineItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SteamEngineItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Steam Engine", typeof(SteamEngineRecipe));
+            this.Initialize(Localizer.DoStr("Steam Engine"), typeof(SteamEngineRecipe));
             CraftingComponent.AddRecipe(typeof(MachinistTableObject), this);
         }
     }

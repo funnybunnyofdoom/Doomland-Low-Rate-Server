@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HewnLogItem>(typeof(PrimitiveMechanicsEfficiencySkill), 15, PrimitiveMechanicsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(WoodenWheelRecipe), Item.Get<WoodenWheelItem>().UILink(), 5, typeof(PrimitiveMechanicsSpeedSkill));    
-            this.Initialize("Wooden Wheel", typeof(WoodenWheelRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Wheel"), typeof(WoodenWheelRecipe));
 
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class WoodenWheelItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Wooden Wheel"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Wheel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

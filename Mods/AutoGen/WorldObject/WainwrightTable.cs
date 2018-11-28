@@ -44,9 +44,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wainwright Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wainwright Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WainwrightTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class WainwrightTableItem :
         WorldObjectItem<WainwrightTableObject> 
     {
-        public override string FriendlyName { get { return "Wainwright Table"; } } 
-        public override string Description  { get { return  "A set of smoothing and woodworking tools that assist in creating wheels and transportation."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wainwright Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A set of smoothing and woodworking tools that assist in creating wheels and transportation."); } }
 
         static WainwrightTableItem()
         {
@@ -98,7 +99,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WainwrightTableRecipe), Item.Get<WainwrightTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WainwrightTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wainwright Table", typeof(WainwrightTableRecipe));
+            this.Initialize(Localizer.DoStr("Wainwright Table"), typeof(WainwrightTableRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

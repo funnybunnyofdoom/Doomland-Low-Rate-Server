@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(MortarProductionSkill), 1)] 
     public class CharredPitchRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<WoodPulpItem>(typeof(MortarProductionEfficiencySkill), 20, MortarProductionEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Charred Pitch", typeof(CharredPitchRecipe));
+            this.Initialize(Localizer.DoStr("Charred Pitch"), typeof(CharredPitchRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(CharredPitchRecipe), this.UILink(), 0.2f, typeof(MortarProductionSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

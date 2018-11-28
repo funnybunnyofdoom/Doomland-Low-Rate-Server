@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Ceiling Candle"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Ceiling Candle"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CeilingCandleItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -72,8 +73,8 @@ namespace Eco.Mods.TechTree
     public partial class CeilingCandleItem :
         WorldObjectItem<CeilingCandleObject> 
     {
-        public override string FriendlyName { get { return "Ceiling Candle"; } } 
-        public override string Description  { get { return  "A fancy hanging candelabra."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Ceiling Candle"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A fancy hanging candelabra."); } }
 
         static CeilingCandleItem()
         {
@@ -112,7 +113,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CeilingCandleRecipe), Item.Get<CeilingCandleItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CeilingCandleItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Ceiling Candle", typeof(CeilingCandleRecipe));
+            this.Initialize(Localizer.DoStr("Ceiling Candle"), typeof(CeilingCandleRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

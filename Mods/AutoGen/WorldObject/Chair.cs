@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Chair"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Chair"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ChairItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class ChairItem :
         WorldObjectItem<ChairObject> 
     {
-        public override string FriendlyName { get { return "Chair"; } } 
-        public override string Description  { get { return  "A raised surface supported by legs. Without the back, it might be a stool."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Chair"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A raised surface supported by legs. Without the back, it might be a stool."); } }
 
         static ChairItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ChairRecipe), Item.Get<ChairItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ChairItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Chair", typeof(ChairRecipe));
+            this.Initialize(Localizer.DoStr("Chair"), typeof(ChairRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

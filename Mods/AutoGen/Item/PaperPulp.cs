@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<WoodPulpItem>(typeof(PaperEfficiencySkill), 5, PaperEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PaperPulpRecipe), Item.Get<PaperPulpItem>().UILink(), 0.25f, typeof(PaperSpeedSkill));    
-            this.Initialize("Paper Pulp", typeof(PaperPulpRecipe));
+			this.Initialize(Localizer.DoStr("Paper Pulp"), typeof(PaperPulpRecipe));
 
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class PaperPulpItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Paper Pulp"; } } 
-        public override string Description { get { return "A collection of pulp to be turned into paper."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Paper Pulp"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A collection of pulp to be turned into paper."); } }
 
     }
 

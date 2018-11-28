@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Square Pot"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Square Pot"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(PlanterPotSquareItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class PlanterPotSquareItem :
         WorldObjectItem<PlanterPotSquareObject> 
     {
-        public override string FriendlyName { get { return "Square Pot"; } } 
-        public override string Description  { get { return  "Sometimes you just want to bring a little bit of nature into your house."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Square Pot"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Sometimes you just want to bring a little bit of nature into your house."); } }
 
         static PlanterPotSquareItem()
         {
@@ -101,7 +102,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(PlanterPotSquareRecipe), Item.Get<PlanterPotSquareItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<PlanterPotSquareItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Planter Pot Square", typeof(PlanterPotSquareRecipe));
+            this.Initialize(Localizer.DoStr("Planter Pot Square"), typeof(PlanterPotSquareRecipe));
             CraftingComponent.AddRecipe(typeof(KilnObject), this);
         }
     }

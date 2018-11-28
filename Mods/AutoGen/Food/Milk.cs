@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class MilkItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Milk"; } }
-        public override string FriendlyNamePlural               { get { return "Milk"; } } 
-        public override string Description                      { get { return "Milk, although maybe not from an animal."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Milk"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Milk"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Milk, although maybe not from an animal."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 7, Protein = 10, Vitamins = 0};
         public override float Calories                          { get { return 120; } }

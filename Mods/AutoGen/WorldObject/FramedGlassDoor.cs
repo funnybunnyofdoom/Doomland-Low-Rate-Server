@@ -37,9 +37,12 @@ namespace Eco.Mods.TechTree
         DoorObject, 
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Framed Glass Door"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Framed Glass Door"); } } 
 
         public override Type RepresentedItemType { get { return typeof(FramedGlassDoorItem); } } 
+
+        public override bool HasTier { get { return true; } } 
+        public override int Tier { get { return 4; } } 
 
 
         protected override void Initialize()
@@ -60,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class FramedGlassDoorItem :
         WorldObjectItem<FramedGlassDoorObject> 
     {
-        public override string FriendlyName { get { return "Framed Glass Door"; } } 
-        public override string Description  { get { return  "A beautiful glass door made of steel and glass."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Framed Glass Door"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A beautiful glass door made of steel and glass."); } }
 
         static FramedGlassDoorItem()
         {
@@ -90,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(FramedGlassDoorRecipe), Item.Get<FramedGlassDoorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<FramedGlassDoorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Framed Glass Door", typeof(FramedGlassDoorRecipe));
+            this.Initialize(Localizer.DoStr("Framed Glass Door"), typeof(FramedGlassDoorRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

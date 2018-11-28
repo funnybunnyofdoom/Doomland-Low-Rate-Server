@@ -32,7 +32,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 2, BasicCraftingEfficiencySkill.MultiplicativeStrategy),    
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(TorchRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Torch", typeof(TorchRecipe));
+            this.Initialize(Localizer.DoStr("Torch"), typeof(TorchRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class TorchItem :
     ToolItem                        
     {
-        public override string FriendlyName { get { return "Torch"; } } 
-        public override string Description { get { return "A little bit of light to help beat back the night."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Torch"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A little bit of light to help beat back the night."); } }
 
     }
 

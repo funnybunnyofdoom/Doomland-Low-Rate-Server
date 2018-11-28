@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(MillProcessingSkill), 3)] 
     public class BeetSugarRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<BeetItem>(typeof(MillProcessingEfficiencySkill), 10, MillProcessingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Beet Sugar", typeof(BeetSugarRecipe));
+            this.Initialize(Localizer.DoStr("Beet Sugar"), typeof(BeetSugarRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(BeetSugarRecipe), this.UILink(), 5, typeof(MillProcessingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }

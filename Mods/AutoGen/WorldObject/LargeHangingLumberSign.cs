@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Large Hanging Lumber Sign"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Hanging Lumber Sign"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(LargeHangingLumberSignItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class LargeHangingLumberSignItem :
         WorldObjectItem<LargeHangingLumberSignObject> 
     {
-        public override string FriendlyName { get { return "Large Hanging Lumber Sign"; } } 
-        public override string Description  { get { return  "A large sign for all your large text needs!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Hanging Lumber Sign"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large sign for all your large text needs!"); } }
 
         static LargeHangingLumberSignItem()
         {
@@ -93,7 +94,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LargeHangingLumberSignRecipe), Item.Get<LargeHangingLumberSignItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LargeHangingLumberSignItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Large Hanging Lumber Sign", typeof(LargeHangingLumberSignRecipe));
+            this.Initialize(Localizer.DoStr("Large Hanging Lumber Sign"), typeof(LargeHangingLumberSignRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

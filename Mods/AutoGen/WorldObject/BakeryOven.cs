@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Bakery Oven"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Bakery Oven"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(BakeryOvenItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -58,8 +59,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -83,8 +83,8 @@ namespace Eco.Mods.TechTree
     public partial class BakeryOvenItem :
         WorldObjectItem<BakeryOvenObject> 
     {
-        public override string FriendlyName { get { return "Bakery Oven"; } } 
-        public override string Description  { get { return  "A solidly built brick oven useful for baking all manner of treats."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Bakery Oven"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A solidly built brick oven useful for baking all manner of treats."); } }
 
         static BakeryOvenItem()
         {
@@ -123,7 +123,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(BakeryOvenRecipe), Item.Get<BakeryOvenItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BakeryOvenItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Bakery Oven", typeof(BakeryOvenRecipe));
+            this.Initialize(Localizer.DoStr("Bakery Oven"), typeof(BakeryOvenRecipe));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }
     }

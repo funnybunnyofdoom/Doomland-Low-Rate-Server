@@ -37,9 +37,12 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Large Corrugated Steel Door"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Corrugated Steel Door"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(LargeCorrugatedSteelDoorItem); } } 
+
+        public override bool HasTier { get { return true; } } 
+        public override int Tier { get { return 3; } } 
 
 
         protected override void Initialize()
@@ -59,8 +62,8 @@ namespace Eco.Mods.TechTree
     public partial class LargeCorrugatedSteelDoorItem :
         WorldObjectItem<LargeCorrugatedSteelDoorObject> 
     {
-        public override string FriendlyName { get { return "Large Corrugated Steel Door"; } } 
-        public override string Description  { get { return  "A large door."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Corrugated Steel Door"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large door."); } }
 
         static LargeCorrugatedSteelDoorItem()
         {
@@ -89,7 +92,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LargeCorrugatedSteelDoorRecipe), Item.Get<LargeCorrugatedSteelDoorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LargeCorrugatedSteelDoorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Large Corrugated Steel Door", typeof(LargeCorrugatedSteelDoorRecipe));
+            this.Initialize(Localizer.DoStr("Large Corrugated Steel Door"), typeof(LargeCorrugatedSteelDoorRecipe));
             CraftingComponent.AddRecipe(typeof(RollingMillObject), this);
         }
     }

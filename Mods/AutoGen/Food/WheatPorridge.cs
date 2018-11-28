@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class WheatPorridgeItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Wheat Porridge"; } }
-        public override string FriendlyNamePlural               { get { return "Wheat Porridge"; } } 
-        public override string Description                      { get { return "A thick gruel of wheat, wheat, more wheat, and a dash of huckleberry flavor."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Wheat Porridge"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Wheat Porridge"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A thick gruel of wheat, wheat, more wheat, and a dash of huckleberry flavor."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 10, Fat = 0, Protein = 4, Vitamins = 10};
         public override float Calories                          { get { return 510; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberriesItem>(typeof(CampfireCreationsEfficiencySkill), 20, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(WheatPorridgeRecipe), Item.Get<WheatPorridgeItem>().UILink(), 3, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Wheat Porridge", typeof(WheatPorridgeRecipe));
+            this.Initialize(Localizer.DoStr("Wheat Porridge"), typeof(WheatPorridgeRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

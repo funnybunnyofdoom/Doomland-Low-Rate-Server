@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class SugarItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Sugar"; } }
-        public override string FriendlyNamePlural               { get { return "Sugar"; } } 
-        public override string Description                      { get { return "Even sweet lovers don't eat sugar plain."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Sugar"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Sugar"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Even sweet lovers don't eat sugar plain."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 15, Fat = 0, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 50; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberriesItem>(typeof(MillProcessingEfficiencySkill), 20, MillProcessingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SugarRecipe), Item.Get<SugarItem>().UILink(), 5, typeof(MillProcessingSpeedSkill)); 
-            this.Initialize("Sugar", typeof(SugarRecipe));
+            this.Initialize(Localizer.DoStr("Sugar"), typeof(SugarRecipe));
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }
     }

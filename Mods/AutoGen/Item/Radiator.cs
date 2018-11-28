@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CopperWiringItem>(typeof(MechanicsAssemblyEfficiencySkill), 10, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RadiatorRecipe), Item.Get<RadiatorItem>().UILink(), 4, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Radiator", typeof(RadiatorRecipe));
+            this.Initialize(Localizer.DoStr("Radiator"), typeof(RadiatorRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectricStampingPressObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class RadiatorItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Radiator"; } } 
-        public override string Description { get { return "A heat sink that uses liquid running through copper fins to disperse heat build-up."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Radiator"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A heat sink that uses liquid running through copper fins to disperse heat build-up."); } }
 
     }
 

@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RebarItem>(typeof(CementProductionEfficiencySkill), 2, CementProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ReinforcedConcreteRecipe), Item.Get<ReinforcedConcreteItem>().UILink(), 2, typeof(CementProductionSpeedSkill));    
-            this.Initialize("Reinforced Concrete", typeof(ReinforcedConcreteRecipe));
+            this.Initialize(Localizer.DoStr("Reinforced Concrete"), typeof(ReinforcedConcreteRecipe));
 
             CraftingComponent.AddRecipe(typeof(CementKilnObject), this);
         }
@@ -59,9 +59,9 @@ namespace Eco.Mods.TechTree
     public partial class ReinforcedConcreteItem :
     BlockItem<ReinforcedConcreteBlock>
     {
-        public override string FriendlyName { get { return "Reinforced Concrete"; } } 
-        public override string FriendlyNamePlural { get { return "Reinforced Concrete"; } } 
-        public override string Description { get { return "A study construction material poured around a latice of rebar."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Reinforced Concrete"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Reinforced Concrete"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A study construction material poured around a latice of rebar."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

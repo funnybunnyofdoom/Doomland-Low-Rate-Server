@@ -32,7 +32,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(2)    
             };
             this.CraftMinutes = new ConstantValue(0.1f);
-            this.Initialize("Hewn Log", typeof(HewnLogRecipe));
+            this.Initialize(Localizer.DoStr("Hewn Log"), typeof(HewnLogRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
@@ -57,8 +57,8 @@ namespace Eco.Mods.TechTree
     public partial class HewnLogItem :
     BlockItem<HewnLogBlock>
     {
-        public override string FriendlyName { get { return "Hewn Log"; } } 
-        public override string Description { get { return "A log hewn and shaped to be a building material."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Hewn Log"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A log hewn and shaped to be a building material."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

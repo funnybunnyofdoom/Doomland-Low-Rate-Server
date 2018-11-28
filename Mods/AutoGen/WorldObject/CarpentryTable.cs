@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Carpentry Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Carpentry Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CarpentryTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -66,8 +67,8 @@ namespace Eco.Mods.TechTree
     public partial class CarpentryTableItem :
         WorldObjectItem<CarpentryTableObject> 
     {
-        public override string FriendlyName { get { return "Carpentry Table"; } } 
-        public override string Description  { get { return  "A table for basic wooden crafts for home improvement and progress."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Carpentry Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A table for basic wooden crafts for home improvement and progress."); } }
 
         static CarpentryTableItem()
         {
@@ -97,7 +98,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CarpentryTableRecipe), Item.Get<CarpentryTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CarpentryTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Carpentry Table", typeof(CarpentryTableRecipe));
+            this.Initialize(Localizer.DoStr("Carpentry Table"), typeof(CarpentryTableRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

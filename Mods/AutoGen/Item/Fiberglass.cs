@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<GlassItem>(typeof(ElectronicEngineeringEfficiencySkill), 3, ElectronicEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FiberglassRecipe), Item.Get<FiberglassItem>().UILink(), 5, typeof(ElectronicEngineeringSpeedSkill));    
-            this.Initialize("Fiberglass", typeof(FiberglassRecipe));
+            this.Initialize(Localizer.DoStr("Fiberglass"), typeof(FiberglassRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
@@ -47,9 +47,9 @@ namespace Eco.Mods.TechTree
     public partial class FiberglassItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Fiberglass"; } } 
-        public override string FriendlyNamePlural { get { return "Fiberglass"; } } 
-        public override string Description { get { return "Plastic reinforced with glass fiber strands."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fiberglass"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Fiberglass"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plastic reinforced with glass fiber strands."); } }
 
     }
 

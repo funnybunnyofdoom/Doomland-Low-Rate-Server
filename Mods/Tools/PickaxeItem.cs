@@ -12,6 +12,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Stats;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Shared.Items;
+    using Eco.Shared.Localization;
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Objects;
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
         public override IDynamicValue CaloriesBurn            { get { return caloriesBurn; } }
 
         public override ClientPredictedBlockAction LeftAction { get { return ClientPredictedBlockAction.DestroyBlock; } }
-        public override string LeftActionDescription          { get { return "Mine"; } }
+        public override LocString LeftActionDescription          { get { return Localizer.DoStr("Mine"); } }
 
         private static IDynamicValue skilledRepairCost = new ConstantValue(1);
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }

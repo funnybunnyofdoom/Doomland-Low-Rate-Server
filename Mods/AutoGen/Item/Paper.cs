@@ -19,7 +19,7 @@ namespace Eco.Mods.TechTree
     using Eco.World.Blocks;
     using Eco.Gameplay.Pipes;
 
-    [RequiresSkill(typeof(PaperSkill), 2)]   
+    [RequiresSkill(typeof(PaperSkill), 1)]   
     public partial class PaperRecipe : Recipe
     {
         public PaperRecipe()
@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PaperPulpItem>(typeof(PaperEfficiencySkill), 4, PaperEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PaperRecipe), Item.Get<PaperItem>().UILink(), 0.25f, typeof(PaperSpeedSkill));    
-            this.Initialize("Paper", typeof(PaperRecipe));
+            this.Initialize(Localizer.DoStr("Paper"), typeof(PaperRecipe));
 
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class PaperItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Paper"; } } 
-        public override string Description { get { return "It's paper."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Paper"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("It's paper."); } }
 
     }
 

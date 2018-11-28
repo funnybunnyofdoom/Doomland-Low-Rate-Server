@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CopperOreItem>(typeof(BasicSmeltingEfficiencySkill), 20, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CopperIngotRecipe), Item.Get<CopperIngotItem>().UILink(), 4, typeof(BasicSmeltingSpeedSkill));    
-            this.Initialize("Copper Ingot", typeof(CopperIngotRecipe));
+            this.Initialize(Localizer.DoStr("Copper Ingot"), typeof(CopperIngotRecipe));
 
             CraftingComponent.AddRecipe(typeof(BloomeryObject), this);
         }
@@ -48,9 +48,9 @@ namespace Eco.Mods.TechTree
     public partial class CopperIngotItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Copper Bar"; } } 
-        public override string FriendlyNamePlural { get { return "Copper Bars"; } } 
-        public override string Description { get { return "A hefty block of copper."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Copper Bar"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Copper Bars"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A hefty block of copper."); } }
 
     }
 

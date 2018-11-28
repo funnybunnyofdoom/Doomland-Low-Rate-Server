@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Padded Chair"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Padded Chair"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(PaddedChairItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class PaddedChairItem :
         WorldObjectItem<PaddedChairObject> 
     {
-        public override string FriendlyName { get { return "Padded Chair"; } } 
-        public override string Description  { get { return  "A comfy chair to rest in."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Padded Chair"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A comfy chair to rest in."); } }
 
         static PaddedChairItem()
         {
@@ -105,7 +106,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(PaddedChairRecipe), Item.Get<PaddedChairItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<PaddedChairItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Padded Chair", typeof(PaddedChairRecipe));
+            this.Initialize(Localizer.DoStr("Padded Chair"), typeof(PaddedChairRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

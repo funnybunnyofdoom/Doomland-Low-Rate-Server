@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class SimmeredMeatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Simmered Meat"; } }
-        public override string Description                      { get { return "Meat cooked in meat juices keeps the meat juicy."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Simmered Meat"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Meat cooked in meat juices keeps the meat juicy."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 13, Protein = 18, Vitamins = 5};
         public override float Calories                          { get { return 900; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<MeatStockItem>(typeof(HomeCookingEfficiencySkill), 2, HomeCookingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SimmeredMeatRecipe), Item.Get<SimmeredMeatItem>().UILink(), 10, typeof(HomeCookingSpeedSkill)); 
-            this.Initialize("Simmered Meat", typeof(SimmeredMeatRecipe));
+            this.Initialize(Localizer.DoStr("Simmered Meat"), typeof(SimmeredMeatRecipe));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }

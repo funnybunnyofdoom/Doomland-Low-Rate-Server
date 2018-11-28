@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class LeatherHideItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Leather Hide"; } } 
-        public override string Description { get { return "A thick hide."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Leather Hide"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A thick hide."); } }
 
     }
 

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CO2CanisterItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "C O2 Canister"; } }
-        public override string Description                      { get { return "For creating fancy foams!"; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("C O2 Canister"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("For creating fancy foams!"); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 10; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(MolecularGastronomyEfficiencySkill), 2, MolecularGastronomyEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CO2CanisterRecipe), Item.Get<CO2CanisterItem>().UILink(), 20, typeof(MolecularGastronomySpeedSkill)); 
-            this.Initialize("C O2 Canister", typeof(CO2CanisterRecipe));
+            this.Initialize(Localizer.DoStr("C O2 Canister"), typeof(CO2CanisterRecipe));
             CraftingComponent.AddRecipe(typeof(LaboratoryObject), this);
         }
     }

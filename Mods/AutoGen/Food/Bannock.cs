@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BannockItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Bannock"; } }
-        public override string Description                      { get { return "A dense whole wheat unleavened bread."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Bannock"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A dense whole wheat unleavened bread."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 15, Fat = 8, Protein = 3, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 3, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BannockRecipe), Item.Get<BannockItem>().UILink(), 5, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Bannock", typeof(BannockRecipe));
+            this.Initialize(Localizer.DoStr("Bannock"), typeof(BannockRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

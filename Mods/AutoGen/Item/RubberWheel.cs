@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SyntheticRubberItem>(typeof(IndustrialEngineeringEfficiencySkill), 10, IndustrialEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RubberWheelRecipe), Item.Get<RubberWheelItem>().UILink(), 5, typeof(IndustrialEngineeringSpeedSkill));    
-            this.Initialize("Rubber Wheel", typeof(RubberWheelRecipe));
+            this.Initialize(Localizer.DoStr("Rubber Wheel"), typeof(RubberWheelRecipe));
 
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class RubberWheelItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Rubber Wheel"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Rubber Wheel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

@@ -9,13 +9,14 @@ using Eco.World;
 using Eco.World.Blocks;
 using Eco.World.Utils;
 using Eco.Gameplay.DynamicValues;
+using Eco.Shared.Localization;
 
 [Serialized]
 [Category("Hidden")]
 public class DevFloodToolItem : ToolItem
 {
-    public override string Description  { get { return "Flood fixing tool! Left click to remove the top water layer. (Target a wall touching water)"; } }
-    public override string FriendlyName { get { return "Dev Flood Tool"; } }
+    public override LocString DisplayDescription  { get { return Localizer.DoStr("Flood fixing tool! Left click to remove the top water layer. (Target a wall touching water)"); } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Dev Flood Tool"); } }
 
     private static IDynamicValue skilledRepairCost = new ConstantValue(1);
     public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }

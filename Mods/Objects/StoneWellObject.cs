@@ -4,13 +4,14 @@ namespace Eco.Mods.TechTree
 {
     using Eco.Gameplay.Components;
     using Eco.Gameplay.Objects;
+    using Eco.Shared.Localization;
     using Shared.Serialization;
 
     [Serialized]
     [RequireComponent(typeof(MinimapComponent))]
     public partial class StoneWellObject : WorldObject
     {
-        public override string FriendlyName { get { return "Stone Well"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Well"); } }
 
         private StoneWellObject() { }
 
@@ -18,7 +19,7 @@ namespace Eco.Mods.TechTree
         {
             base.Initialize();
 
-            this.GetComponent<MinimapComponent>().Initialize("Stone Well");
+            this.GetComponent<MinimapComponent>().Initialize(Localizer.DoStr("Stone Well"));
         }
 
         protected override void OnCreate()

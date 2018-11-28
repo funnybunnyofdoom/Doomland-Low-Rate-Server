@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PlantFibersItem>(typeof(ClothProductionEfficiencySkill), 10, ClothProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ClothRecipe), Item.Get<ClothItem>().UILink(), 2, typeof(ClothProductionSpeedSkill));    
-            this.Initialize("Cloth", typeof(ClothRecipe));
+            this.Initialize(Localizer.DoStr("Cloth"), typeof(ClothRecipe));
 
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
@@ -46,9 +46,9 @@ namespace Eco.Mods.TechTree
     public partial class ClothItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Cloth"; } } 
-        public override string FriendlyNamePlural { get { return "Cloth"; } } 
-        public override string Description { get { return "A piece of rough cloth made by weaving fibers together."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cloth"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Cloth"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A piece of rough cloth made by weaving fibers together."); } }
 
     }
 

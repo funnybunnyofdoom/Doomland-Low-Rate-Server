@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Fish Trap"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Fish Trap"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(FishTrapItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class FishTrapItem :
         WorldObjectItem<FishTrapObject> 
     {
-        public override string FriendlyName { get { return "Fish Trap"; } } 
-        public override string Description  { get { return  "A trap to catch fish as they swim. It's too small to catch the larger fish. "; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fish Trap"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A trap to catch fish as they swim. It's too small to catch the larger fish. "); } }
 
         static FishTrapItem()
         {
@@ -92,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(FishTrapRecipe), Item.Get<FishTrapItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<FishTrapItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Fish Trap", typeof(FishTrapRecipe));
+            this.Initialize(Localizer.DoStr("Fish Trap"), typeof(FishTrapRecipe));
             CraftingComponent.AddRecipe(typeof(FisheryObject), this);
         }
     }

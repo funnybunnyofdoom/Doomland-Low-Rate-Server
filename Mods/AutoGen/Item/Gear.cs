@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MechanicsComponentsEfficiencySkill), 2, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(GearRecipe), Item.Get<GearItem>().UILink(), 1, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Gear", typeof(GearRecipe));
+            this.Initialize(Localizer.DoStr("Gear"), typeof(GearRecipe));
 
             CraftingComponent.AddRecipe(typeof(ShaperObject), this);
         }
@@ -46,9 +46,9 @@ namespace Eco.Mods.TechTree
     public partial class GearItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Iron Gear"; } } 
-        public override string FriendlyNamePlural { get { return "Iron Gears"; } } 
-        public override string Description { get { return "A toothed machine part that interlocks with others."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Gear"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Iron Gears"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A toothed machine part that interlocks with others."); } }
 
     }
 

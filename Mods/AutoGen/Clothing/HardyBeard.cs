@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Hardy Beard"; } }
-        public override string Description      { get { return ""; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Hardy Beard"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
         public override string Slot             { get { return ClothingSlot.FacialHair; } }             
         public override bool Starter            { get { return true ; } }                       
 

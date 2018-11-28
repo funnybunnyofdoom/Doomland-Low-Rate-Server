@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class ShovelItem :
     ToolItem                        
     {
-        public override string FriendlyName { get { return "Shovel"; } } 
-        public override string Description { get { return "A wide, flat headed tool for moving rubble, dirt, and sand."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Shovel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A wide, flat headed tool for moving rubble, dirt, and sand."); } }
 
     }
 

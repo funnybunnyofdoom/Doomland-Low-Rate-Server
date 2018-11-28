@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Washboard"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Washboard"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WashboardItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class WashboardItem :
         WorldObjectItem<WashboardObject> 
     {
-        public override string FriendlyName { get { return "Washboard"; } } 
-        public override string Description  { get { return  "Sometimes it can be nice to have clean clothes."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Washboard"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Sometimes it can be nice to have clean clothes."); } }
 
         static WashboardItem()
         {
@@ -101,7 +102,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WashboardRecipe), Item.Get<WashboardItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WashboardItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Washboard", typeof(WashboardRecipe));
+            this.Initialize(Localizer.DoStr("Washboard"), typeof(WashboardRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

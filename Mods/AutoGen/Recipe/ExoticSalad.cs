@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(HomeCookingSkill), 2)] 
     public class ExoticSaladRecipe : Recipe
@@ -27,7 +28,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CriminiMushroomsItem>(typeof(HomeCookingEfficiencySkill), 10, HomeCookingEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<RiceItem>(typeof(HomeCookingEfficiencySkill), 20, HomeCookingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Exotic Salad", typeof(ExoticSaladRecipe));
+            this.Initialize(Localizer.DoStr("Exotic Salad"), typeof(ExoticSaladRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(ExoticSaladRecipe), this.UILink(), 2, typeof(HomeCookingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }

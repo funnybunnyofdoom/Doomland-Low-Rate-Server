@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronPipeItem>(typeof(MechanicsAssemblyEfficiencySkill), 10, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteamTractorHarvesterRecipe), Item.Get<SteamTractorHarvesterItem>().UILink(), 15, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Steam Tractor Harvester", typeof(SteamTractorHarvesterRecipe));
+            this.Initialize(Localizer.DoStr("Steam Tractor Harvester"), typeof(SteamTractorHarvesterRecipe));
 
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
@@ -48,8 +48,8 @@ namespace Eco.Mods.TechTree
     public partial class SteamTractorHarvesterItem :
     VehicleToolItem                        
     {
-        public override string FriendlyName { get { return "Steam Tractor Harvester"; } } 
-        public override string Description { get { return "An attachment for the steam tractor that allows for quick harvesting of plants."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steam Tractor Harvester"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An attachment for the steam tractor that allows for quick harvesting of plants."); } }
 
     }
 

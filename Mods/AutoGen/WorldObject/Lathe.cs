@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Lathe"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Lathe"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(LatheItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class LatheItem :
         ModuleItem<LatheObject> 
     {
-        public override string FriendlyName { get { return "Lathe"; } } 
-        public override string Description  { get { return  "A set of smoothing and woodworking tools that assist in creating wheels and transportation."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Lathe"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A set of smoothing and woodworking tools that assist in creating wheels and transportation."); } }
 
         static LatheItem()
         {
@@ -104,7 +105,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LatheRecipe), Item.Get<LatheItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LatheItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Lathe", typeof(LatheRecipe));
+            this.Initialize(Localizer.DoStr("Lathe"), typeof(LatheRecipe));
             CraftingComponent.AddRecipe(typeof(MachinistTableObject), this);
         }
     }

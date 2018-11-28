@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Campsite"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Campsite"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CampsiteItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class CampsiteItem :
         WorldObjectItem<CampsiteObject> 
     {
-        public override string FriendlyName { get { return "Campsite"; } } 
-        public override string Description  { get { return  "A campsite"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Campsite"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A campsite"); } }
 
         static CampsiteItem()
         {
@@ -93,7 +94,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CampsiteRecipe), Item.Get<CampsiteItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CampsiteItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Campsite", typeof(CampsiteRecipe));
+            this.Initialize(Localizer.DoStr("Campsite"), typeof(CampsiteRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

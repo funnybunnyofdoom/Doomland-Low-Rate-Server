@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronOreItem>(typeof(BasicSmeltingEfficiencySkill), 20, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronIngotRecipe), Item.Get<IronIngotItem>().UILink(), 4, typeof(BasicSmeltingSpeedSkill));    
-            this.Initialize("Iron Ingot", typeof(IronIngotRecipe));
+            this.Initialize(Localizer.DoStr("Iron Ingot"), typeof(IronIngotRecipe));
 
             CraftingComponent.AddRecipe(typeof(BloomeryObject), this);
         }
@@ -48,9 +48,9 @@ namespace Eco.Mods.TechTree
     public partial class IronIngotItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Iron Bar"; } } 
-        public override string FriendlyNamePlural { get { return "Iron Bars"; } } 
-        public override string Description { get { return "Refined block of iron."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Bar"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Iron Bars"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Refined block of iron."); } }
 
     }
 

@@ -27,9 +27,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 1, Fat = 3, Protein = 4, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Beans"; } }
-        public override string Description  { get { return "A good source of protein."; } }
-        public override string SpeciesName  { get { return "Beans"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Beans"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A good source of protein."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Beans"); } }
 
         public override float Calories { get { return 120; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -43,9 +43,9 @@ namespace Eco.Mods.TechTree
     {
         static BeansPackItem() { }
 
-        public override string FriendlyName { get { return "Beans Pack"; } }
-        public override string Description  { get { return "A good source of protein."; } }
-        public override string SpeciesName  { get { return "Beans"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Beans Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A good source of protein."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Beans"); } }
     }
 
 }

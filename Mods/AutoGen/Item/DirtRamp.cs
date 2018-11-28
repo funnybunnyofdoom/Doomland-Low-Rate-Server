@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<DirtItem>(typeof(RoadConstructionEfficiencySkill), 4, RoadConstructionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(DirtRampRecipe), Item.Get<DirtRampItem>().UILink(), 0.5f, typeof(RoadConstructionSkill));    
-            this.Initialize("Dirt Ramp", typeof(DirtRampRecipe));
+            this.Initialize(Localizer.DoStr("Dirt Ramp"), typeof(DirtRampRecipe));
 
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);

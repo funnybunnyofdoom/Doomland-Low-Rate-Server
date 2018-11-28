@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class RawMeatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Raw Meat"; } }
-        public override string FriendlyNamePlural               { get { return "Raw Meat"; } } 
-        public override string Description                      { get { return "Fresh raw meat from the hunt. It should probably be cooked before being consumed."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Raw Meat"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Raw Meat"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Fresh raw meat from the hunt. It should probably be cooked before being consumed."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 3, Protein = 7, Vitamins = 0};
         public override float Calories                          { get { return 250; } }

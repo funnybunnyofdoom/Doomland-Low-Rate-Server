@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CrispyBaconItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Crispy Bacon"; } }
-        public override string FriendlyNamePlural               { get { return "Crispy Bacon"; } } 
-        public override string Description                      { get { return "Give me all the bacon and eggs you have."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Crispy Bacon"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Crispy Bacon"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Give me all the bacon and eggs you have."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 26, Protein = 18, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawBaconItem>(typeof(HomeCookingEfficiencySkill), 10, HomeCookingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CrispyBaconRecipe), Item.Get<CrispyBaconItem>().UILink(), 10, typeof(HomeCookingSpeedSkill)); 
-            this.Initialize("Crispy Bacon", typeof(CrispyBaconRecipe));
+            this.Initialize(Localizer.DoStr("Crispy Bacon"), typeof(CrispyBaconRecipe));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }

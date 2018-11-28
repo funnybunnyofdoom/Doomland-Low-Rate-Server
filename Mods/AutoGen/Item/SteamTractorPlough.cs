@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<ScrewsItem>(typeof(MechanicsAssemblyEfficiencySkill), 20, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteamTractorPloughRecipe), Item.Get<SteamTractorPloughItem>().UILink(), 15, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Steam Tractor Plough", typeof(SteamTractorPloughRecipe));
+            this.Initialize(Localizer.DoStr("Steam Tractor Plough"), typeof(SteamTractorPloughRecipe));
 
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class SteamTractorPloughItem :
     VehicleToolItem                        
     {
-        public override string FriendlyName { get { return "Steam Tractor Plough"; } } 
-        public override string Description { get { return "An attachment for the steam tractor that allows for quick ploughing."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steam Tractor Plough"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An attachment for the steam tractor that allows for quick ploughing."); } }
 
     }
 

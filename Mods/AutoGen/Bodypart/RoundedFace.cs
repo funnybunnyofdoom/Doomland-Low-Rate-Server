@@ -20,8 +20,8 @@ namespace Eco.Mods.TechTree
     public partial class RoundedFaceItem :
         ClothingItem
     {
-        public override string FriendlyName { get { return "Rounded Face"; } }
-        public override string Description  { get { return "Face"; } }
-        public override string Slot         { get { return ClothingSlot.Face; } } 
+        public override LocString DisplayName        { get { return Localizer.DoStr("Rounded Face"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Face"); } }
+        public override string Slot                  { get { return ClothingSlot.Face; } } 
     }
 }

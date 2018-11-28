@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Kitchen"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Kitchen"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(KitchenItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class KitchenItem :
         WorldObjectItem<KitchenObject> 
     {
-        public override string FriendlyName { get { return "Kitchen"; } } 
-        public override string Description  { get { return  "A prep area for food which allows for more complex dishes."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Kitchen"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A prep area for food which allows for more complex dishes."); } }
 
         static KitchenItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(KitchenRecipe), Item.Get<KitchenItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<KitchenItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Kitchen", typeof(KitchenRecipe));
+            this.Initialize(Localizer.DoStr("Kitchen"), typeof(KitchenRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

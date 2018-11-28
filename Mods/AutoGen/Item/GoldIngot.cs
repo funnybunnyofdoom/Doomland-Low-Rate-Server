@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<GoldOreItem>(typeof(BasicSmeltingEfficiencySkill), 20, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(GoldIngotRecipe), Item.Get<GoldIngotItem>().UILink(), 4, typeof(BasicSmeltingSpeedSkill));    
-            this.Initialize("Gold Ingot", typeof(GoldIngotRecipe));
+            this.Initialize(Localizer.DoStr("Gold Ingot"), typeof(GoldIngotRecipe));
 
             CraftingComponent.AddRecipe(typeof(BloomeryObject), this);
         }
@@ -48,9 +48,9 @@ namespace Eco.Mods.TechTree
     public partial class GoldIngotItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Gold Bar"; } } 
-        public override string FriendlyNamePlural { get { return "Gold Bars"; } } 
-        public override string Description { get { return "A shiny, refined gold ingot."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Gold Bar"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Gold Bars"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A shiny, refined gold ingot."); } }
 
     }
 

@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(MortarProductionSkill), 1)] 
     public class GrindStoneToSandRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<StoneItem>(typeof(MortarProductionEfficiencySkill), 5, MortarProductionEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Grind Stone To Sand", typeof(GrindStoneToSandRecipe));
+            this.Initialize(Localizer.DoStr("Grind Stone To Sand"), typeof(GrindStoneToSandRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(GrindStoneToSandRecipe), this.UILink(), 5, typeof(MortarProductionSpeedSkill));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }

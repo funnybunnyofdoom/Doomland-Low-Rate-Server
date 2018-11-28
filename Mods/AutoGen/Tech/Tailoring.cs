@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(TailorSkill), 0)]    
     public partial class TailoringSkill : Skill
     {
-        public override string FriendlyName { get { return "Tailoring"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Tailoring"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class TailoringSkillBook : SkillBook<TailoringSkill, TailoringSkillScroll>
     {
-        public override string FriendlyName { get { return "Tailoring Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tailoring Skill Book"); } }
     }
 
     [Serialized]
     public partial class TailoringSkillScroll : NewSkillScroll<TailoringSkill, TailoringSkillBook>
     {
-        public override string FriendlyName { get { return "Tailoring Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tailoring Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(GatheringSkill), 0)] 
@@ -56,12 +56,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<PlantFibersItem>(typeof(ResearchEfficiencySkill), 40, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<FurPeltItem>(typeof(ResearchEfficiencySkill), 5, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<LeatherHideItem>(typeof(ResearchEfficiencySkill), 5, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<LeatherHideItem>(typeof(ResearchEfficiencySkill), 5, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(5);
 
-            this.Initialize("Tailoring Skill Book", typeof(TailoringSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Tailoring Skill Book"), typeof(TailoringSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

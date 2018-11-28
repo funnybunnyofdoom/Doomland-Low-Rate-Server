@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(typeof(WoodworkingEfficiencySkill), 4, WoodworkingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BoardRecipe), Item.Get<BoardItem>().UILink(), 0.5f, typeof(WoodworkingSpeedSkill));    
-            this.Initialize("Board", typeof(BoardRecipe));
+            this.Initialize(Localizer.DoStr("Board"), typeof(BoardRecipe));
 
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class BoardItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Board"; } } 
-        public override string Description { get { return "Can be used in simple crafts, or used to create workbenches."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Board"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Can be used in simple crafts, or used to create workbenches."); } }
 
     }
 

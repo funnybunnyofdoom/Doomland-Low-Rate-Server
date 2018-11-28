@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Workbench"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Workbench"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WorkbenchItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class WorkbenchItem :
         WorldObjectItem<WorkbenchObject> 
     {
-        public override string FriendlyName { get { return "Workbench"; } } 
-        public override string Description  { get { return  "A bench for the basics and making even more benches."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Workbench"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A bench for the basics and making even more benches."); } }
 
         static WorkbenchItem()
         {
@@ -86,10 +87,10 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                  
+                new CraftingElement<LogItem>(10)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(WorkbenchRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill)); 
-            this.Initialize("Workbench", typeof(WorkbenchRecipe));
+            this.CraftMinutes = new ConstantValue(0.5f); 
+            this.Initialize(Localizer.DoStr("Workbench"), typeof(WorkbenchRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

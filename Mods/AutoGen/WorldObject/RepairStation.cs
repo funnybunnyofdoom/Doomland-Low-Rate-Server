@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Repair Station"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Repair Station"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RepairStationItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class RepairStationItem :
         WorldObjectItem<RepairStationObject> 
     {
-        public override string FriendlyName { get { return "Repair Station"; } } 
-        public override string Description  { get { return  "A place to fix up broken tools."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Repair Station"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A place to fix up broken tools."); } }
 
         static RepairStationItem()
         {
@@ -86,11 +87,11 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 20, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                  
+                new CraftingElement<LogItem>(20),
+                new CraftingElement<StoneItem>(10)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(RepairStationRecipe), this.UILink(), 1f, typeof(BasicCraftingSpeedSkill)); 
-            this.Initialize("Repair Station", typeof(RepairStationRecipe));
+            this.CraftMinutes = new ConstantValue(1); 
+            this.Initialize(Localizer.DoStr("Repair Station"), typeof(RepairStationRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(25000)]  
     public class SteamTruckItem : WorldObjectItem<SteamTruckObject>
     {
-        public override string FriendlyName         { get { return "Steam Truck"; } }
-        public override string Description          { get { return "Steam truck"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Steam Truck"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Steam truck"); } }
     }
 
     [RequiresSkill(typeof(MechanicalEngineeringSkill), 0)] 
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(25);
 
-            this.Initialize("Steam Truck", typeof(SteamTruckRecipe));
+            this.Initialize(Localizer.DoStr("Steam Truck"), typeof(SteamTruckRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }
@@ -76,7 +76,7 @@ namespace Eco.Mods.TechTree
             { typeof(AsphaltRoadBlock), 1.8f }, { typeof(AsphaltRoadWorldObjectBlock), 1.8f }
         };
 
-        public override string FriendlyName { get { return "Steam Truck"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steam Truck"); } }
         public Type RepresentedItemType { get { return typeof(SteamTruckItem); } }
 
         private static Type[] fuelTypeList = new Type[]

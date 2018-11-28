@@ -12,6 +12,7 @@ namespace Eco.Mods.TechTree
     using Shared.Serialization;
     using Shared.Networking;
     using System;
+    using Eco.Shared.Localization;
 
     public partial class StockpileItem : WorldObjectItem<StockpileObject>
     {
@@ -31,7 +32,7 @@ namespace Eco.Mods.TechTree
     {
         public static readonly Vector3i DefaultDim = new Vector3i(5, 5, 5);
 
-        public override string FriendlyName { get { return "Stockpile"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stockpile"); } }
         public virtual Type RepresentedItemType { get { return typeof(StockpileItem); } }
 
         protected override void OnCreate()

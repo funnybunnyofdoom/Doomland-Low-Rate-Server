@@ -6,6 +6,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Skills;
+    using Eco.Gameplay.Systems;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Mods.TechTree;
     using Eco.Shared.Localization;
@@ -24,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Birch Catkin"; } }
-        public override string Description  { get { return "Plant to grow into a birch sapling."; } }
-        public override string SpeciesName  { get { return "Birch"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Birch seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow into a birch sapling."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Birch"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -40,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static BirchSeedPackItem() { }
 
-        public override string FriendlyName { get { return "Birch Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow into a birch sapling."; } }
-        public override string SpeciesName  { get { return "Birch"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Birch Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow into a birch sapling."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Birch"); } }
     }
 	
 	[RequiresSkill(typeof(SeedProductionSkill), 4)]    
@@ -63,7 +64,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BirchSeedItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Birch Catkin", typeof(BirchSeedRecipe));
+            this.Initialize(Localizer.DoStr("Birch Catkin"), typeof(BirchSeedRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

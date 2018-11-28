@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class GiantCactusFruitItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Giant Cactus Fruit"; } }
-        public override string Description                      { get { return "A bulbous fruit that used to top Saguaro cacti."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Giant Cactus Fruit"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A bulbous fruit that used to top Saguaro cacti."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 2, Fat = 3, Protein = 0, Vitamins = 5};
         public override float Calories                          { get { return 300; } }

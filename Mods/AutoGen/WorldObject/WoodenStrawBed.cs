@@ -40,9 +40,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wooden Straw Bed"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Straw Bed"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WoodenStrawBedItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class WoodenStrawBedItem :
         WorldObjectItem<WoodenStrawBedObject> 
     {
-        public override string FriendlyName { get { return "Wooden Straw Bed"; } } 
-        public override string Description  { get { return  "A nice, scratchy and horrible uncomfortable bed. But at least it keeps you off the ground."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Straw Bed"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A nice, scratchy and horrible uncomfortable bed. But at least it keeps you off the ground."); } }
 
         static WoodenStrawBedItem()
         {
@@ -105,7 +106,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WoodenStrawBedRecipe), Item.Get<WoodenStrawBedItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WoodenStrawBedItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wooden Straw Bed", typeof(WoodenStrawBedRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Straw Bed"), typeof(WoodenStrawBedRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

@@ -26,8 +26,8 @@ namespace Eco.Mods.TechTree
     public partial class TunaItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Tuna"; } } 
-        public override string Description { get { return "A tuna."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tuna"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A tuna."); } }
 
     }
 

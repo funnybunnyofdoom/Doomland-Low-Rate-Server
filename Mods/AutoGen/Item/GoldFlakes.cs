@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<GoldIngotItem>(typeof(ElectronicEngineeringEfficiencySkill), 5, ElectronicEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(GoldFlakesRecipe), Item.Get<GoldFlakesItem>().UILink(), 2, typeof(ElectronicEngineeringSpeedSkill));    
-            this.Initialize("Gold Flakes", typeof(GoldFlakesRecipe));
+            this.Initialize(Localizer.DoStr("Gold Flakes"), typeof(GoldFlakesRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
@@ -46,9 +46,9 @@ namespace Eco.Mods.TechTree
     public partial class GoldFlakesItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Gold Flakes"; } } 
-        public override string FriendlyNamePlural { get { return "Gold Flakes"; } } 
-        public override string Description { get { return "A highly efficient conductor for delicate electronics."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Gold Flakes"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Gold Flakes"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A highly efficient conductor for delicate electronics."); } }
 
     }
 

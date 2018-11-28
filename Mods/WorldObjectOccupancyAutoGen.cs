@@ -2813,6 +2813,11 @@ namespace Eco.Mods
             // PipeEmitterObject
             WorldObject.AddOccupancy<PipeEmitterObject>(new List<BlockOccupancy>(){
             });
+            // ShelfCabinetObject
+            WorldObject.AddOccupancy<ShelfCabinetObject>(new List<BlockOccupancy>(){
+            new BlockOccupancy(new Vector3i(0, 0, 0)),
+            new BlockOccupancy(new Vector3i(0, 1, 0)),
+            });
         }
     }
 }

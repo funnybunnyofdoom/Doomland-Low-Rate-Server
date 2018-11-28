@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(EngineerSkill), 0)]    
     public partial class MechanicsSkill : Skill
     {
-        public override string FriendlyName { get { return "Mechanics"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Mechanics"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class MechanicsSkillBook : SkillBook<MechanicsSkill, MechanicsSkillScroll>
     {
-        public override string FriendlyName { get { return "Mechanics Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Mechanics Skill Book"); } }
     }
 
     [Serialized]
     public partial class MechanicsSkillScroll : NewSkillScroll<MechanicsSkill, MechanicsSkillBook>
     {
-        public override string FriendlyName { get { return "Mechanics Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Mechanics Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(BasicEngineeringSkill), 0)] 
@@ -56,12 +56,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<WaterwheelItem>(typeof(ResearchEfficiencySkill), 5, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<CopperIngotItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(30);
 
-            this.Initialize("Mechanics Skill Book", typeof(MechanicsSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Mechanics Skill Book"), typeof(MechanicsSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

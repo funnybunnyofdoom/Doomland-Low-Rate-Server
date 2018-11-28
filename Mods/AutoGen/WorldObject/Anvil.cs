@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Anvil"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Anvil"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(AnvilItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class AnvilItem :
         WorldObjectItem<AnvilObject> 
     {
-        public override string FriendlyName { get { return "Anvil"; } } 
-        public override string Description  { get { return  "A solid shaped piece of metal used to hammer ingots into tools and other useful things."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Anvil"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A solid shaped piece of metal used to hammer ingots into tools and other useful things."); } }
 
         static AnvilItem()
         {
@@ -105,7 +106,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(AnvilRecipe), Item.Get<AnvilItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<AnvilItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Anvil", typeof(AnvilRecipe));
+            this.Initialize(Localizer.DoStr("Anvil"), typeof(AnvilRecipe));
             CraftingComponent.AddRecipe(typeof(BloomeryObject), this);
         }
     }

@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<BoardItem>(typeof(FertilizerEfficiencySkill), 4, FertilizerEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SoilSamplerRecipe), Item.Get<SoilSamplerItem>().UILink(), 10, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Soil Sampler", typeof(SoilSamplerRecipe));
+            this.Initialize(Localizer.DoStr("Soil Sampler"), typeof(SoilSamplerRecipe));
 
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }

@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(PrimitiveMechanicsEfficiencySkill), 20, PrimitiveMechanicsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronWheelRecipe), Item.Get<IronWheelItem>().UILink(), 5, typeof(PrimitiveMechanicsSpeedSkill));    
-            this.Initialize("Iron Wheel", typeof(IronWheelRecipe));
+            this.Initialize(Localizer.DoStr("Iron Wheel"), typeof(IronWheelRecipe));
 
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class IronWheelItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Iron Wheel"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Wheel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

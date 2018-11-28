@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CornmealItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Cornmeal"; } }
-        public override string FriendlyNamePlural               { get { return "Cornmeal"; } } 
-        public override string Description                      { get { return "Dried and ground corn; it's like a courser flour."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Cornmeal"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Cornmeal"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Dried and ground corn; it's like a courser flour."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 9, Fat = 3, Protein = 3, Vitamins = 0};
         public override float Calories                          { get { return 60; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CornItem>(typeof(MillProcessingEfficiencySkill), 10, MillProcessingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CornmealRecipe), Item.Get<CornmealItem>().UILink(), 5, typeof(MillProcessingSpeedSkill)); 
-            this.Initialize("Cornmeal", typeof(CornmealRecipe));
+            this.Initialize(Localizer.DoStr("Cornmeal"), typeof(CornmealRecipe));
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }
     }

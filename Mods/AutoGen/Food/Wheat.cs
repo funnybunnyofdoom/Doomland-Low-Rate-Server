@@ -24,9 +24,9 @@ namespace Eco.Mods.TechTree
     public partial class WheatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Wheat"; } }
-        public override string FriendlyNamePlural               { get { return "Wheat"; } } 
-        public override string Description                      { get { return "A common grain that is significantly more useful processed."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Wheat"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Wheat"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A common grain that is significantly more useful processed."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 0, Protein = 2, Vitamins = 0};
         public override float Calories                          { get { return 130; } }

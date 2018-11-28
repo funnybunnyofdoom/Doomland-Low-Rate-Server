@@ -42,9 +42,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Campfire"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Campfire"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CampfireItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -54,7 +55,7 @@ namespace Eco.Mods.TechTree
             typeof(ArrowItem),
             typeof(BoardItem),
             typeof(CoalItem),
-			typeof(WoodPelletItem)
+			typeof(WoodPelletItem),
         };
 
         protected override void Initialize()
@@ -77,8 +78,8 @@ namespace Eco.Mods.TechTree
     public partial class CampfireItem :
         WorldObjectItem<CampfireObject> 
     {
-        public override string FriendlyName { get { return "Campfire"; } } 
-        public override string Description  { get { return  "Cook like a caveman on an uneven fire."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Campfire"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Cook like a caveman on an uneven fire."); } }
 
         static CampfireItem()
         {
@@ -101,11 +102,11 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 3, BasicCraftingEfficiencySkill.MultiplicativeStrategy), 
-                new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 12, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                     
+                new CraftingElement<LogItem>(3),
+                new CraftingElement<StoneItem>(12)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(CampfireRecipe), this.UILink(), 1f, typeof(BasicCraftingSpeedSkill)); 
-            this.Initialize("Campfire", typeof(CampfireRecipe));
+            this.CraftMinutes = new ConstantValue(1); 
+            this.Initialize(Localizer.DoStr("Campfire"), typeof(CampfireRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

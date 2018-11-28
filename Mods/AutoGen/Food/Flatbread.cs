@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class FlatbreadItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Flatbread"; } }
-        public override string Description                      { get { return "Without any leavening the flatbread isn't very puffy. But it's still tasty."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Flatbread"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Without any leavening the flatbread isn't very puffy. But it's still tasty."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 17, Fat = 3, Protein = 8, Vitamins = 0};
         public override float Calories                          { get { return 500; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FlourItem>(typeof(BasicBakingEfficiencySkill), 10, BasicBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FlatbreadRecipe), Item.Get<FlatbreadItem>().UILink(), 5, typeof(BasicBakingSpeedSkill)); 
-            this.Initialize("Flatbread", typeof(FlatbreadRecipe));
+            this.Initialize(Localizer.DoStr("Flatbread"), typeof(FlatbreadRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

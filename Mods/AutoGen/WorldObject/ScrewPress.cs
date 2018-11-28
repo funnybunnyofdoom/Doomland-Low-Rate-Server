@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Screw Press"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Screw Press"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ScrewPressItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class ScrewPressItem :
         ModuleItem<ScrewPressObject> 
     {
-        public override string FriendlyName { get { return "Screw Press"; } } 
-        public override string Description  { get { return  "A set of smoothing and woodworking tools that assist in creating wheels and transportation."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Screw Press"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A set of smoothing and woodworking tools that assist in creating wheels and transportation."); } }
 
         static ScrewPressItem()
         {
@@ -102,7 +103,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ScrewPressRecipe), Item.Get<ScrewPressItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ScrewPressItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Screw Press", typeof(ScrewPressRecipe));
+            this.Initialize(Localizer.DoStr("Screw Press"), typeof(ScrewPressRecipe));
             CraftingComponent.AddRecipe(typeof(MachinistTableObject), this);
         }
     }

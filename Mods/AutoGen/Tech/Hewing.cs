@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(CarpenterSkill), 0)]    
     public partial class HewingSkill : Skill
     {
-        public override string FriendlyName { get { return "Hewing"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Hewing"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public override int RequiredPoint { get { return 0; } }
         public override int MaxLevel { get { return 1; } }

@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class ScytheItem :
     ToolItem                        
     {
-        public override string FriendlyName { get { return "Scythe"; } } 
-        public override string Description { get { return "Nothing says harvest time (or death) like a scythe."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Scythe"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Nothing says harvest time (or death) like a scythe."); } }
 
     }
 

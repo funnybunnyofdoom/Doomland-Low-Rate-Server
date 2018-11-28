@@ -36,8 +36,8 @@ namespace Eco.Mods.TechTree
     public partial class StoneWellItem :
         WorldObjectItem<StoneWellObject> 
     {
-        public override string FriendlyName { get { return "Stone Well"; } } 
-        public override string Description  { get { return  "PLACEHOLDER"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Well"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("PLACEHOLDER"); } }
 
         static StoneWellItem()
         {
@@ -61,7 +61,7 @@ namespace Eco.Mods.TechTree
             {
             };
             this.CraftMinutes = new ConstantValue(); 
-            this.Initialize("Stone Well", typeof(StoneWellRecipe));
+            this.Initialize(Localizer.DoStr("Stone Well"), typeof(StoneWellRecipe));
             CraftingComponent.AddRecipe(typeof(Object), this);
         }
     }

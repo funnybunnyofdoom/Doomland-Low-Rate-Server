@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(ElectronicEngineeringEfficiencySkill), 10, ElectronicEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ElectricMotorRecipe), Item.Get<ElectricMotorItem>().UILink(), 5, typeof(ElectronicEngineeringSpeedSkill));    
-            this.Initialize("Electric Motor", typeof(ElectricMotorRecipe));
+            this.Initialize(Localizer.DoStr("Electric Motor"), typeof(ElectricMotorRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
@@ -48,8 +48,8 @@ namespace Eco.Mods.TechTree
     public partial class ElectricMotorItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Electric Motor"; } } 
-        public override string Description { get { return "A motor."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Motor"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A motor."); } }
 
     }
 

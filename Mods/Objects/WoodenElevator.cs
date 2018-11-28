@@ -6,6 +6,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Components.Auth;
     using Eco.Gameplay.Interactions;
     using Eco.Gameplay.Objects;
+    using Eco.Shared.Localization;
     using Eco.Shared.Networking;
     using Eco.Shared.Serialization;
 
@@ -13,7 +14,7 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(PropertyAuthComponent))]
     public class WoodenElevatorObject : PhysicsWorldObject, INetObjectPriority
     {
-        public override string FriendlyName { get { return "Wooden Elevator"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Elevator"); } }
 
         public float Priority { get { return NetObjectPriority.Medium; } }
 

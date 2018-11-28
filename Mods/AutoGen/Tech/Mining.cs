@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(MasonSkill), 0)]    
     public partial class MiningSkill : Skill
     {
-        public override string FriendlyName { get { return "Mining"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Mining"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         private static List<Tuple<Type, int>> ItemsGiven = new List<Tuple<Type, int>>
         {
@@ -57,7 +57,7 @@ namespace Eco.Mods.TechTree
             return ItemsGiven.Select(x => new LocString(x.Item2 + " " + Item.Get(x.Item1).UILink())).InlineFoldoutListLoc("item");
         }
 
-        [Tooltip(151)] public string GivesItemTooltip { get { return "Grants " + ItemDescriptions(); } }
+        [Tooltip(151)] public string GivesItemTooltip { get { return Localizer.DoStr("Grants " + ItemDescriptions()); } }
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
         public override int PrevRequiredPoint { get { return this.Level - 1 >= 0 && this.Level - 1 < this.MaxLevel ? SkillPointCost[this.Level - 1] : 0; } }

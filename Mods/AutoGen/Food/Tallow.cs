@@ -23,9 +23,9 @@ namespace Eco.Mods.TechTree
     public partial class TallowItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Tallow"; } }
-        public override string FriendlyNamePlural               { get { return "Tallow"; } } 
-        public override string Description                      { get { return "Rendered animal fat useful for more than just cooking."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Tallow"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Tallow"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Rendered animal fat useful for more than just cooking."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 8, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 200; } }

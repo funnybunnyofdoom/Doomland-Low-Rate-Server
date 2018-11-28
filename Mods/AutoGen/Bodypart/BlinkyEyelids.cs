@@ -20,8 +20,8 @@ namespace Eco.Mods.TechTree
     public partial class BlinkyEyelidsItem :
         ClothingItem
     {
-        public override string FriendlyName { get { return "Blinky Eyelids"; } }
-        public override string Description  { get { return "Eyes"; } }
-        public override string Slot         { get { return ClothingSlot.Eyelids; } } 
+        public override LocString DisplayName        { get { return Localizer.DoStr("Blinky Eyelids"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Eyes"); } }
+        public override string Slot                  { get { return ClothingSlot.Eyelids; } } 
     }
 }

@@ -42,9 +42,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Streetlamp"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Streetlamp"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(StreetlampItem); } } 
+
 
 
         protected override void Initialize()
@@ -68,8 +69,8 @@ namespace Eco.Mods.TechTree
     public partial class StreetlampItem :
         WorldObjectItem<StreetlampObject> 
     {
-        public override string FriendlyName { get { return "Streetlamp"; } } 
-        public override string Description  { get { return  "A towering metal light post that requires electricity to run."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Streetlamp"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A towering metal light post that requires electricity to run."); } }
 
         static StreetlampItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(StreetlampRecipe), Item.Get<StreetlampItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<StreetlampItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Streetlamp", typeof(StreetlampRecipe));
+            this.Initialize(Localizer.DoStr("Streetlamp"), typeof(StreetlampRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

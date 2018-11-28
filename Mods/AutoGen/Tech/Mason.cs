@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class MasonSkill : Skill
     {
-        public override string FriendlyName { get { return "Mason"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Mason"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public override string Title { get { return Localizer.DoStr("Mason"); } }  
         public override int RequiredPoint { get { return 0; } }

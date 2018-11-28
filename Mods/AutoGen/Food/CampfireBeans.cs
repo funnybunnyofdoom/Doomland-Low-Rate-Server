@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CampfireBeansItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Campfire Beans"; } }
-        public override string FriendlyNamePlural               { get { return "Campfire Beans"; } } 
-        public override string Description                      { get { return "A mushy mixture that can serve somewhat as a replacement protein in a meatless diet."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Campfire Beans"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Campfire Beans"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A mushy mixture that can serve somewhat as a replacement protein in a meatless diet."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 1, Fat = 3, Protein = 9, Vitamins = 0};
         public override float Calories                          { get { return 500; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<BeansItem>(typeof(CampfireCreationsEfficiencySkill), 4, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Campfire Beans", typeof(CampfireBeansRecipe));
+            this.Initialize(Localizer.DoStr("Campfire Beans"), typeof(CampfireBeansRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

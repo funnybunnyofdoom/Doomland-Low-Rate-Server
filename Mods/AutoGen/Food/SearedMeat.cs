@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class SearedMeatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Seared Meat"; } }
-        public override string FriendlyNamePlural               { get { return "Seared Meat"; } } 
-        public override string Description                      { get { return "A cut of perfectly seared steak."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Seared Meat"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Seared Meat"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A cut of perfectly seared steak."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 4, Fat = 17, Protein = 19, Vitamins = 7};
         public override float Calories                          { get { return 600; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<InfusedOilItem>(typeof(CulinaryArtsEfficiencySkill), 4, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SearedMeatRecipe), Item.Get<SearedMeatItem>().UILink(), 8, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Seared Meat", typeof(SearedMeatRecipe));
+            this.Initialize(Localizer.DoStr("Seared Meat"), typeof(SearedMeatRecipe));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }

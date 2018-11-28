@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Fireweed Seed"; } }
-        public override string Description  { get { return "Plant to grow fireweed."; } }
-        public override string SpeciesName  { get { return "Fireweed"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Fireweed Seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow fireweed."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Fireweed"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static FireweedSeedPackItem() { }
 
-        public override string FriendlyName { get { return "Fireweed Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow fireweed."; } }
-        public override string SpeciesName  { get { return "Fireweed"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Fireweed Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow fireweed."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Fireweed"); } }
     }
 
     [RequiresSkill(typeof(SeedProductionSkill), 3)]    
@@ -64,7 +64,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<FireweedSeedItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Fireweed Seed", typeof(FireweedSeedRecipe));
+            this.Initialize(Localizer.DoStr("Fireweed Seed"), typeof(FireweedSeedRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

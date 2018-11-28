@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PetroleumItem>(typeof(PetrolRefiningEfficiencySkill), 5, PetrolRefiningEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SyntheticRubberRecipe), Item.Get<SyntheticRubberItem>().UILink(), 2, typeof(PetrolRefiningSpeedSkill));    
-            this.Initialize("Synthetic Rubber", typeof(SyntheticRubberRecipe));
+            this.Initialize(Localizer.DoStr("Synthetic Rubber"), typeof(SyntheticRubberRecipe));
 
             CraftingComponent.AddRecipe(typeof(OilRefineryObject), this);
         }
@@ -46,9 +46,9 @@ namespace Eco.Mods.TechTree
     public partial class SyntheticRubberItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Synthetic Rubber"; } } 
-        public override string FriendlyNamePlural { get { return "Rubber"; } } 
-        public override string Description { get { return "An extremely useful synthetic material derived from petrochemicals"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Synthetic Rubber"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Rubber"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An extremely useful synthetic material derived from petrochemicals"); } }
 
     }
 

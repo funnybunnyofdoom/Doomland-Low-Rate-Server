@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Brazier"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Brazier"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(BrazierItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -54,8 +55,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -79,8 +79,8 @@ namespace Eco.Mods.TechTree
     public partial class BrazierItem :
         WorldObjectItem<BrazierObject> 
     {
-        public override string FriendlyName { get { return "Brazier"; } } 
-        public override string Description  { get { return  "A metal stand which can hold burning fuel to provide light."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Brazier"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A metal stand which can hold burning fuel to provide light."); } }
 
         static BrazierItem()
         {
@@ -118,7 +118,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(BrazierRecipe), Item.Get<BrazierItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BrazierItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Brazier", typeof(BrazierRecipe));
+            this.Initialize(Localizer.DoStr("Brazier"), typeof(BrazierRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

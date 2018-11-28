@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Work Backpack"; } }
-        public override string Description      { get { return "Lighter pack that causes lower calorie consumption."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Work Backpack"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Lighter pack that causes lower calorie consumption."); } }
         public override string Slot             { get { return ClothingSlot.Back; } }             
         public override bool Starter            { get { return false ; } }                       
 
@@ -50,7 +50,7 @@ public override Dictionary<UserStatType, float> GetFlatStats() { return flatStat
                 new CraftingElement<CelluloseFiberItem>(typeof(ClothesmakingEfficiencySkill), 20, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Work Backpack", typeof(WorkBackpackRecipe));
+            this.Initialize(Localizer.DoStr("Work Backpack"), typeof(WorkBackpackRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

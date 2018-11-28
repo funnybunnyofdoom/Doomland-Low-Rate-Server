@@ -42,9 +42,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Tallow Candle"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Tallow Candle"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(TallowCandleItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -73,8 +74,8 @@ namespace Eco.Mods.TechTree
     public partial class TallowCandleItem :
         WorldObjectItem<TallowCandleObject> 
     {
-        public override string FriendlyName { get { return "Tallow Candle"; } } 
-        public override string Description  { get { return  "A candle which can burn tallow to produce a small amount of light."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tallow Candle"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A candle which can burn tallow to produce a small amount of light."); } }
 
         static TallowCandleItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(3)                                                                    
             };
             this.CraftMinutes = new ConstantValue(2.5f); 
-            this.Initialize("Tallow Candle", typeof(TallowCandleRecipe));
+            this.Initialize(Localizer.DoStr("Tallow Candle"), typeof(TallowCandleRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

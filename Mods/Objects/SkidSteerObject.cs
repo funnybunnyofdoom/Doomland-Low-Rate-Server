@@ -5,6 +5,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Components;
     using Eco.Gameplay.Objects;
     using Eco.Gameplay.Players;
+    using Eco.Shared.Localization;
     using Eco.Shared.Serialization;
     using Gameplay.Components.Auth;
 
@@ -26,7 +27,7 @@ namespace Eco.Mods.TechTree
         };
 
         protected SkidSteerObject() { }
-        public override string FriendlyName                     { get { return "SkidSteer"; } }
+        public override LocString DisplayName                     { get { return Localizer.DoStr("SkidSteer"); } }
 
         private static Type[] fuelTypeList = new Type[]
         {

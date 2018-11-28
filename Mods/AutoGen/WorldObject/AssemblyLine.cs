@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Assembly Line"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Assembly Line"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(AssemblyLineItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class AssemblyLineItem :
         WorldObjectItem<AssemblyLineObject> 
     {
-        public override string FriendlyName { get { return "Assembly Line"; } } 
-        public override string Description  { get { return  ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Assembly Line"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
 
         static AssemblyLineItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(AssemblyLineRecipe), Item.Get<AssemblyLineItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<AssemblyLineItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Assembly Line", typeof(AssemblyLineRecipe));
+            this.Initialize(Localizer.DoStr("Assembly Line"), typeof(AssemblyLineRecipe));
             CraftingComponent.AddRecipe(typeof(MachinistTableObject), this);
         }
     }

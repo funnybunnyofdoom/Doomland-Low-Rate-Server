@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Electric Stamping Press"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Stamping Press"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElectricStampingPressItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class ElectricStampingPressItem :
         WorldObjectItem<ElectricStampingPressObject> 
     {
-        public override string FriendlyName { get { return "Electric Stamping Press"; } } 
-        public override string Description  { get { return  ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Stamping Press"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
 
         static ElectricStampingPressItem()
         {
@@ -102,7 +103,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ElectricStampingPressRecipe), Item.Get<ElectricStampingPressItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ElectricStampingPressItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Electric Stamping Press", typeof(ElectricStampingPressRecipe));
+            this.Initialize(Localizer.DoStr("Electric Stamping Press"), typeof(ElectricStampingPressRecipe));
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
     }

@@ -36,7 +36,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RivetItem>(typeof(MechanicsAssemblyEfficiencySkill), 10, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CombustionEngineRecipe), Item.Get<CombustionEngineItem>().UILink(), 20, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Combustion Engine", typeof(CombustionEngineRecipe));
+            this.Initialize(Localizer.DoStr("Combustion Engine"), typeof(CombustionEngineRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
@@ -49,8 +49,8 @@ namespace Eco.Mods.TechTree
     public partial class CombustionEngineItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Combustion Engine"; } } 
-        public override string Description { get { return "An engine that generates power by combustion of fuel."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Combustion Engine"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An engine that generates power by combustion of fuel."); } }
 
     }
 

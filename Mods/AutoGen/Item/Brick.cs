@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(BrickProductionEfficiencySkill), 5, BrickProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BrickRecipe), Item.Get<BrickItem>().UILink(), 1, typeof(BrickProductionSpeedSkill));    
-            this.Initialize("Brick", typeof(BrickRecipe));
+            this.Initialize(Localizer.DoStr("Brick"), typeof(BrickRecipe));
 
             CraftingComponent.AddRecipe(typeof(KilnObject), this);
         }
@@ -59,8 +59,8 @@ namespace Eco.Mods.TechTree
     public partial class BrickItem :
     BlockItem<BrickBlock>
     {
-        public override string FriendlyName { get { return "Brick"; } } 
-        public override string Description { get { return "Durable building material made from fired blocks and mortar."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Brick"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Durable building material made from fired blocks and mortar."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

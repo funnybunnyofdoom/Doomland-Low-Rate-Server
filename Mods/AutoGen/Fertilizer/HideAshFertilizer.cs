@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LeatherHideItem>(typeof(FertilizerEfficiencySkill), 2, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(HideAshFertilizerRecipe), Item.Get<HideAshFertilizerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Hide Ash Fertilizer", typeof(HideAshFertilizerRecipe));
+            this.Initialize(Localizer.DoStr("Hide Ash Fertilizer"), typeof(HideAshFertilizerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class HideAshFertilizerItem : FertilizerItem<HideAshFertilizerItem>
     {
-        public override string FriendlyName { get { return "Hide Ash Fertilizer"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Hide Ash Fertilizer"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static HideAshFertilizerItem()
         {

@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Construction Post"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Construction Post"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ConstructionPostItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class ConstructionPostItem :
         WorldObjectItem<ConstructionPostObject> 
     {
-        public override string FriendlyName { get { return "Construction Post"; } } 
-        public override string Description  { get { return  "For contruction contracts."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Construction Post"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("For contruction contracts."); } }
 
         static ConstructionPostItem()
         {
@@ -86,10 +87,10 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 1, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                    
+                new CraftingElement<LogItem>(1)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(ConstructionPostRecipe), this.UILink(), 2f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Construction Post", typeof(ConstructionPostRecipe));
+            this.CraftMinutes = new ConstantValue(2); 
+            this.Initialize(Localizer.DoStr("Construction Post"), typeof(ConstructionPostRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

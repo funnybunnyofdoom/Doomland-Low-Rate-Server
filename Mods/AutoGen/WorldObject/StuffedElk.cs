@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Stuffed Elk"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Stuffed Elk"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(StuffedElkItem); } } 
+
 
 
         protected override void Initialize()
@@ -64,8 +65,8 @@ namespace Eco.Mods.TechTree
     public partial class StuffedElkItem :
         WorldObjectItem<StuffedElkObject> 
     {
-        public override string FriendlyName { get { return "Stuffed Elk"; } } 
-        public override string Description  { get { return  "It looks so real!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stuffed Elk"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("It looks so real!"); } }
 
         static StuffedElkItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(StuffedElkRecipe), Item.Get<StuffedElkItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<StuffedElkItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Stuffed Elk", typeof(StuffedElkRecipe));
+            this.Initialize(Localizer.DoStr("Stuffed Elk"), typeof(StuffedElkRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

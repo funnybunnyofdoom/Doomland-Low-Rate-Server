@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CopperIngotItem>(typeof(MetalworkingEfficiencySkill), 2, MetalworkingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CopperPipeRecipe), Item.Get<CopperPipeItem>().UILink(), 2, typeof(MetalworkingSpeedSkill));    
-            this.Initialize("Copper Pipe", typeof(CopperPipeRecipe));
+            this.Initialize(Localizer.DoStr("Copper Pipe"), typeof(CopperPipeRecipe));
 
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
@@ -57,8 +57,8 @@ namespace Eco.Mods.TechTree
     public partial class CopperPipeItem :
     BlockItem<CopperPipeBlock>
     {
-        public override string FriendlyName { get { return "Copper Pipe"; } } 
-        public override string Description { get { return "A pipe for transporting liquids."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Copper Pipe"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A pipe for transporting liquids."); } }
 
     }
 

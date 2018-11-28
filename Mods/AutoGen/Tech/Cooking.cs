@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(ChefSkill), 0)]    
     public partial class CookingSkill : Skill
     {
-        public override string FriendlyName { get { return "Cooking"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Cooking"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class CookingSkillBook : SkillBook<CookingSkill, CookingSkillScroll>
     {
-        public override string FriendlyName { get { return "Cooking Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cooking Skill Book"); } }
     }
 
     [Serialized]
     public partial class CookingSkillScroll : NewSkillScroll<CookingSkill, CookingSkillBook>
     {
-        public override string FriendlyName { get { return "Cooking Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cooking Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(GatheringSkill), 0)] 
@@ -57,12 +57,11 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<HewnLogItem>(typeof(ResearchEfficiencySkill), 20, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<CampfireRoastItem>(typeof(ResearchEfficiencySkill), 10, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<WheatPorridgeItem>(typeof(ResearchEfficiencySkill), 10, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<WheatPorridgeItem>(typeof(ResearchEfficiencySkill), 10, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(15);
 
-            this.Initialize("Cooking Skill Book", typeof(CookingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Cooking Skill Book"), typeof(CookingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(EngineerSkill), 0)]    
     public partial class BasicEngineeringSkill : Skill
     {
-        public override string FriendlyName { get { return "Basic Engineering"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Basic Engineering"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class BasicEngineeringSkillBook : SkillBook<BasicEngineeringSkill, BasicEngineeringSkillScroll>
     {
-        public override string FriendlyName { get { return "Basic Engineering Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Basic Engineering Skill Book"); } }
     }
 
     [Serialized]
     public partial class BasicEngineeringSkillScroll : NewSkillScroll<BasicEngineeringSkill, BasicEngineeringSkillBook>
     {
-        public override string FriendlyName { get { return "Basic Engineering Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Basic Engineering Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(HewingSkill), 0)] 
@@ -54,12 +54,11 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<HewnLogItem>(typeof(ResearchEfficiencySkill), 10, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<HewnLogItem>(typeof(ResearchEfficiencySkill), 10, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(5);
 
-            this.Initialize("Basic Engineering Skill Book", typeof(BasicEngineeringSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Basic Engineering Skill Book"), typeof(BasicEngineeringSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

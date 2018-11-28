@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Icebox"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Icebox"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(IceboxItem); } } 
+
 
 
         protected override void Initialize()
@@ -68,8 +69,8 @@ namespace Eco.Mods.TechTree
     public partial class IceboxItem :
         WorldObjectItem<IceboxObject> 
     {
-        public override string FriendlyName { get { return "Icebox"; } } 
-        public override string Description  { get { return  "A box of ice. It's in the name!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Icebox"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A box of ice. It's in the name!"); } }
 
         static IceboxItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(IceboxRecipe), Item.Get<IceboxItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<IceboxItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Icebox", typeof(IceboxRecipe));
+            this.Initialize(Localizer.DoStr("Icebox"), typeof(IceboxRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

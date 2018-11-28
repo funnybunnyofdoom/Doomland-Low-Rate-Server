@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CamasBulbBakeItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Camas Bulb Bake"; } }
-        public override string Description                      { get { return "A spread of evenly baked camas bulbs; soft in the middle, golden brown on the outside."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Camas Bulb Bake"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A spread of evenly baked camas bulbs; soft in the middle, golden brown on the outside."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 5, Protein = 7, Vitamins = 4};
         public override float Calories                          { get { return 400; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CamasBulbItem>(typeof(BasicBakingEfficiencySkill), 15, BasicBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CamasBulbBakeRecipe), Item.Get<CamasBulbBakeItem>().UILink(), 5, typeof(BasicBakingSpeedSkill)); 
-            this.Initialize("Camas Bulb Bake", typeof(CamasBulbBakeRecipe));
+            this.Initialize(Localizer.DoStr("Camas Bulb Bake"), typeof(CamasBulbBakeRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

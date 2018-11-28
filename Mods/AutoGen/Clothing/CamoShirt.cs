@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Camo Shirt"; } }
-        public override string Description      { get { return "Hide from the animals!"; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Camo Shirt"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Hide from the animals!"); } }
         public override string Slot             { get { return ClothingSlot.Shirt; } }             
         public override bool Starter            { get { return false ; } }                       
 
@@ -49,7 +49,7 @@ public override Dictionary<UserStatType, float> GetFlatStats() { return flatStat
                 new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 30, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Camo Shirt", typeof(CamoShirtRecipe));
+            this.Initialize(Localizer.DoStr("Camo Shirt"), typeof(CamoShirtRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(MortarProductionSkill), 0)] 
     public class MasonryPitchRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<SandItem>(typeof(MortarProductionEfficiencySkill), 1, MortarProductionEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Masonry Pitch", typeof(MasonryPitchRecipe));
+            this.Initialize(Localizer.DoStr("Masonry Pitch"), typeof(MasonryPitchRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(MasonryPitchRecipe), this.UILink(), 0.2f, typeof(MortarProductionSpeedSkill));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }

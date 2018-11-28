@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Medium Rug"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Medium Rug"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RugMediumItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class RugMediumItem :
         WorldObjectItem<RugMediumObject> 
     {
-        public override string FriendlyName { get { return "Medium Rug"; } } 
-        public override string Description  { get { return  "A medium rug for medium uses."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Medium Rug"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A medium rug for medium uses."); } }
 
         static RugMediumItem()
         {
@@ -102,7 +103,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RugMediumRecipe), Item.Get<RugMediumItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RugMediumItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Rug Medium", typeof(RugMediumRecipe));
+            this.Initialize(Localizer.DoStr("Rug Medium"), typeof(RugMediumRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

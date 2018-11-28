@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class RawSausageItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Raw Sausage"; } }
-        public override string Description                      { get { return "Ground meat stuffed into an intestine casing."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Raw Sausage"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Ground meat stuffed into an intestine casing."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 8, Protein = 4, Vitamins = 0};
         public override float Calories                          { get { return 500; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<ScrapMeatItem>(typeof(MeatPrepEfficiencySkill), 20, MeatPrepEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RawSausageRecipe), Item.Get<RawSausageItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
-            this.Initialize("Raw Sausage", typeof(RawSausageRecipe));
+            this.Initialize(Localizer.DoStr("Raw Sausage"), typeof(RawSausageRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }
     }

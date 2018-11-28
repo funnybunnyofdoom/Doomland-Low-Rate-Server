@@ -19,7 +19,7 @@ namespace Eco.Mods.TechTree
     using Eco.World.Blocks;
     using Eco.Gameplay.Pipes;
 
-    [RequiresSkill(typeof(SmeltingSkill), 2)]   
+    [RequiresSkill(typeof(BasicSmeltingSkill), 2)]   
     public partial class LogCharcoalRecipe : Recipe
     {
         public LogCharcoalRecipe()
@@ -30,10 +30,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(SmeltingEfficiencySkill), 20, SmeltingEfficiencySkill.MultiplicativeStrategy), 
+                new CraftingElement<LogItem>(typeof(BasicSmeltingEfficiencySkill), 20, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalRecipe), Item.Get<CharcoalItem>().UILink(), 1, typeof(SmeltingSpeedSkill));    
-            this.Initialize("Charcoal", typeof(CharcoalRecipe));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalRecipe), Item.Get<CharcoalItem>().UILink(), 1, typeof(BasicSmeltingSpeedSkill));    
+            this.Initialize(Localizer.DoStr("Charcoal"), typeof(CharcoalRecipe));
 
             CraftingComponent.AddRecipe(typeof(BloomeryObject), this);
         }

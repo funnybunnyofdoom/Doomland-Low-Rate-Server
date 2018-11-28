@@ -28,7 +28,7 @@ namespace Eco.Mods.Stats
             return new WeightedStat(
                 PlayerActions.StatManager(PlayerActions.LearnSpecialty),
                 weight,
-                (count) => string.Format("gained {0} skill {1} in {2}", Text.Int(count), "level".Pluralize((int)count), Item.Get<T>().FriendlyName),
+                (count) => string.Format("gained {0} skill {1} in {2}", Text.Int(count), "level".Pluralize((int)count), Item.Get<T>().DisplayName),
                 Query.EQ(PlayerActionExtensions.SkillTypeNameField, typeof(T).Name));
         }
 

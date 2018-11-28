@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(AlloySmeltingSkill), 2)] 
     public class CharcoalSteelRecipe : Recipe
@@ -26,7 +27,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CharcoalItem>(2), 
                 new CraftingElement<IronIngotItem>(typeof(AlloySmeltingEfficiencySkill), 5, AlloySmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Charcoal Steel", typeof(CharcoalSteelRecipe));
+            this.Initialize(Localizer.DoStr("Charcoal Steel"), typeof(CharcoalSteelRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalSteelRecipe), this.UILink(), 3, typeof(AlloySmeltingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }

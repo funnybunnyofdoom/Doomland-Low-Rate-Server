@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(CastingEfficiencySkill), 1, CastingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RivetRecipe), Item.Get<RivetItem>().UILink(), 0.5f, typeof(CastingSpeedSkill));    
-            this.Initialize("Rivet", typeof(RivetRecipe));
+            this.Initialize(Localizer.DoStr("Rivet"), typeof(RivetRecipe));
 
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class RivetItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Rivet"; } } 
-        public override string Description { get { return "A useful steel bolt for holding together inventions."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Rivet"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A useful steel bolt for holding together inventions."); } }
 
     }
 

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Normal Hair"; } }
-        public override string Description      { get { return "The hair with a completely normal amount of flare."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Normal Hair"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("The hair with a completely normal amount of flare."); } }
         public override string Slot             { get { return ClothingSlot.Hair; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -44,7 +44,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FurPeltItem>(typeof(ClothesmakingEfficiencySkill), 5, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Normal Hair", typeof(NormalHairRecipe));
+            this.Initialize(Localizer.DoStr("Normal Hair"), typeof(NormalHairRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

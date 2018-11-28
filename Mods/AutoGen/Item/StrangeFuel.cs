@@ -29,8 +29,8 @@ namespace Eco.Mods.TechTree
     public partial class StrangeFuelItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Strange Fuel"; } } 
-        public override string Description { get { return "CHEEEAAAAATER"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Strange Fuel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("CHEEEAAAAATER"); } }
 
     }
 

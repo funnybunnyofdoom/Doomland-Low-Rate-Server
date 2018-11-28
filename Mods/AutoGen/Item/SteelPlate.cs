@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(IndustrialEngineeringEfficiencySkill), 5, IndustrialEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteelPlateRecipe), Item.Get<SteelPlateItem>().UILink(), 4, typeof(IndustrialEngineeringSpeedSkill));    
-            this.Initialize("Steel Plate", typeof(SteelPlateRecipe));
+            this.Initialize(Localizer.DoStr("Steel Plate"), typeof(SteelPlateRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectricStampingPressObject), this);
         }
@@ -46,8 +46,8 @@ namespace Eco.Mods.TechTree
     public partial class SteelPlateItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Steel Plate"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel Plate"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

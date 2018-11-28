@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class HunterSkill : Skill
     {
-        public override string FriendlyName { get { return "Hunter"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Hunter"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }

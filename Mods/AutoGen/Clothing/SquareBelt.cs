@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Square Belt"; } }
-        public override string Description      { get { return "Belt with a square buckle."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Square Belt"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Belt with a square buckle."); } }
         public override string Slot             { get { return ClothingSlot.Belt; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 40, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Square Belt", typeof(SquareBeltRecipe));
+            this.Initialize(Localizer.DoStr("Square Belt"), typeof(SquareBeltRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

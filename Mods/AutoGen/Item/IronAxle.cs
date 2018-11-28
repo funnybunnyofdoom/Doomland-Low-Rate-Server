@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MechanicsComponentsEfficiencySkill), 4, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronAxleRecipe), Item.Get<IronAxleItem>().UILink(), 5, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Iron Axle", typeof(IronAxleRecipe));
+            this.Initialize(Localizer.DoStr("Iron Axle"), typeof(IronAxleRecipe));
 
             CraftingComponent.AddRecipe(typeof(LatheObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class IronAxleItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Iron Axle"; } } 
-        public override string Description { get { return ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Axle"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
     }
 

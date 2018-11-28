@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BearclawItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Bearclaw"; } }
-        public override string Description                      { get { return "A sweet pastry with seperated sections that look a bit like a claw."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Bearclaw"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A sweet pastry with seperated sections that look a bit like a claw."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 21, Protein = 6, Vitamins = 7};
         public override float Calories                          { get { return 650; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<YeastItem>(typeof(LeavenedBakingEfficiencySkill), 3, LeavenedBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BearclawRecipe), Item.Get<BearclawItem>().UILink(), 8, typeof(LeavenedBakingSpeedSkill)); 
-            this.Initialize("Bearclaw", typeof(BearclawRecipe));
+            this.Initialize(Localizer.DoStr("Bearclaw"), typeof(BearclawRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

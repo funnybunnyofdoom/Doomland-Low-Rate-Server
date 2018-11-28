@@ -26,9 +26,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 1, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Sugarcane"; } }
-        public override string Description  { get { return "How did you even get this?"; } }
-        public override string SpeciesName  { get { return "Wheat"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Sugarcane"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("How did you even get this?"); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Wheat"); } }
 
         public override float Calories { get { return 1; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -42,9 +42,9 @@ namespace Eco.Mods.TechTree
     {
         static SugarcanePackItem() { }
 
-        public override string FriendlyName { get { return "Sugarcane Pack"; } }
-        public override string Description  { get { return "How did you even get this?"; } }
-        public override string SpeciesName  { get { return "Wheat"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Sugarcane Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("How did you even get this?"); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Wheat"); } }
     }
 
 }

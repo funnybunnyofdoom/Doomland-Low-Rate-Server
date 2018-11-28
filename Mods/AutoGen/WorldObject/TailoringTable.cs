@@ -44,9 +44,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Tailoring Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Tailoring Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(TailoringTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class TailoringTableItem :
         WorldObjectItem<TailoringTableObject> 
     {
-        public override string FriendlyName { get { return "Tailoring Table"; } } 
-        public override string Description  { get { return  "Spearhead the fashion movement with the finest clothes and hair!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tailoring Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Spearhead the fashion movement with the finest clothes and hair!"); } }
 
         static TailoringTableItem()
         {
@@ -98,7 +99,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(TailoringTableRecipe), Item.Get<TailoringTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<TailoringTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Tailoring Table", typeof(TailoringTableRecipe));
+            this.Initialize(Localizer.DoStr("Tailoring Table"), typeof(TailoringTableRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

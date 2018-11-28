@@ -4,6 +4,7 @@
 using System.ComponentModel;
 using Eco.Gameplay.DynamicValues;
 using Eco.Gameplay.Items;
+using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
 
 [Serialized]
@@ -14,8 +15,8 @@ public class HydrometerItem : ToolItem
 
     public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 
-    public override string FriendlyName { get { return "Hydrometer"; } }
-    public override string Description { get { return "Measures the water content of the environment."; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Hydrometer"); } }
+    public override LocString DisplayDescription { get { return Localizer.DoStr("Measures the water content of the environment."); } }
         
     private static IDynamicValue skilledRepairCost = new ConstantValue(1);
     public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }

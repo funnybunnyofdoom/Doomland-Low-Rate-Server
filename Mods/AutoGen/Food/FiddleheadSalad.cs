@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class FiddleheadSaladItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Fiddlehead Salad"; } }
-        public override string Description                      { get { return "A myriad of charred plants that make a healthy and odd blend."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Fiddlehead Salad"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A myriad of charred plants that make a healthy and odd blend."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 0, Protein = 6, Vitamins = 14};
         public override float Calories                          { get { return 970; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TomatoItem>(typeof(CampfireCreationsEfficiencySkill), 5, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FiddleheadSaladRecipe), Item.Get<FiddleheadSaladItem>().UILink(), 5, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Fiddlehead Salad", typeof(FiddleheadSaladRecipe));
+            this.Initialize(Localizer.DoStr("Fiddlehead Salad"), typeof(FiddleheadSaladRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

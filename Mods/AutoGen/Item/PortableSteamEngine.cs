@@ -37,7 +37,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<BoilerItem>(typeof(MechanicsAssemblyEfficiencySkill), 4, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PortableSteamEngineRecipe), Item.Get<PortableSteamEngineItem>().UILink(), 20, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Portable Steam Engine", typeof(PortableSteamEngineRecipe));
+            this.Initialize(Localizer.DoStr("Portable Steam Engine"), typeof(PortableSteamEngineRecipe));
 
             CraftingComponent.AddRecipe(typeof(MachinistTableObject), this);
         }
@@ -50,8 +50,8 @@ namespace Eco.Mods.TechTree
     public partial class PortableSteamEngineItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Portable Steam Engine"; } } 
-        public override string Description { get { return "An engine that generates mechanical power through steam."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Portable Steam Engine"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An engine that generates mechanical power through steam."); } }
 
     }
 

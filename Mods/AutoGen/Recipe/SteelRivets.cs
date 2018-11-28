@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(CastingSkill), 4)] 
     public class SteelRivetsRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<SteelItem>(typeof(CastingEfficiencySkill), 1, CastingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Steel Rivets", typeof(SteelRivetsRecipe));
+            this.Initialize(Localizer.DoStr("Steel Rivets"), typeof(SteelRivetsRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteelRivetsRecipe), this.UILink(), 2, typeof(CastingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class SimpleSyrupItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Simple Syrup"; } }
-        public override string Description                      { get { return "A simple water and suger combination heated until the sugar dissolves."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Simple Syrup"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A simple water and suger combination heated until the sugar dissolves."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 12, Fat = 3, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 400; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SugarItem>(typeof(CulinaryArtsEfficiencySkill), 20, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SimpleSyrupRecipe), Item.Get<SimpleSyrupItem>().UILink(), 5, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Simple Syrup", typeof(SimpleSyrupRecipe));
+            this.Initialize(Localizer.DoStr("Simple Syrup"), typeof(SimpleSyrupRecipe));
             CraftingComponent.AddRecipe(typeof(KitchenObject), this);
         }
     }

@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Kelp Seed"; } }
-        public override string Description  { get { return "Plant to grow kelp."; } }
-        public override string SpeciesName  { get { return "Kelp"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Kelp Seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow kelp."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Kelp"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static KelpSeedPackItem() { }
 
-        public override string FriendlyName { get { return "Kelp Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow kelp."; } }
-        public override string SpeciesName  { get { return "Kelp"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Kelp Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow kelp."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Kelp"); } }
     }
 
 }

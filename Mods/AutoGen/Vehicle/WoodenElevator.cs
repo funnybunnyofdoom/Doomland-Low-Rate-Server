@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
     [Weight(10000)]  
     public class WoodenElevatorItem : WorldObjectItem<WoodenElevatorObject>
     {
-        public override string FriendlyName         { get { return "Wooden Elevator"; } }
-        public override string Description          { get { return "An elevator for transporting loads vertically."; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Wooden Elevator"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An elevator for transporting loads vertically."); } }
     }
 
     [RequiresSkill(typeof(MechanicalEngineeringSkill), 0)] 
@@ -43,7 +43,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(25);
 
-            this.Initialize("Wooden Elevator", typeof(WoodenElevatorRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Elevator"), typeof(WoodenElevatorRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }

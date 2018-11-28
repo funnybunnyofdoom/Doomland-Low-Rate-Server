@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(typeof(FishingSkill), 5, FishingSkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FishingPoleRecipe), Item.Get<FishingPoleItem>().UILink(), 5, typeof(FishingSkill));    
-            this.Initialize("Fishing Pole", typeof(FishingPoleRecipe));
+            this.Initialize(Localizer.DoStr("Fishing Pole"), typeof(FishingPoleRecipe));
 
             CraftingComponent.AddRecipe(typeof(FisheryObject), this);
         }

@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Blast Furnace"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Blast Furnace"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(BlastFurnaceItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -56,8 +57,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -91,8 +91,8 @@ namespace Eco.Mods.TechTree
     public partial class BlastFurnaceItem :
         WorldObjectItem<BlastFurnaceObject> 
     {
-        public override string FriendlyName { get { return "Blast Furnace"; } } 
-        public override string Description  { get { return  "A superior replacement for the bloomery that can produce steel."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Blast Furnace"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A superior replacement for the bloomery that can produce steel."); } }
 
         static BlastFurnaceItem()
         {
@@ -134,7 +134,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(BlastFurnaceRecipe), Item.Get<BlastFurnaceItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BlastFurnaceItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Blast Furnace", typeof(BlastFurnaceRecipe));
+            this.Initialize(Localizer.DoStr("Blast Furnace"), typeof(BlastFurnaceRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }

@@ -28,8 +28,8 @@ namespace Eco.Mods.TechTree
     public partial class EckoTheDolphinItem :
     ToolItem                        
     {
-        public override string FriendlyName { get { return "Ecko The Dolphin"; } } 
-        public override string Description { get { return "Ecko, the dolphin god of Eco bugs. Handle with care and lightly sprinkle with water every so often to keep moist."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Ecko The Dolphin"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Ecko, the dolphin god of Eco bugs. Handle with care and lightly sprinkle with water every so often to keep moist."); } }
 
     }
 

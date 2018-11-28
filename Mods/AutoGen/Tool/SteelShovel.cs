@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(SteelworkingEfficiencySkill), 20, SteelworkingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteelShovelRecipe), Item.Get<SteelShovelItem>().UILink(), 0.5f, typeof(SteelworkingSpeedSkill));    
-            this.Initialize("Steel Shovel", typeof(SteelShovelRecipe));
+            this.Initialize(Localizer.DoStr("Steel Shovel"), typeof(SteelShovelRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }
@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
     public partial class SteelShovelItem : ShovelItem
     {
 
-        public override string FriendlyName { get { return "Steel Shovel"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel Shovel"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(15, typeof(ShovelEfficiencySkill), typeof(SteelShovelItem), new SteelShovelItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 

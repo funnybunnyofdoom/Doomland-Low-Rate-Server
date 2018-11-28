@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class WildStewItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Wild Stew"; } }
-        public override string Description                      { get { return "A thick stew made with a variety of vegetables."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Wild Stew"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A thick stew made with a variety of vegetables."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 8, Fat = 5, Protein = 5, Vitamins = 12};
         public override float Calories                          { get { return 1200; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<BeansItem>(typeof(CampfireCreationsEfficiencySkill), 20, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(WildStewRecipe), Item.Get<WildStewItem>().UILink(), 10, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Wild Stew", typeof(WildStewRecipe));
+            this.Initialize(Localizer.DoStr("Wild Stew"), typeof(WildStewRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

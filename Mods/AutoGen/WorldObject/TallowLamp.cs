@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Tallow Lamp"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Tallow Lamp"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(TallowLampItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -72,8 +73,8 @@ namespace Eco.Mods.TechTree
     public partial class TallowLampItem :
         WorldObjectItem<TallowLampObject> 
     {
-        public override string FriendlyName { get { return "Tallow Lamp"; } } 
-        public override string Description  { get { return  "A pottery lamp. Fuel with tallow."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Tallow Lamp"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A pottery lamp. Fuel with tallow."); } }
 
         static TallowLampItem()
         {
@@ -112,7 +113,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(TallowLampRecipe), Item.Get<TallowLampItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<TallowLampItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Tallow Lamp", typeof(TallowLampRecipe));
+            this.Initialize(Localizer.DoStr("Tallow Lamp"), typeof(TallowLampRecipe));
             CraftingComponent.AddRecipe(typeof(KilnObject), this);
         }
     }

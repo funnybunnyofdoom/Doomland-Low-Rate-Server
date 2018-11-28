@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class CharredFishItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Charred Fish"; } }
-        public override string FriendlyNamePlural               { get { return "Charred Fish"; } } 
-        public override string Description                      { get { return "At least it doesn't have any scales any more."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Charred Fish"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Charred Fish"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("At least it doesn't have any scales any more."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 4, Protein = 9, Vitamins = 0};
         public override float Calories                          { get { return 550; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawFishItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(3);     
-            this.Initialize("Charred Fish", typeof(CharredFishRecipe));
+            this.Initialize(Localizer.DoStr("Charred Fish"), typeof(CharredFishRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

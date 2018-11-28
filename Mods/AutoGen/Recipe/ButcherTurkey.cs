@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(SmallButcherySkill), 1)] 
     public class ButcherTurkeyRecipe : Recipe
@@ -26,7 +27,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<TurkeyCarcassItem>(typeof(SmallButcheryEfficiencySkill), 1, SmallButcheryEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Butcher Turkey", typeof(ButcherTurkeyRecipe));
+            this.Initialize(Localizer.DoStr("Butcher Turkey"), typeof(ButcherTurkeyRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(ButcherTurkeyRecipe), this.UILink(), 1, typeof(SmallButcherySpeedSkill));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }

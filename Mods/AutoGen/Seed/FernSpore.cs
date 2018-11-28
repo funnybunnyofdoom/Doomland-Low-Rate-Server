@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Fern Spore"; } }
-        public override string Description  { get { return "Plant to grow ferns."; } }
-        public override string SpeciesName  { get { return "Fern"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Fern Spore"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow ferns."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Fern"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static FernSporePackItem() { }
 
-        public override string FriendlyName { get { return "Fern Spore Pack"; } }
-        public override string Description  { get { return "Plant to grow ferns."; } }
-        public override string SpeciesName  { get { return "Fern"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Fern Spore Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow ferns."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Fern"); } }
     }
 
     [RequiresSkill(typeof(SeedProductionSkill), 1)]    
@@ -64,7 +64,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<FernSporeItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Fern Spore", typeof(FernSporeRecipe));
+            this.Initialize(Localizer.DoStr("Fern Spore"), typeof(FernSporeRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

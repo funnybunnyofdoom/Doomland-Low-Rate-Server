@@ -35,8 +35,8 @@ namespace Eco.Mods.TechTree
     public partial class SmallWoodSignItem :
         WorldObjectItem<SmallWoodSignObject> 
     {
-        public override string FriendlyName { get { return "Small Wood Sign"; } } 
-        public override string Description  { get { return  "A small wooden sign for all your small text needs."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Wood Sign"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A small wooden sign for all your small text needs."); } }
 
         static SmallWoodSignItem()
         {
@@ -65,7 +65,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SmallWoodSignRecipe), Item.Get<SmallWoodSignItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SmallWoodSignItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Small Wood Sign", typeof(SmallWoodSignRecipe));
+            this.Initialize(Localizer.DoStr("Small Wood Sign"), typeof(SmallWoodSignRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

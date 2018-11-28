@@ -26,8 +26,8 @@ namespace Eco.Mods.TechTree
     public partial class BisonCarcassItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Bison Carcass"; } } 
-        public override string Description { get { return "A dead bison"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Bison Carcass"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A dead bison"); } }
 
     }
 

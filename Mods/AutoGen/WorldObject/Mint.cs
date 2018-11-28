@@ -42,9 +42,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Mint"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Mint"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(MintItem); } } 
+
 
 
         protected override void Initialize()
@@ -65,8 +66,8 @@ namespace Eco.Mods.TechTree
     public partial class MintItem :
         WorldObjectItem<MintObject> 
     {
-        public override string FriendlyName { get { return "Mint"; } } 
-        public override string Description  { get { return  "Allows for the creation of currency."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Mint"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Allows for the creation of currency."); } }
 
         static MintItem()
         {
@@ -96,7 +97,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(MintRecipe), Item.Get<MintItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<MintItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Mint", typeof(MintRecipe));
+            this.Initialize(Localizer.DoStr("Mint"), typeof(MintRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

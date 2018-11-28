@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CopperWiringItem>(typeof(ElectronicEngineeringEfficiencySkill), 10, ElectronicEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(LightBulbRecipe), Item.Get<LightBulbItem>().UILink(), 5, typeof(ElectronicEngineeringSpeedSkill));    
-            this.Initialize("Light Bulb", typeof(LightBulbRecipe));
+            this.Initialize(Localizer.DoStr("Light Bulb"), typeof(LightBulbRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class LightBulbItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Light Bulb"; } } 
-        public override string Description { get { return "An electric light with a wire filament."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Light Bulb"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An electric light with a wire filament."); } }
 
     }
 

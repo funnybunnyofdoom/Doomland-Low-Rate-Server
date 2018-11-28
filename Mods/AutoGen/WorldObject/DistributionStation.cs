@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         StockpileObject, 
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Distribution Station"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Distribution Station"); } } 
 
         public override Type RepresentedItemType { get { return typeof(DistributionStationItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class DistributionStationItem :
         WorldObjectItem<DistributionStationObject> 
     {
-        public override string FriendlyName { get { return "Distribution Station"; } } 
-        public override string Description  { get { return  "A stockpile for distributing items to new players.  Allows you to choose a specific set of items which each new player will be able to take."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Distribution Station"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A stockpile for distributing items to new players.  Allows you to choose a specific set of items which each new player will be able to take."); } }
 
         static DistributionStationItem()
         {
@@ -93,7 +94,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(DistributionStationRecipe), Item.Get<DistributionStationItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<DistributionStationItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Distribution Station", typeof(DistributionStationRecipe));
+            this.Initialize(Localizer.DoStr("Distribution Station"), typeof(DistributionStationRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

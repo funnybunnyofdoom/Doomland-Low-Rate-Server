@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Store"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Store"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(StoreItem); } } 
+
 
 
         protected override void Initialize()
@@ -66,8 +67,8 @@ namespace Eco.Mods.TechTree
     public partial class StoreItem :
         WorldObjectItem<StoreObject> 
     {
-        public override string FriendlyName { get { return "Store"; } } 
-        public override string Description  { get { return  "Allows the selling and trading of items."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Store"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Allows the selling and trading of items."); } }
 
         static StoreItem()
         {
@@ -89,11 +90,11 @@ namespace Eco.Mods.TechTree
 
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),                                                                    
+                new CraftingElement<LogItem>(10),
+                new CraftingElement<StoneItem>(10)                                                                    
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(StoreRecipe), this.UILink(), 15f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Store", typeof(StoreRecipe));
+            this.CraftMinutes = new ConstantValue(15); 
+            this.Initialize(Localizer.DoStr("Store"), typeof(StoreRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

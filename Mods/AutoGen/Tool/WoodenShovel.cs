@@ -27,7 +27,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),    
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(WoodenShovelRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Wooden Shovel", typeof(WoodenShovelRecipe));
+            this.Initialize(Localizer.DoStr("Wooden Shovel"), typeof(WoodenShovelRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }
@@ -37,11 +37,11 @@ namespace Eco.Mods.TechTree
     public partial class WoodenShovelItem : ShovelItem
     {
 
-        public override string FriendlyName { get { return "Wooden Shovel"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wooden Shovel"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(20, typeof(ShovelEfficiencySkill), typeof(WoodenShovelItem), new WoodenShovelItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
 
-        private static IDynamicValue skilledRepairCost = new SkillModifiedValue(5, BasicCraftingEfficiencySkill.MultiplicativeStrategy, typeof(BasicCraftingEfficiencySkill), Localizer.DoStr("repair cost"));  
+        private static IDynamicValue skilledRepairCost = new ConstantValue(5);  
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
 

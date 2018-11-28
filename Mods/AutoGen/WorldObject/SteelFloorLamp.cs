@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Steel Floor Lamp"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel Floor Lamp"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SteelFloorLampItem); } } 
+
 
 
         protected override void Initialize()
@@ -67,8 +68,8 @@ namespace Eco.Mods.TechTree
     public partial class SteelFloorLampItem :
         WorldObjectItem<SteelFloorLampObject> 
     {
-        public override string FriendlyName { get { return "Steel Floor Lamp"; } } 
-        public override string Description  { get { return  "A more modern way to light up a room. This time from the floor."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel Floor Lamp"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A more modern way to light up a room. This time from the floor."); } }
 
         static SteelFloorLampItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SteelFloorLampRecipe), Item.Get<SteelFloorLampItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SteelFloorLampItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Steel Floor Lamp", typeof(SteelFloorLampRecipe));
+            this.Initialize(Localizer.DoStr("Steel Floor Lamp"), typeof(SteelFloorLampRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

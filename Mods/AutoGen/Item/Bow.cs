@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PlantFibersItem>(20)    
             };
             this.CraftMinutes = new ConstantValue(0.5f);
-            this.Initialize("Bow", typeof(BowRecipe));
+            this.Initialize(Localizer.DoStr("Bow"), typeof(BowRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }

@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wind Turbine"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wind Turbine"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WindTurbineItem); } } 
+
 
 
         protected override void Initialize()
@@ -69,8 +70,8 @@ namespace Eco.Mods.TechTree
     public partial class WindTurbineItem :
         WorldObjectItem<WindTurbineObject> 
     {
-        public override string FriendlyName { get { return "Wind Turbine"; } } 
-        public override string Description  { get { return  "Generates electrical power from the wind."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wind Turbine"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Generates electrical power from the wind."); } }
 
         static WindTurbineItem()
         {
@@ -108,7 +109,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WindTurbineRecipe), Item.Get<WindTurbineItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WindTurbineItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wind Turbine", typeof(WindTurbineRecipe));
+            this.Initialize(Localizer.DoStr("Wind Turbine"), typeof(WindTurbineRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

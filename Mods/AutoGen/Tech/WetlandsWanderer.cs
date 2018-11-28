@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(ForestForagerSkill), 1)]    
     public partial class WetlandsWandererSkill : Skill
     {
-        public override string FriendlyName { get { return "Wetlands Wanderer"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Wetlands Wanderer"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static ModificationStrategy MultiplicativeStrategy = 
             new MultiplicativeStrategy(new float[] { 1, 1 - 1.2f, 1 - 1.4f, 1 - 1.6f, 1 - 1.8f, 1 - 2 });

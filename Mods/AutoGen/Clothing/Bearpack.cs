@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Bearpack"; } }
-        public override string Description      { get { return "Lets you carry as much as a bear! Not really, but it does help you carry more."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Bearpack"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Lets you carry as much as a bear! Not really, but it does help you carry more."); } }
         public override string Slot             { get { return ClothingSlot.Back; } }             
         public override bool Starter            { get { return false ; } }                       
 
@@ -50,7 +50,7 @@ public override Dictionary<UserStatType, float> GetFlatStats() { return flatStat
                 new CraftingElement<FurPeltItem>(typeof(ClothesmakingEfficiencySkill), 50, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Bearpack", typeof(BearpackRecipe));
+            this.Initialize(Localizer.DoStr("Bearpack"), typeof(BearpackRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

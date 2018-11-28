@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "A P Gen"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("A P Gen"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(APGenItem); } } 
+
 
 
         protected override void Initialize()
@@ -61,8 +62,8 @@ namespace Eco.Mods.TechTree
     public partial class APGenItem :
         WorldObjectItem<APGenObject> 
     {
-        public override string FriendlyName { get { return "A P Gen"; } } 
-        public override string Description  { get { return  "Not sure why you would have this or want to place it, but it just generates pollution."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("A P Gen"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Not sure why you would have this or want to place it, but it just generates pollution."); } }
 
         static APGenItem()
         {
@@ -86,7 +87,7 @@ namespace Eco.Mods.TechTree
             {
             };
             this.CraftMinutes = new ConstantValue(); 
-            this.Initialize("A P Gen", typeof(APGenRecipe));
+            this.Initialize(Localizer.DoStr("A P Gen"), typeof(APGenRecipe));
             CraftingComponent.AddRecipe(typeof(Object), this);
         }
     }

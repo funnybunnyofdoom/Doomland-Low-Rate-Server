@@ -37,9 +37,12 @@ namespace Eco.Mods.TechTree
         DoorObject, 
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Stone Door"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Door"); } } 
 
         public override Type RepresentedItemType { get { return typeof(StoneDoorItem); } } 
+
+        public override bool HasTier { get { return true; } } 
+        public override int Tier { get { return 1; } } 
 
 
         protected override void Initialize()
@@ -60,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class StoneDoorItem :
         WorldObjectItem<StoneDoorObject> 
     {
-        public override string FriendlyName { get { return "Stone Door"; } } 
-        public override string Description  { get { return  "A heavy stone door."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Door"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A heavy stone door."); } }
 
         static StoneDoorItem()
         {
@@ -90,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(StoneDoorRecipe), Item.Get<StoneDoorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<StoneDoorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Stone Door", typeof(StoneDoorRecipe));
+            this.Initialize(Localizer.DoStr("Stone Door"), typeof(StoneDoorRecipe));
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);
         }
     }

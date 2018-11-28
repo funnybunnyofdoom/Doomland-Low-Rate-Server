@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class MeatStockItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Meat Stock"; } }
-        public override string Description                      { get { return "A meaty stock made from the flesh of animals."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Meat Stock"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A meaty stock made from the flesh of animals."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 5, Fat = 9, Protein = 8, Vitamins = 3};
         public override float Calories                          { get { return 700; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<ScrapMeatItem>(typeof(HomeCookingEfficiencySkill), 20, HomeCookingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(MeatStockRecipe), Item.Get<MeatStockItem>().UILink(), 20, typeof(HomeCookingSpeedSkill)); 
-            this.Initialize("Meat Stock", typeof(MeatStockRecipe));
+            this.Initialize(Localizer.DoStr("Meat Stock"), typeof(MeatStockRecipe));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }
     }

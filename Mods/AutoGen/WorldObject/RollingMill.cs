@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Rolling Mill"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Rolling Mill"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RollingMillItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class RollingMillItem :
         WorldObjectItem<RollingMillObject> 
     {
-        public override string FriendlyName { get { return "Rolling Mill"; } } 
-        public override string Description  { get { return  "For rolling steel into more buildable materials."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Rolling Mill"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("For rolling steel into more buildable materials."); } }
 
         static RollingMillItem()
         {
@@ -102,7 +103,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RollingMillRecipe), Item.Get<RollingMillItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RollingMillItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Rolling Mill", typeof(RollingMillRecipe));
+            this.Initialize(Localizer.DoStr("Rolling Mill"), typeof(RollingMillRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

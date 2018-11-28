@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Cast Iron Stove"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Cast Iron Stove"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CastIronStoveItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -58,8 +59,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -83,8 +83,8 @@ namespace Eco.Mods.TechTree
     public partial class CastIronStoveItem :
         WorldObjectItem<CastIronStoveObject> 
     {
-        public override string FriendlyName { get { return "Cast Iron Stove"; } } 
-        public override string Description  { get { return  "The perfect stove for the fledgling chef."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cast Iron Stove"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("The perfect stove for the fledgling chef."); } }
 
         static CastIronStoveItem()
         {
@@ -122,7 +122,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CastIronStoveRecipe), Item.Get<CastIronStoveItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CastIronStoveItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Cast Iron Stove", typeof(CastIronStoveRecipe));
+            this.Initialize(Localizer.DoStr("Cast Iron Stove"), typeof(CastIronStoveRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

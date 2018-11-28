@@ -24,9 +24,9 @@ namespace Eco.Mods.TechTree
     public partial class CornItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Corn"; } }
-        public override string FriendlyNamePlural               { get { return "Corn"; } } 
-        public override string Description                      { get { return "A warmly colored kernel studded vegetable."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Corn"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Corn"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A warmly colored kernel studded vegetable."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 5, Fat = 0, Protein = 2, Vitamins = 1};
         public override float Calories                          { get { return 230; } }

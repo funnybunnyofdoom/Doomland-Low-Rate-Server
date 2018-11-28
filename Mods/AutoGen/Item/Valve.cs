@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelPlateItem>(typeof(MechanicsAssemblyEfficiencySkill), 5, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ValveRecipe), Item.Get<ValveItem>().UILink(), 8, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Valve", typeof(ValveRecipe));
+            this.Initialize(Localizer.DoStr("Valve"), typeof(ValveRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
@@ -48,8 +48,8 @@ namespace Eco.Mods.TechTree
     public partial class ValveItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Valve"; } } 
-        public override string Description { get { return "A device that regulates, directs, or controls the flow of fluid."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Valve"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A device that regulates, directs, or controls the flow of fluid."); } }
 
     }
 

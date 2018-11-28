@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MechanicsComponentsEfficiencySkill), 5, MechanicsComponentsEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PistonRecipe), Item.Get<PistonItem>().UILink(), 4, typeof(MechanicsComponentsSpeedSkill));    
-            this.Initialize("Piston", typeof(PistonRecipe));
+            this.Initialize(Localizer.DoStr("Piston"), typeof(PistonRecipe));
 
             CraftingComponent.AddRecipe(typeof(ScrewPressObject), this);
         }
@@ -48,9 +48,9 @@ namespace Eco.Mods.TechTree
     public partial class PistonItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Iron Piston"; } } 
-        public override string FriendlyNamePlural { get { return "Iron Pistons"; } } 
-        public override string Description { get { return "A moving component that transfers force. Can also function as a valve occasionally."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Piston"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Iron Pistons"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A moving component that transfers force. Can also function as a valve occasionally."); } }
 
     }
 

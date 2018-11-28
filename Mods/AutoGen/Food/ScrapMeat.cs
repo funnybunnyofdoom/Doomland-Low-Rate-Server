@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class ScrapMeatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Scrap Meat"; } }
-        public override string Description                      { get { return "Chunks of extra meat."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Scrap Meat"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Chunks of extra meat."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 5, Protein = 5, Vitamins = 0};
         public override float Calories                          { get { return 50; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawMeatItem>(typeof(MeatPrepEfficiencySkill), 1, MeatPrepEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ScrapMeatRecipe), Item.Get<ScrapMeatItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
-            this.Initialize("Scrap Meat", typeof(ScrapMeatRecipe));
+            this.Initialize(Localizer.DoStr("Scrap Meat"), typeof(ScrapMeatRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }
     }

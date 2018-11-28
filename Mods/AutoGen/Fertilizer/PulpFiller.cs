@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<DirtItem>(typeof(FertilizerEfficiencySkill), 1, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PulpFillerRecipe), Item.Get<PulpFillerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Pulp Filler", typeof(PulpFillerRecipe));
+            this.Initialize(Localizer.DoStr("Pulp Filler"), typeof(PulpFillerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class PulpFillerItem : FertilizerItem<PulpFillerItem>
     {
-        public override string FriendlyName { get { return "Pulp Filler"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Pulp Filler"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static PulpFillerItem()
         {

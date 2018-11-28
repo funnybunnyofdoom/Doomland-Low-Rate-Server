@@ -37,9 +37,9 @@ namespace Eco.Mods.TechTree
     public partial class StoneItem :
     BlockItem<StoneBlock>
     {
-        public override string FriendlyName { get { return "Stone"; } } 
-        public override string FriendlyNamePlural { get { return "Stone"; } } 
-        public override string Description { get { return "A pile of stones."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Stone"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A pile of stones."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

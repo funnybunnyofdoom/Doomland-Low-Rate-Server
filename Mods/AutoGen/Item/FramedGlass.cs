@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(GlassProductionEfficiencySkill), 6, GlassProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FramedGlassRecipe), Item.Get<FramedGlassItem>().UILink(), 1, typeof(GlassProductionSpeedSkill));    
-            this.Initialize("Framed Glass", typeof(FramedGlassRecipe));
+            this.Initialize(Localizer.DoStr("Framed Glass"), typeof(FramedGlassRecipe));
 
             CraftingComponent.AddRecipe(typeof(KilnObject), this);
         }
@@ -59,9 +59,9 @@ namespace Eco.Mods.TechTree
     public partial class FramedGlassItem :
     BlockItem<FramedGlassBlock>
     {
-        public override string FriendlyName { get { return "Framed Glass"; } } 
-        public override string FriendlyNamePlural { get { return "Framed Glass"; } } 
-        public override string Description { get { return "A transparent, solid material useful for more than just windows."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Framed Glass"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Framed Glass"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A transparent, solid material useful for more than just windows."); } }
 
         public override bool CanStickToWalls { get { return false; } }  
 

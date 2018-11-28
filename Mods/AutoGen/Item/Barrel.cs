@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(PetrolRefiningEfficiencySkill), 5, PetrolRefiningEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BarrelRecipe), Item.Get<BarrelItem>().UILink(), 1, typeof(PetrolRefiningSpeedSkill));    
-            this.Initialize("Barrel", typeof(BarrelRecipe));
+            this.Initialize(Localizer.DoStr("Barrel"), typeof(BarrelRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
@@ -57,8 +57,8 @@ namespace Eco.Mods.TechTree
     public partial class BarrelItem :
     BlockItem<BarrelBlock>
     {
-        public override string FriendlyName { get { return "Barrel"; } } 
-        public override string Description { get { return "A metal barrel for carrying liquids."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Barrel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A metal barrel for carrying liquids."); } }
 
     }
 

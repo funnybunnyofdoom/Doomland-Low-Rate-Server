@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CharredSausageItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Charred Sausage"; } }
-        public override string Description                      { get { return "A blacked sausage filled with meat, fat, and deliciousness."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Charred Sausage"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A blacked sausage filled with meat, fat, and deliciousness."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 15, Protein = 11, Vitamins = 0};
         public override float Calories                          { get { return 500; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawSausageItem>(typeof(CampfireCreationsEfficiencySkill), 4, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CharredSausageRecipe), Item.Get<CharredSausageItem>().UILink(), 7, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Charred Sausage", typeof(CharredSausageRecipe));
+            this.Initialize(Localizer.DoStr("Charred Sausage"), typeof(CharredSausageRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

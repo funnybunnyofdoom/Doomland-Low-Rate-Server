@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Small Hanging Hewn Log Sign"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Hanging Hewn Log Sign"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SmallHangingHewnLogSignItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class SmallHangingHewnLogSignItem :
         WorldObjectItem<SmallHangingHewnLogSignObject> 
     {
-        public override string FriendlyName { get { return "Small Hanging Hewn Log Sign"; } } 
-        public override string Description  { get { return  "A small sign for all of your smaller text needs!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Hanging Hewn Log Sign"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A small sign for all of your smaller text needs!"); } }
 
         static SmallHangingHewnLogSignItem()
         {
@@ -92,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SmallHangingHewnLogSignRecipe), Item.Get<SmallHangingHewnLogSignItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SmallHangingHewnLogSignItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Small Hanging Hewn Log Sign", typeof(SmallHangingHewnLogSignRecipe));
+            this.Initialize(Localizer.DoStr("Small Hanging Hewn Log Sign"), typeof(SmallHangingHewnLogSignRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Elk Mount"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Elk Mount"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElkMountItem); } } 
+
 
 
         protected override void Initialize()
@@ -64,8 +65,8 @@ namespace Eco.Mods.TechTree
     public partial class ElkMountItem :
         WorldObjectItem<ElkMountObject> 
     {
-        public override string FriendlyName { get { return "Elk Mount"; } } 
-        public override string Description  { get { return  "A hunting trophy for your house."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Elk Mount"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A hunting trophy for your house."); } }
 
         static ElkMountItem()
         {
@@ -103,7 +104,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ElkMountRecipe), Item.Get<ElkMountItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ElkMountItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Elk Mount", typeof(ElkMountRecipe));
+            this.Initialize(Localizer.DoStr("Elk Mount"), typeof(ElkMountRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

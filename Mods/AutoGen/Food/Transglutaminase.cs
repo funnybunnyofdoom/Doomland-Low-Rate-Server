@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class TransglutaminaseItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Transglutaminase"; } }
-        public override string Description                      { get { return "Any enzyme that can be used to bond proteins together."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Transglutaminase"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Any enzyme that can be used to bond proteins together."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 10; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<ScrapMeatItem>(typeof(MolecularGastronomyEfficiencySkill), 30, MolecularGastronomyEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(TransglutaminaseRecipe), Item.Get<TransglutaminaseItem>().UILink(), 20, typeof(MolecularGastronomySpeedSkill)); 
-            this.Initialize("Transglutaminase", typeof(TransglutaminaseRecipe));
+            this.Initialize(Localizer.DoStr("Transglutaminase"), typeof(TransglutaminaseRecipe));
             CraftingComponent.AddRecipe(typeof(LaboratoryObject), this);
         }
     }

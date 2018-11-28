@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class HuckleberryExtractItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Huckleberry Extract"; } }
-        public override string Description                      { get { return "A concentrated blast of huckleberry goodness."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Huckleberry Extract"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A concentrated blast of huckleberry goodness."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 15};
         public override float Calories                          { get { return 60; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberriesItem>(typeof(CulinaryArtsEfficiencySkill), 50, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(HuckleberryExtractRecipe), Item.Get<HuckleberryExtractItem>().UILink(), 5, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Huckleberry Extract", typeof(HuckleberryExtractRecipe));
+            this.Initialize(Localizer.DoStr("Huckleberry Extract"), typeof(HuckleberryExtractRecipe));
             CraftingComponent.AddRecipe(typeof(KitchenObject), this);
         }
     }

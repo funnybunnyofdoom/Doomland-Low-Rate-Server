@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(ChefSkill), 0)]    
     public partial class CuttingEdgeCookingSkill : Skill
     {
-        public override string FriendlyName { get { return "Cutting Edge Cooking"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Cutting Edge Cooking"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class CuttingEdgeCookingSkillBook : SkillBook<CuttingEdgeCookingSkill, CuttingEdgeCookingSkillScroll>
     {
-        public override string FriendlyName { get { return "Cutting Edge Cooking Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cutting Edge Cooking Skill Book"); } }
     }
 
     [Serialized]
     public partial class CuttingEdgeCookingSkillScroll : NewSkillScroll<CuttingEdgeCookingSkill, CuttingEdgeCookingSkillBook>
     {
-        public override string FriendlyName { get { return "Cutting Edge Cooking Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Cutting Edge Cooking Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(AdvancedCookingSkill), 0)] 
@@ -59,7 +59,7 @@ namespace Eco.Mods.TechTree
             };
             this.CraftMinutes = new ConstantValue(60);
 
-            this.Initialize("Cutting Edge Cooking Skill Book", typeof(CuttingEdgeCookingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Cutting Edge Cooking Skill Book"), typeof(CuttingEdgeCookingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

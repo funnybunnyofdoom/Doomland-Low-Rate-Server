@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
     public partial class AcornPowderItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Acorn Powder"; } }
-        public override string FriendlyNamePlural               { get { return "Acorn Powder"; } } 
-        public override string Description                      { get { return "Powdered acorn."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Acorn Powder"); } }
+        public override LocString DisplayNamePlural             { get { return Localizer.DoStr("Acorn Powder"); } } 
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Powdered acorn."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 2, Protein = 5, Vitamins = 5};
         public override float Calories                          { get { return 40; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<AcornItem>(typeof(MillProcessingEfficiencySkill), 10, MillProcessingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(AcornPowderRecipe), Item.Get<AcornPowderItem>().UILink(), 5, typeof(MillProcessingSpeedSkill)); 
-            this.Initialize("Acorn Powder", typeof(AcornPowderRecipe));
+            this.Initialize(Localizer.DoStr("Acorn Powder"), typeof(AcornPowderRecipe));
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }
     }

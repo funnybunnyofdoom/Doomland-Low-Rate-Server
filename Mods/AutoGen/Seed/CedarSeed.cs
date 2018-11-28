@@ -6,6 +6,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Skills;
+    using Eco.Gameplay.Systems;
     using Eco.Gameplay.Systems.TextLinks;
     using Eco.Mods.TechTree;
     using Eco.Shared.Localization;
@@ -24,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Cedar Cone"; } }
-        public override string Description  { get { return "Plant to grow a cedar sapling."; } }
-        public override string SpeciesName  { get { return "Cedar"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Cedar Seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow a cedar sapling."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Cedar"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -40,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static CedarSeedPackItem() { }
 
-        public override string FriendlyName { get { return "Cedar Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow a cedar sapling."; } }
-        public override string SpeciesName  { get { return "Cedar"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Cedar Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow a cedar sapling."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Cedar"); } }
     }
 	
 	[RequiresSkill(typeof(SeedProductionSkill), 4)]    
@@ -63,8 +64,9 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CedarSeedItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Cedar Cone", typeof(CedarSeedRecipe));
+            this.Initialize(Localizer.DoStr("Cedar Cone"), typeof(CedarSeedRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }
+
 }

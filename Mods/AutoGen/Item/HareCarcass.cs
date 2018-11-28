@@ -26,8 +26,8 @@ namespace Eco.Mods.TechTree
     public partial class HareCarcassItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Hare Carcass"; } } 
-        public override string Description { get { return "A dead hare."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Hare Carcass"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A dead hare."); } }
 
     }
 

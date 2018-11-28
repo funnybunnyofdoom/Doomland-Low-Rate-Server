@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<FurPeltItem>(typeof(FertilizerEfficiencySkill), 2, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(PeltFertilizerRecipe), Item.Get<PeltFertilizerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Pelt Fertilizer", typeof(PeltFertilizerRecipe));
+            this.Initialize(Localizer.DoStr("Pelt Fertilizer"), typeof(PeltFertilizerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class PeltFertilizerItem : FertilizerItem<PeltFertilizerItem>
     {
-        public override string FriendlyName { get { return "Pelt Fertilizer"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Pelt Fertilizer"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static PeltFertilizerItem()
         {

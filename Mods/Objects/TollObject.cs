@@ -21,6 +21,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Components;
     using Eco.Gameplay.Systems;
     using System.ComponentModel;
+    using Eco.Shared.Localization;
 
     //This Toll object demonstrates the use of auto-generated UI for components, check out the attributes assigned to the members and compare to the UI it creates.
     //A toll object will, when triggered (either by a user paying for it or by the owner using it), send an activation to any touching objects, using wires to transmit.  
@@ -29,8 +30,8 @@ namespace Eco.Mods.TechTree
     [Category("Hidden")]
     public class TollItem : WorldObjectItem<TollObject>
     {
-        public override string FriendlyName { get { return "Toll"; } }
-        public override string Description { get { return "Toggle on any touching wires and electronic objects."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Toll"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Toggle on any touching wires and electronic objects."); } }
     }
 
     [Serialized]
@@ -53,7 +54,7 @@ namespace Eco.Mods.TechTree
             }
         }
 
-        public override string FriendlyName { get { return "Toll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Toll"); } }
     }
 
 
@@ -112,7 +113,7 @@ namespace Eco.Mods.TechTree
                 this.DoSwitch(player);
                 return InteractResult.Success;
             }
-            return InteractResult.FailureLocStr("You don't have access to directly switch this; you must pay the toll.");
+            return InteractResult.Failure(Localizer.DoStr("You don't have access to directly switch this; you must pay the toll."));
         }
 
         [ChatCommand("Create a test toll object triggering some basic stuff.", ChatAuthorizationLevel.Developer)]

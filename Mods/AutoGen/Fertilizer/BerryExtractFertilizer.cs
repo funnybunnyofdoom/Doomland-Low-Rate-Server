@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<HuckleberryExtractItem>(typeof(FertilizerEfficiencySkill), 4, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BerryExtractFertilizerRecipe), Item.Get<BerryExtractFertilizerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Berry Extract Fertilizer", typeof(BerryExtractFertilizerRecipe));
+            this.Initialize(Localizer.DoStr("Berry Extract Fertilizer"), typeof(BerryExtractFertilizerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class BerryExtractFertilizerItem : FertilizerItem<BerryExtractFertilizerItem>
     {
-        public override string FriendlyName { get { return "Berry Extract Fertilizer"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Berry Extract Fertilizer"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static BerryExtractFertilizerItem()
         {

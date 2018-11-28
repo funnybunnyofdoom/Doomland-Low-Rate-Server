@@ -205,7 +205,7 @@ public class TreeEntity : Tree, IInteractableObject, IDamageable, IMinimapObject
     #endregion
 
     #region IMinimapObject interface
-    public string FriendlyName { get { return this.Species.DisplayName; } }
+    public string DisplayName { get { return this.Species.DisplayName; } }
 
     public float MinimapYaw
     {
@@ -397,7 +397,7 @@ public class TreeEntity : Tree, IInteractableObject, IDamageable, IMinimapObject
                 // reciprocate to clients
                 this.RPC("SliceTrunk", slicePoint, target.ID, newPiece.ID);
 
-                PlantSimEvents.OnLogChopped.Invoke(player.FriendlyName);
+                PlantSimEvents.OnLogChopped.Invoke(player.DisplayName);
 
                 this.Save();
                 return true;
@@ -505,7 +505,7 @@ public class TreeEntity : Tree, IInteractableObject, IDamageable, IMinimapObject
         }
 
         if (killer is Player)
-            PlantSimEvents.OnTreeFelled.Invoke((killer as Player).FriendlyName);
+            PlantSimEvents.OnTreeFelled.Invoke((killer as Player).DisplayName);
 
         //Add air pollution (minor)
         WorldLayerManager.ClimateSim.AddAirPollution(new WorldPosition3i(this.Position.XYZi), -this.Species.ReleasesCO2ppmPerDay);

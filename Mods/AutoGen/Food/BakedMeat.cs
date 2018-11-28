@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BakedMeatItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Baked Meat"; } }
-        public override string Description                      { get { return "Evenly baked meat; it might not have the perfect sear but it's good enough."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Baked Meat"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Evenly baked meat; it might not have the perfect sear but it's good enough."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 17, Protein = 13, Vitamins = 0};
         public override float Calories                          { get { return 600; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawMeatItem>(typeof(BasicBakingEfficiencySkill), 5, BasicBakingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BakedMeatRecipe), Item.Get<BakedMeatItem>().UILink(), 5, typeof(BasicBakingSpeedSkill)); 
-            this.Initialize("Baked Meat", typeof(BakedMeatRecipe));
+            this.Initialize(Localizer.DoStr("Baked Meat"), typeof(BakedMeatRecipe));
             CraftingComponent.AddRecipe(typeof(BakeryOvenObject), this);
         }
     }

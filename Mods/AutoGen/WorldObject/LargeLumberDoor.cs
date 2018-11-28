@@ -37,9 +37,12 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Large Lumber Door"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Lumber Door"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(LargeLumberDoorItem); } } 
+
+        public override bool HasTier { get { return true; } } 
+        public override int Tier { get { return 2; } } 
 
 
         protected override void Initialize()
@@ -59,8 +62,8 @@ namespace Eco.Mods.TechTree
     public partial class LargeLumberDoorItem :
         WorldObjectItem<LargeLumberDoorObject> 
     {
-        public override string FriendlyName { get { return "Large Lumber Door"; } } 
-        public override string Description  { get { return  "A large door."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Lumber Door"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large door."); } }
 
         static LargeLumberDoorItem()
         {
@@ -88,7 +91,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(LargeLumberDoorRecipe), Item.Get<LargeLumberDoorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<LargeLumberDoorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Large Lumber Door", typeof(LargeLumberDoorRecipe));
+            this.Initialize(Localizer.DoStr("Large Lumber Door"), typeof(LargeLumberDoorRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

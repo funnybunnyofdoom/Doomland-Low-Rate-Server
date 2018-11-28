@@ -41,9 +41,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Bookshelf"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Bookshelf"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(BookshelfItem); } } 
+
 
 
         protected override void Initialize()
@@ -68,8 +69,8 @@ namespace Eco.Mods.TechTree
     public partial class BookshelfItem :
         WorldObjectItem<BookshelfObject> 
     {
-        public override string FriendlyName { get { return "Bookshelf"; } } 
-        public override string Description  { get { return  "A place to store knowledge and information; leads to the town hall."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Bookshelf"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A place to store knowledge and information; leads to the town hall."); } }
 
         static BookshelfItem()
         {
@@ -107,7 +108,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(BookshelfRecipe), Item.Get<BookshelfItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<BookshelfItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Bookshelf", typeof(BookshelfRecipe));
+            this.Initialize(Localizer.DoStr("Bookshelf"), typeof(BookshelfRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

@@ -11,14 +11,15 @@ using Eco.Shared.Serialization;
 using Eco.World;
 using Eco.World.Blocks;
 using Eco.Mods.TechTree;
+using Eco.Shared.Localization;
 
 [Serialized]
 [Category("Hidden")]
 [Hoer]
 public class HoeItem : ToolItem
 {
-    public override string FriendlyName { get { return "Hoe"; } }
-    public override string Description  { get { return "Used to till soil and prepare it for planting."; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Hoe"); } }
+    public override LocString DisplayDescription  { get { return Localizer.DoStr("Used to till soil and prepare it for planting."); } }
 
     private static IDynamicValue skilledRepairCost = new ConstantValue(1);
     public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }

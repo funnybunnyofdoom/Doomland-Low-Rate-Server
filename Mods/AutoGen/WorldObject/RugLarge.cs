@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Large Rug"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Rug"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RugLargeItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class RugLargeItem :
         WorldObjectItem<RugLargeObject> 
     {
-        public override string FriendlyName { get { return "Large Rug"; } } 
-        public override string Description  { get { return  "A large area rug to cover that weird stain."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Large Rug"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large area rug to cover that weird stain."); } }
 
         static RugLargeItem()
         {
@@ -102,7 +103,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RugLargeRecipe), Item.Get<RugLargeItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RugLargeItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Rug Large", typeof(RugLargeRecipe));
+            this.Initialize(Localizer.DoStr("Rug Large"), typeof(RugLargeRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

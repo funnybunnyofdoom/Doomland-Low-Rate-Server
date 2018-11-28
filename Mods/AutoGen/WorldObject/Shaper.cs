@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Shaper"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Shaper"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ShaperItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class ShaperItem :
         ModuleItem<ShaperObject> 
     {
-        public override string FriendlyName { get { return "Shaper"; } } 
-        public override string Description  { get { return  "A set of smoothing and woodworking tools that assist in creating wheels and transportation."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Shaper"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A set of smoothing and woodworking tools that assist in creating wheels and transportation."); } }
 
         static ShaperItem()
         {
@@ -104,7 +105,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ShaperRecipe), Item.Get<ShaperItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ShaperItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Shaper", typeof(ShaperRecipe));
+            this.Initialize(Localizer.DoStr("Shaper"), typeof(ShaperRecipe));
             CraftingComponent.AddRecipe(typeof(MachinistTableObject), this);
         }
     }

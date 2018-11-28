@@ -25,9 +25,9 @@ namespace Eco.Mods.TechTree
         
         private static Nutrients nutrition = new Nutrients() { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0 };
 
-        public override string FriendlyName { get { return "Huckleberry Seed"; } }
-        public override string Description  { get { return "Plant to grow a huckleberry bush."; } }
-        public override string SpeciesName  { get { return "Huckleberry"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Huckleberry Seed"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow a huckleberry bush."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Huckleberry"); } }
 
         public override float Calories { get { return 0; } }
         public override Nutrients Nutrition { get { return nutrition; } }
@@ -41,9 +41,9 @@ namespace Eco.Mods.TechTree
     {
         static HuckleberrySeedPackItem() { }
 
-        public override string FriendlyName { get { return "Huckleberry Seed Pack"; } }
-        public override string Description  { get { return "Plant to grow a huckleberry bush."; } }
-        public override string SpeciesName  { get { return "Huckleberry"; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Huckleberry Seed Pack"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Plant to grow a huckleberry bush."); } }
+        public override LocString SpeciesName        { get { return Localizer.DoStr("Huckleberry"); } }
     }
 
     [RequiresSkill(typeof(SeedProductionSkill), 2)]    
@@ -64,7 +64,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<HuckleberrySeedItem>().UILink(), value);
             this.CraftMinutes = value;
 
-            this.Initialize("Huckleberry Seed", typeof(HuckleberrySeedRecipe));
+            this.Initialize(Localizer.DoStr("Huckleberry Seed"), typeof(HuckleberrySeedRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

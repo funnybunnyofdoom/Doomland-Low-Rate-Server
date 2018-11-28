@@ -9,6 +9,7 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Interactions;
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Stats;
+    using Eco.Shared.Localization;
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
@@ -33,7 +34,7 @@ namespace Eco.Mods.TechTree
         public override IDynamicValue CaloriesBurn   { get { return caloriesBurn; } }
         public override IDynamicValue Damage         { get { return damage; } }
         
-        public override string LeftActionDescription { get { return "Chop"; } }
+        public override LocString LeftActionDescription { get { return Localizer.DoStr("Chop"); } }
 
         public override InteractResult OnActLeft(InteractionContext context)
         {

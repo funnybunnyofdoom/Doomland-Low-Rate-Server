@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Tall Boots"; } }
-        public override string Description      { get { return "Knee-high boots are boots that rise to the knee, or slightly thereunder. They are generally tighter around the leg shaft and ankle than at the top."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Tall Boots"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Knee-high boots are boots that rise to the knee, or slightly thereunder. They are generally tighter around the leg shaft and ankle than at the top."); } }
         public override string Slot             { get { return ClothingSlot.Shoes; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,11 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 100, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FurPeltItem>(typeof(ClothesmakingEfficiencySkill), 5, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Tall Boots", typeof(TallBootsRecipe));
+            this.Initialize(Localizer.DoStr("Tall Boots"), typeof(TallBootsRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Small Rug"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Rug"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RugSmallItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class RugSmallItem :
         WorldObjectItem<RugSmallObject> 
     {
-        public override string FriendlyName { get { return "Small Rug"; } } 
-        public override string Description  { get { return  "A small rug for when you just didn't have enough materials to make a bigger one."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Rug"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A small rug for when you just didn't have enough materials to make a bigger one."); } }
 
         static RugSmallItem()
         {
@@ -101,7 +102,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RugSmallRecipe), Item.Get<RugSmallItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RugSmallItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Rug Small", typeof(RugSmallRecipe));
+            this.Initialize(Localizer.DoStr("Rug Small"), typeof(RugSmallRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     }

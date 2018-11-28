@@ -10,8 +10,9 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
-    [RequiresSkill(typeof(MillingSkill), 4)] 
+    [RequiresSkill(typeof(MillProcessingSkill), 4)] 
     public class SoyMilkRecipe : Recipe
     {
         public SoyMilkRecipe()
@@ -25,8 +26,8 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<BeanPasteItem>(typeof(MillProcessingEfficiencySkill), 20, MillProcessingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Soy Milk", typeof(SoyMilkRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(SoyMilkRecipe), this.UILink(), 0.1f, typeof(MillProcessingSpeedSkill));
+            this.Initialize(Localizer.DoStr("Soy Milk"), typeof(SoyMilkRecipe));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(SoyMilkRecipe), this.UILink(), 1, typeof(MillProcessingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(MillObject), this);
         }
     }

@@ -33,7 +33,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SandItem>(typeof(GlassProductionEfficiencySkill), 4, GlassProductionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(GlassRecipe), Item.Get<GlassItem>().UILink(), 1, typeof(GlassProductionSpeedSkill));    
-            this.Initialize("Glass", typeof(GlassRecipe));
+            this.Initialize(Localizer.DoStr("Glass"), typeof(GlassRecipe));
 
             CraftingComponent.AddRecipe(typeof(KilnObject), this);
         }
@@ -58,9 +58,9 @@ namespace Eco.Mods.TechTree
     public partial class GlassItem :
     BlockItem<GlassBlock>
     {
-        public override string FriendlyName { get { return "Glass"; } } 
-        public override string FriendlyNamePlural { get { return "Glass"; } } 
-        public override string Description { get { return "A transparent, solid material useful for more than just windows."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Glass"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Glass"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A transparent, solid material useful for more than just windows."); } }
 
 
         private static Type[] blockTypes = new Type[] {

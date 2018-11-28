@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class LiquidNitrogenItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Liquid Nitrogen"; } }
-        public override string Description                      { get { return "Useful for a quick chilling."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Liquid Nitrogen"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Useful for a quick chilling."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 0, Protein = 0, Vitamins = 0};
         public override float Calories                          { get { return 10; } }
@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(MolecularGastronomyEfficiencySkill), 2, MolecularGastronomyEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(LiquidNitrogenRecipe), Item.Get<LiquidNitrogenItem>().UILink(), 20, typeof(MolecularGastronomySpeedSkill)); 
-            this.Initialize("Liquid Nitrogen", typeof(LiquidNitrogenRecipe));
+            this.Initialize(Localizer.DoStr("Liquid Nitrogen"), typeof(LiquidNitrogenRecipe));
             CraftingComponent.AddRecipe(typeof(LaboratoryObject), this);
         }
     }

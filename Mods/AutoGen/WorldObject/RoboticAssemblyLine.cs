@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Robotic Assembly Line"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Robotic Assembly Line"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RoboticAssemblyLineItem); } } 
+
 
 
         protected override void Initialize()
@@ -73,8 +74,8 @@ namespace Eco.Mods.TechTree
     public partial class RoboticAssemblyLineItem :
         WorldObjectItem<RoboticAssemblyLineObject> 
     {
-        public override string FriendlyName { get { return "Robotic Assembly Line"; } } 
-        public override string Description  { get { return  "A complex set of machinery for creating equally complex things."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Robotic Assembly Line"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A complex set of machinery for creating equally complex things."); } }
 
         static RoboticAssemblyLineItem()
         {
@@ -113,7 +114,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RoboticAssemblyLineRecipe), Item.Get<RoboticAssemblyLineItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RoboticAssemblyLineItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Robotic Assembly Line", typeof(RoboticAssemblyLineRecipe));
+            this.Initialize(Localizer.DoStr("Robotic Assembly Line"), typeof(RoboticAssemblyLineRecipe));
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
     }

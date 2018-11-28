@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PitchItem>(typeof(RoadConstructionEfficiencySkill), 10, RoadConstructionEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(StoneRampRecipe), Item.Get<StoneRampItem>().UILink(), 1, typeof(RoadConstructionSkill));    
-            this.Initialize("Stone Ramp", typeof(StoneRampRecipe));
+            this.Initialize(Localizer.DoStr("Stone Ramp"), typeof(StoneRampRecipe));
 
             CraftingComponent.AddRecipe(typeof(WainwrightTableObject), this);
             CraftingComponent.AddRecipe(typeof(MasonryTableObject), this);

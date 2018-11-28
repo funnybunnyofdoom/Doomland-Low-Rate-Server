@@ -12,13 +12,14 @@ namespace Eco.Mods.TechTree
     using Simulation.WorldLayers;
     using System.Text;
     using Eco.Gameplay.DynamicValues;
+    using Eco.Shared.Localization;
 
     [Serialized]
     [Category("Tools")]
     public class SoilSamplerItem : ToolItem
     {
-        public override string FriendlyName  { get { return "Soil Sampler"; } }
-        public override string Description   { get { return "Beaker and measuring tools for detecting the factors influencing plants in the environment."; } }
+        public override LocString DisplayName  { get { return Localizer.DoStr("Soil Sampler"); } }
+        public override LocString DisplayDescription   { get { return Localizer.DoStr("Beaker and measuring tools for detecting the factors influencing plants in the environment."); } }
         public override float DurabilityRate { get { return 0; } }
 
         private static IDynamicValue skilledRepairCost = new ConstantValue(4);

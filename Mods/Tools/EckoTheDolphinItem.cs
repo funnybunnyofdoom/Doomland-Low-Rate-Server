@@ -22,9 +22,9 @@ namespace Eco.Mods.TechTree
         public override InteractResult OnActRight(InteractionContext context)
         {
             if (this.wantedItem == string.Empty)
-                this.wantedItem = SearchAndSelectItemSets.DiscoveredItems.Items.Shuffle().First().FriendlyName;
+                this.wantedItem = SearchAndSelectItemSets.DiscoveredItems.Items.Shuffle().First().DisplayName;
 
-            var itemStack = context.Player.User.Inventory.NonEmptyStacks.Where(stack => stack.Item.FriendlyName == this.wantedItem).FirstOrDefault();
+            var itemStack = context.Player.User.Inventory.NonEmptyStacks.Where(stack => stack.Item.DisplayName == this.wantedItem).FirstOrDefault();
             if (itemStack != null)
             {
                 var gift = AllItems.Where(x => !(x is Skill) && x.Group != "Actionbar Items").Shuffle().First();
@@ -37,8 +37,8 @@ namespace Eco.Mods.TechTree
                 if (result.Success)
                 {
                     
-                    context.Player.SendTemporaryMessage(FormattableStringFactory.Create("Ecko accepts your tribute of {0:wanted} and grants you {1:given} for your devotion.", this.wantedItem, gift.FriendlyName));
-                    this.wantedItem = SearchAndSelectItemSets.DiscoveredItems.Items.Shuffle().First().FriendlyName;
+                    context.Player.SendTemporaryMessage(FormattableStringFactory.Create("Ecko accepts your tribute of {0:wanted} and grants you {1:given} for your devotion.", this.wantedItem, gift.DisplayName));
+                    this.wantedItem = SearchAndSelectItemSets.DiscoveredItems.Items.Shuffle().First().DisplayName;
                 }
             }
             else

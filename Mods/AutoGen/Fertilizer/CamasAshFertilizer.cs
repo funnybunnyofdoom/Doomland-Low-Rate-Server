@@ -31,7 +31,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CharredCamasBulbItem>(typeof(FertilizerEfficiencySkill), 2, FertilizerEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CamasAshFertilizerRecipe), Item.Get<CamasAshFertilizerItem>().UILink(), 0.1f, typeof(FertilizerSpeedSkill));    
-            this.Initialize("Camas Ash Fertilizer", typeof(CamasAshFertilizerRecipe));
+            this.Initialize(Localizer.DoStr("Camas Ash Fertilizer"), typeof(CamasAshFertilizerRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject),this);
         }
     }
@@ -41,8 +41,8 @@ namespace Eco.Mods.TechTree
     [Category("Tool")]
     public partial class CamasAshFertilizerItem : FertilizerItem<CamasAshFertilizerItem>
     {
-        public override string FriendlyName { get { return "Camas Ash Fertilizer"; } }
-        public override string Description  { get { return ""; } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Camas Ash Fertilizer"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         static CamasAshFertilizerItem()
         {

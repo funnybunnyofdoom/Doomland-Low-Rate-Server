@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Electric Lathe"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Lathe"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElectricLatheItem); } } 
+
 
 
         protected override void Initialize()
@@ -73,8 +74,8 @@ namespace Eco.Mods.TechTree
     public partial class ElectricLatheItem :
         WorldObjectItem<ElectricLatheObject> 
     {
-        public override string FriendlyName { get { return "Electric Lathe"; } } 
-        public override string Description  { get { return  ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Lathe"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
 
         static ElectricLatheItem()
         {
@@ -112,7 +113,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ElectricLatheRecipe), Item.Get<ElectricLatheItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ElectricLatheItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Electric Lathe", typeof(ElectricLatheRecipe));
+            this.Initialize(Localizer.DoStr("Electric Lathe"), typeof(ElectricLatheRecipe));
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
     }

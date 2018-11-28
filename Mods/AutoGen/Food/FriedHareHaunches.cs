@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class FriedHareHaunchesItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Fried Hare Haunches"; } }
-        public override string Description                      { get { return "Everything is better deep fried."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Fried Hare Haunches"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Everything is better deep fried."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 6, Fat = 27, Protein = 15, Vitamins = 4};
         public override float Calories                          { get { return 700; } }
@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<OilItem>(typeof(CulinaryArtsEfficiencySkill), 10, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(FriedHareHaunchesRecipe), Item.Get<FriedHareHaunchesItem>().UILink(), 5, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Fried Hare Haunches", typeof(FriedHareHaunchesRecipe));
+            this.Initialize(Localizer.DoStr("Fried Hare Haunches"), typeof(FriedHareHaunchesRecipe));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }

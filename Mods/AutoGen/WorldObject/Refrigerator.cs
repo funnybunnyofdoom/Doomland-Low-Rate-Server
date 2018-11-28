@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Refrigerator"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Refrigerator"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(RefrigeratorItem); } } 
+
 
 
         protected override void Initialize()
@@ -72,8 +73,8 @@ namespace Eco.Mods.TechTree
     public partial class RefrigeratorItem :
         WorldObjectItem<RefrigeratorObject> 
     {
-        public override string FriendlyName { get { return "Refrigerator"; } } 
-        public override string Description  { get { return  "An icebox from the future with significantly better cooling properties."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Refrigerator"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("An icebox from the future with significantly better cooling properties."); } }
 
         static RefrigeratorItem()
         {
@@ -113,7 +114,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(RefrigeratorRecipe), Item.Get<RefrigeratorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<RefrigeratorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Refrigerator", typeof(RefrigeratorRecipe));
+            this.Initialize(Localizer.DoStr("Refrigerator"), typeof(RefrigeratorRecipe));
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
     }

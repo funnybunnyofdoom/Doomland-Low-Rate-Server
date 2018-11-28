@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CharredTomatoItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Charred Tomato"; } }
-        public override string Description                      { get { return "The blackened char on this tomato would contrast well with the red skin if there was any unburt surface left."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Charred Tomato"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("The blackened char on this tomato would contrast well with the red skin if there was any unburt surface left."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 8, Fat = 0, Protein = 1, Vitamins = 4};
         public override float Calories                          { get { return 510; } }
@@ -44,7 +44,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TomatoItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
             this.CraftMinutes = new ConstantValue(3);     
-            this.Initialize("Charred Tomato", typeof(CharredTomatoRecipe));
+            this.Initialize(Localizer.DoStr("Charred Tomato"), typeof(CharredTomatoRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

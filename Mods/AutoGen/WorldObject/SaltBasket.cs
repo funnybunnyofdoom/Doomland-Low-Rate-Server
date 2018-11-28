@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Salt Basket"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Salt Basket"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SaltBasketItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class SaltBasketItem :
         WorldObjectItem<SaltBasketObject> 
     {
-        public override string FriendlyName { get { return "Salt Basket"; } } 
-        public override string Description  { get { return  "A basket of salt."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Salt Basket"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A basket of salt."); } }
 
         static SaltBasketItem()
         {
@@ -101,7 +102,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SaltBasketRecipe), Item.Get<SaltBasketItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SaltBasketItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Salt Basket", typeof(SaltBasketRecipe));
+            this.Initialize(Localizer.DoStr("Salt Basket"), typeof(SaltBasketRecipe));
             CraftingComponent.AddRecipe(typeof(FarmersTableObject), this);
         }
     }

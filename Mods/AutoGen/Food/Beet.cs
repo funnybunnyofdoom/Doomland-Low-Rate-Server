@@ -24,8 +24,8 @@ namespace Eco.Mods.TechTree
     public partial class BeetItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Beet"; } }
-        public override string Description                      { get { return "A brilliantly colored bulb with an earthy sweetness."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Beet"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A brilliantly colored bulb with an earthy sweetness."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 3, Fat = 1, Protein = 1, Vitamins = 3};
         public override float Calories                          { get { return 230; } }

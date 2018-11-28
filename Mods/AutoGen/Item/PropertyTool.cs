@@ -32,7 +32,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<LogItem>(10)    
             };
             this.CraftMinutes = new ConstantValue(0.5f);
-            this.Initialize("Property Tool", typeof(PropertyToolRecipe));
+            this.Initialize(Localizer.DoStr("Property Tool"), typeof(PropertyToolRecipe));
 
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
@@ -45,9 +45,9 @@ namespace Eco.Mods.TechTree
     public partial class PropertyToolItem :
     ToolItem                        
     {
-        public override string FriendlyName { get { return "Land Claim Stake"; } } 
-        public override string FriendlyNamePlural { get { return "Land Claim Stakes"; } } 
-        public override string Description { get { return "Used to claim, unclaim, and examine property."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Land Claim Stake"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Land Claim Stakes"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Used to claim, unclaim, and examine property."); } }
 
     }
 

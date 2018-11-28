@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(SteelworkingEfficiencySkill), 30, SteelworkingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(ChainsawRecipe), Item.Get<ChainsawItem>().UILink(), 0.5f, typeof(SteelworkingSpeedSkill));    
-            this.Initialize("Chainsaw", typeof(ChainsawRecipe));
+            this.Initialize(Localizer.DoStr("Chainsaw"), typeof(ChainsawRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }
@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
     public partial class ChainsawItem : AxeItem
     {
 
-        public override string FriendlyName { get { return "Chainsaw"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Chainsaw"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(10, typeof(LoggingEfficiencySkill), typeof(ChainsawItem), new ChainsawItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
         private static IDynamicValue damage = CreateDamageValue(10, typeof(LoggingDamageSkill), typeof(ChainsawItem), new ChainsawItem().UILink());

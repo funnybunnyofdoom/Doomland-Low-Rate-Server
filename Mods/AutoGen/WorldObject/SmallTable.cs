@@ -39,9 +39,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Small Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(SmallTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -63,8 +64,8 @@ namespace Eco.Mods.TechTree
     public partial class SmallTableItem :
         WorldObjectItem<SmallTableObject> 
     {
-        public override string FriendlyName { get { return "Small Table"; } } 
-        public override string Description  { get { return  "More of a nightstand than a table, really."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Small Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("More of a nightstand than a table, really."); } }
 
         static SmallTableItem()
         {
@@ -102,7 +103,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(SmallTableRecipe), Item.Get<SmallTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<SmallTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Small Table", typeof(SmallTableRecipe));
+            this.Initialize(Localizer.DoStr("Small Table"), typeof(SmallTableRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

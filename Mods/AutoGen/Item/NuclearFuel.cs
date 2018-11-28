@@ -27,9 +27,9 @@ namespace Eco.Mods.TechTree
     public partial class NuclearFuelItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Nuclear Fuel"; } } 
-        public override string FriendlyNamePlural { get { return "Nuclear Fuel"; } } 
-        public override string Description { get { return "Unstable nucler fuel."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Nuclear Fuel"); } } 
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Nuclear Fuel"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Unstable nucler fuel."); } }
 
     }
 

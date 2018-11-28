@@ -39,7 +39,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RadiatorItem>(typeof(IndustrialEngineeringEfficiencySkill), 4, IndustrialEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(AdvancedCombustionEngineRecipe), Item.Get<AdvancedCombustionEngineItem>().UILink(), 10, typeof(IndustrialEngineeringSpeedSkill));    
-            this.Initialize("Advanced Combustion Engine", typeof(AdvancedCombustionEngineRecipe));
+            this.Initialize(Localizer.DoStr("Advanced Combustion Engine"), typeof(AdvancedCombustionEngineRecipe));
 
             CraftingComponent.AddRecipe(typeof(RoboticAssemblyLineObject), this);
         }
@@ -52,8 +52,8 @@ namespace Eco.Mods.TechTree
     public partial class AdvancedCombustionEngineItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Advanced Combustion Engine"; } } 
-        public override string Description { get { return "A more advanced version of the normal combustion engine that produces a greater output."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Advanced Combustion Engine"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A more advanced version of the normal combustion engine that produces a greater output."); } }
 
     }
 

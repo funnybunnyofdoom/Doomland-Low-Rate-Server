@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class RawRoastItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Raw Roast"; } }
-        public override string Description                      { get { return "A trussed roast tied and ready to be cooked."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Raw Roast"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A trussed roast tied and ready to be cooked."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 0, Fat = 5, Protein = 6, Vitamins = 0};
         public override float Calories                          { get { return 800; } }
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<RawMeatItem>(typeof(MeatPrepEfficiencySkill), 20, MeatPrepEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(RawRoastRecipe), Item.Get<RawRoastItem>().UILink(), 2, typeof(MeatPrepSpeedSkill)); 
-            this.Initialize("Raw Roast", typeof(RawRoastRecipe));
+            this.Initialize(Localizer.DoStr("Raw Roast"), typeof(RawRoastRecipe));
             CraftingComponent.AddRecipe(typeof(ButcheryTableObject), this);
         }
     }

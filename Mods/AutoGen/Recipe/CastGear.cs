@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(CastingSkill), 2)] 
     public class CastGearRecipe : Recipe
@@ -25,7 +26,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<SteelItem>(typeof(CastingEfficiencySkill), 1, CastingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Cast Gear", typeof(CastGearRecipe));
+            this.Initialize(Localizer.DoStr("Cast Gear"), typeof(CastGearRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(CastGearRecipe), this.UILink(), 1, typeof(CastingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }

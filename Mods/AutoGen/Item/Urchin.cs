@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class UrchinItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Urchin"; } } 
-        public override string Description { get { return "An urchin."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Urchin"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("An urchin."); } }
 
     }
 

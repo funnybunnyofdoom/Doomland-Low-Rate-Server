@@ -46,9 +46,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Electric Planer"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Planer"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(ElectricPlanerItem); } } 
+
 
 
         protected override void Initialize()
@@ -71,8 +72,8 @@ namespace Eco.Mods.TechTree
     public partial class ElectricPlanerItem :
         WorldObjectItem<ElectricPlanerObject> 
     {
-        public override string FriendlyName { get { return "Electric Planer"; } } 
-        public override string Description  { get { return  ""; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Electric Planer"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr(""); } }
 
         static ElectricPlanerItem()
         {
@@ -104,7 +105,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ElectricPlanerRecipe), Item.Get<ElectricPlanerItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ElectricPlanerItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Electric Planer", typeof(ElectricPlanerRecipe));
+            this.Initialize(Localizer.DoStr("Electric Planer"), typeof(ElectricPlanerRecipe));
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
     }

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class CampfireStewItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Campfire Stew"; } }
-        public override string Description                      { get { return "A thick stew chock-full of meat, camas, and corn. A suprisingly good combination."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Campfire Stew"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("A thick stew chock-full of meat, camas, and corn. A suprisingly good combination."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 5, Fat = 9, Protein = 12, Vitamins = 4};
         public override float Calories                          { get { return 1200; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 3, CampfireCreationsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CampfireStewRecipe), Item.Get<CampfireStewItem>().UILink(), 10, typeof(CampfireCreationsSpeedSkill)); 
-            this.Initialize("Campfire Stew", typeof(CampfireStewRecipe));
+            this.Initialize(Localizer.DoStr("Campfire Stew"), typeof(CampfireStewRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

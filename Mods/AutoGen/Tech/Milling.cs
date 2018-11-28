@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(FarmerSkill), 0)]    
     public partial class MillingSkill : Skill
     {
-        public override string FriendlyName { get { return "Milling"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Milling"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class MillingSkillBook : SkillBook<MillingSkill, MillingSkillScroll>
     {
-        public override string FriendlyName { get { return "Milling Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Milling Skill Book"); } }
     }
 
     [Serialized]
     public partial class MillingSkillScroll : NewSkillScroll<MillingSkill, MillingSkillBook>
     {
-        public override string FriendlyName { get { return "Milling Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Milling Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(FarmingSkill), 0)] 
@@ -57,12 +57,11 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<MortaredStoneItem>(typeof(ResearchEfficiencySkill), 15, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<HewnLogItem>(typeof(ResearchEfficiencySkill), 15, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<WheatItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<CornItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<CornItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(15);
 
-            this.Initialize("Milling Skill Book", typeof(MillingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Milling Skill Book"), typeof(MillingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

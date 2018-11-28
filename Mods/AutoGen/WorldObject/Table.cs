@@ -38,9 +38,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(TableItem); } } 
+
 
 
         protected override void Initialize()
@@ -61,8 +62,8 @@ namespace Eco.Mods.TechTree
     public partial class TableItem :
         WorldObjectItem<TableObject> 
     {
-        public override string FriendlyName { get { return "Table"; } } 
-        public override string Description  { get { return  "A large table for placing things on."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large table for placing things on."); } }
 
         static TableItem()
         {
@@ -100,7 +101,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(TableRecipe), Item.Get<TableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<TableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Table", typeof(TableRecipe));
+            this.Initialize(Localizer.DoStr("Table"), typeof(TableRecipe));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }

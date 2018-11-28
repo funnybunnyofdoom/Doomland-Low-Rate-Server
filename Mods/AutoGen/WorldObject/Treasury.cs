@@ -35,8 +35,8 @@ namespace Eco.Mods.TechTree
     public partial class TreasuryItem :
         WorldObjectItem<TreasuryObject> 
     {
-        public override string FriendlyName { get { return "Treasury"; } } 
-        public override string Description  { get { return  "Allows the setting of taxes."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Treasury"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Allows the setting of taxes."); } }
 
         static TreasuryItem()
         {
@@ -67,7 +67,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(TreasuryRecipe), Item.Get<TreasuryItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<TreasuryItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Treasury", typeof(TreasuryRecipe));
+            this.Initialize(Localizer.DoStr("Treasury"), typeof(TreasuryRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }

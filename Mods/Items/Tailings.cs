@@ -6,6 +6,7 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Math;
     using Eco.World.Blocks;
     using Eco.Shared.Serialization;
+    using Eco.Shared.Localization;
     using Eco.Simulation.WorldLayers;
     using Eco.Gameplay.Pipes;
     using Eco.Gameplay.Items.SearchAndSelect;
@@ -19,8 +20,8 @@ namespace Eco.Mods.TechTree
     [MakesRoads]
     public class DirtItem : BlockItem<DirtBlock>, ICanExitFromPipe
     {
-        public override string FriendlyName         { get { return "Dirt"; } }
-        public override string FriendlyNamePlural   { get { return "Dirt"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Dirt"); } }
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Dirt"); } }
         public override bool CanStickToWalls        { get { return false; } }
         
         public string FlowTooltip(float flowrate)   { return null; }
@@ -44,8 +45,8 @@ namespace Eco.Mods.TechTree
     [RequiresTool(typeof(ShovelItem))]
     public class SandItem : BlockItem<SandBlock>
     {
-        public override string FriendlyName { get { return "Sand"; } }
-        public override string FriendlyNamePlural { get { return "Sand"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Sand"); } }
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Sand"); } }
         public override bool CanStickToWalls { get { return false; } }
     }
 
@@ -85,8 +86,8 @@ namespace Eco.Mods.TechTree
     [Category("Hidden")]
     public class SewageItem : BlockItem<SewageBlock>, ICanExitFromPipe
     {
-        public override string FriendlyName { get { return "Sewage"; } }
-        public override string FriendlyNamePlural { get { return "Sewage"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Sewage"); } }
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Sewage"); } }
         public override bool CanStickToWalls { get { return false; } }
         public string FlowTooltip(float flowrate) { return null; }
 
@@ -103,9 +104,9 @@ namespace Eco.Mods.TechTree
     [RequiresTool(typeof(ShovelItem))]
     public class TailingsItem : BlockItem<TailingsBlock>
     {
-        public override string FriendlyName       { get { return "Tailings"; } }
-        public override string FriendlyNamePlural { get { return "Tailings"; } }
-        public override string Description        { get { return "Waste product from smelting.  When left on soil the run-off will create pollution; killing nearby plants and seeping into the water supply.  Contain in buildings or bury in rock to neutralize."; } }
+        public override LocString DisplayName       { get { return Localizer.DoStr("Tailings"); } }
+        public override LocString DisplayNamePlural { get { return Localizer.DoStr("Tailings"); } }
+        public override LocString DisplayDescription        { get { return Localizer.DoStr("Waste product from smelting.  When left on soil the run-off will create pollution; killing nearby plants and seeping into the water supply.  Contain in buildings or bury in rock to neutralize."); } }
         public override bool CanStickToWalls      { get { return false; } }
     }
 }

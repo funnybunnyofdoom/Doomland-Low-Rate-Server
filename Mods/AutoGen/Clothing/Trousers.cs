@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Trousers"; } }
-        public override string Description      { get { return "Sturdy pair of slim-fit pants. Trousers are an item of clothing worn from the waist to the ankles, covering both legs separately (rather than with cloth extending across both legs as in robes, skirts, and dresses)."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Trousers"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Sturdy pair of slim-fit pants. Trousers are an item of clothing worn from the waist to the ankles, covering both legs separately (rather than with cloth extending across both legs as in robes, skirts, and dresses)."); } }
         public override string Slot             { get { return ClothingSlot.Pants; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,12 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 100, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 2, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<FurPeltItem>(typeof(ClothesmakingEfficiencySkill), 1, ClothesmakingEfficiencySkill.MultiplicativeStrategy),
+                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 20, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(10);
-            this.Initialize("Trousers", typeof(TrousersRecipe));
+            this.Initialize(Localizer.DoStr("Trousers"), typeof(TrousersRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

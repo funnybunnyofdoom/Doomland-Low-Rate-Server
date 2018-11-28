@@ -11,6 +11,7 @@ using Eco.Gameplay.Objects;
 using Eco.Gameplay.Players;
 using Eco.Gameplay.Systems;
 using Eco.Mods.TechTree;
+using Eco.Shared.Localization;
 using Eco.Shared.Math;
 using Eco.Shared.Serialization;
 using Eco.World;
@@ -53,7 +54,7 @@ public abstract class BaseRampObject : WorldObject
 [Serialized]
 public class DirtRampObject : BaseRampObject
 {
-    public override string FriendlyName { get { return "Dirt Ramp"; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Dirt Ramp"); } }
 
     static DirtRampObject()
     {
@@ -114,8 +115,8 @@ public abstract class RampItem<T> : WorldObjectItem<T>
 [Tag("Road")]
 public class DirtRampItem : RampItem<DirtRampObject>
 {
-    public override string FriendlyName { get { return "Dirt Ramp"; } }
-    public override string Description  { get { return "4 x 1 Dirt Ramp."; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Dirt Ramp"); } }
+    public override LocString DisplayDescription  { get { return Localizer.DoStr("4 x 1 Dirt Ramp."); } }
 
     public override Type[] GetBlockTypesForDirection(Vector3i direction)
     {
@@ -135,7 +136,7 @@ public class DirtRampItem : RampItem<DirtRampObject>
 [Serialized]
 public class StoneRampObject : BaseRampObject
 {
-    public override string FriendlyName { get { return "Stone Ramp"; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Stone Ramp"); } }
 
     static StoneRampObject()
     {
@@ -173,8 +174,8 @@ public class StoneRampObject : BaseRampObject
 [Tag("Road")]
 public class StoneRampItem : RampItem<StoneRampObject>
 {
-    public override string FriendlyName { get { return "Stone Ramp"; } }
-    public override string Description  { get { return "4 x 1 Stone Ramp."; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Stone Ramp"); } }
+    public override LocString DisplayDescription  { get { return Localizer.DoStr("4 x 1 Stone Ramp."); } }
 
     public override Type[] GetBlockTypesForDirection(Vector3i direction)
     {
@@ -194,7 +195,7 @@ public class StoneRampItem : RampItem<StoneRampObject>
 [Serialized]
 public class AsphaltRampObject : BaseRampObject
 {
-    public override string FriendlyName { get { return "Asphalt Ramp"; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Asphalt Ramp"); } }
     static AsphaltRampObject()
     {
         AddOccupancyList(typeof(AsphaltRampObject),
@@ -233,8 +234,8 @@ public class AsphaltRampObject : BaseRampObject
 [Tag("Road")]
 public class AsphaltRampItem : RampItem<AsphaltRampObject>
 {
-    public override string FriendlyName { get { return "Asphalt Ramp"; } }
-    public override string Description  { get { return "4 x 1 Asphalt Ramp."; } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Asphalt Ramp"); } }
+    public override LocString DisplayDescription  { get { return Localizer.DoStr("4 x 1 Asphalt Ramp."); } }
 
     public override Type[] GetBlockTypesForDirection(Vector3i direction)
     {

@@ -45,9 +45,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Oil Refinery"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Oil Refinery"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(OilRefineryItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -90,8 +91,8 @@ namespace Eco.Mods.TechTree
     public partial class OilRefineryItem :
         WorldObjectItem<OilRefineryObject> 
     {
-        public override string FriendlyName { get { return "Oil Refinery"; } } 
-        public override string Description  { get { return  "Sets of pipes and tanks which refine crude petroleum into usable products."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Oil Refinery"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Sets of pipes and tanks which refine crude petroleum into usable products."); } }
 
         static OilRefineryItem()
         {
@@ -132,7 +133,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(OilRefineryRecipe), Item.Get<OilRefineryItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<OilRefineryItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Oil Refinery", typeof(OilRefineryRecipe));
+            this.Initialize(Localizer.DoStr("Oil Refinery"), typeof(OilRefineryRecipe));
             CraftingComponent.AddRecipe(typeof(AssemblyLineObject), this);
         }
     }

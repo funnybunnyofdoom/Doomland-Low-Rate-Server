@@ -49,9 +49,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Stove"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Stove"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(StoveItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -60,8 +61,7 @@ namespace Eco.Mods.TechTree
             typeof(CharcoalItem),
             typeof(ArrowItem),
             typeof(BoardItem),
-            typeof(CoalItem),
-			typeof(WoodPelletItem)
+            typeof(CoalItem)
         };
 
         protected override void Initialize()
@@ -95,8 +95,8 @@ namespace Eco.Mods.TechTree
     public partial class StoveItem :
         WorldObjectItem<StoveObject> 
     {
-        public override string FriendlyName { get { return "Stove"; } } 
-        public override string Description  { get { return  "A heavy stove for cooking more complex dishes."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stove"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A heavy stove for cooking more complex dishes."); } }
 
         static StoveItem()
         {
@@ -138,7 +138,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(StoveRecipe), Item.Get<StoveItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<StoveItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Stove", typeof(StoveRecipe));
+            this.Initialize(Localizer.DoStr("Stove"), typeof(StoveRecipe));
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
     }

@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<GearItem>(typeof(MechanicsAssemblyEfficiencySkill), 5, MechanicsAssemblyEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(GearboxRecipe), Item.Get<GearboxItem>().UILink(), 5, typeof(MechanicsAssemblySpeedSkill));    
-            this.Initialize("Gearbox", typeof(GearboxRecipe));
+            this.Initialize(Localizer.DoStr("Gearbox"), typeof(GearboxRecipe));
 
             CraftingComponent.AddRecipe(typeof(ShaperObject), this);
         }
@@ -48,8 +48,8 @@ namespace Eco.Mods.TechTree
     public partial class GearboxItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Gearbox"; } } 
-        public override string Description { get { return "Provides speed and torque conversions from a rotating power source to another device"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Gearbox"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("Provides speed and torque conversions from a rotating power source to another device"); } }
 
     }
 

@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(FarmerSkill), 0)]    
     public partial class FertilizersSkill : Skill
     {
-        public override string FriendlyName { get { return "Fertilizers"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Fertilizers"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class FertilizersSkillBook : SkillBook<FertilizersSkill, FertilizersSkillScroll>
     {
-        public override string FriendlyName { get { return "Fertilizers Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fertilizers Skill Book"); } }
     }
 
     [Serialized]
     public partial class FertilizersSkillScroll : NewSkillScroll<FertilizersSkill, FertilizersSkillBook>
     {
-        public override string FriendlyName { get { return "Fertilizers Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fertilizers Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(FarmingSkill), 0)] 
@@ -55,12 +55,11 @@ namespace Eco.Mods.TechTree
             this.Ingredients = new CraftingElement[]
             {
                 new CraftingElement<DirtItem>(typeof(ResearchEfficiencySkill), 10, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<PlantFibersItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<PlantFibersItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(5);
 
-            this.Initialize("Fertilizers Skill Book", typeof(FertilizersSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Fertilizers Skill Book"), typeof(FertilizersSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MetalworkingEfficiencySkill), 20, MetalworkingEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronAxeRecipe), Item.Get<IronAxeItem>().UILink(), 0.5f, typeof(MetalworkingSpeedSkill));    
-            this.Initialize("Iron Axe", typeof(IronAxeRecipe));
+            this.Initialize(Localizer.DoStr("Iron Axe"), typeof(IronAxeRecipe));
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
     }
@@ -40,7 +40,7 @@ namespace Eco.Mods.TechTree
     public partial class IronAxeItem : AxeItem
     {
 
-        public override string FriendlyName { get { return "Iron Axe"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Axe"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(17, typeof(LoggingEfficiencySkill), typeof(IronAxeItem), new IronAxeItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
         private static IDynamicValue damage = CreateDamageValue(1.5f, typeof(LoggingDamageSkill), typeof(IronAxeItem), new IronAxeItem().UILink());

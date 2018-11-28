@@ -27,8 +27,8 @@ namespace Eco.Mods.TechTree
     public partial class FurPeltItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Fur Pelt"; } } 
-        public override string Description { get { return "A soft, furry pelt."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Fur Pelt"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A soft, furry pelt."); } }
 
     }
 

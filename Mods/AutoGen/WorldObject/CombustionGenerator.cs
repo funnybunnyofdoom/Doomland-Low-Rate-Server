@@ -47,9 +47,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Combustion Generator"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Combustion Generator"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(CombustionGeneratorItem); } } 
+
 
         private static Type[] fuelTypeList = new Type[]
         {
@@ -60,8 +61,7 @@ namespace Eco.Mods.TechTree
             typeof(BoardItem),
             typeof(CoalItem),
             typeof(PetroleumItem),
-            typeof(GasolineItem),
-			typeof(WoodPelletItem)
+            typeof(GasolineItem)
         };
 
         protected override void Initialize()
@@ -97,8 +97,8 @@ namespace Eco.Mods.TechTree
     public partial class CombustionGeneratorItem :
         WorldObjectItem<CombustionGeneratorObject> 
     {
-        public override string FriendlyName { get { return "Combustion Generator"; } } 
-        public override string Description  { get { return  "Consumes most fuels to produce energy."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Combustion Generator"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Consumes most fuels to produce energy."); } }
 
         static CombustionGeneratorItem()
         {
@@ -140,7 +140,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(CombustionGeneratorRecipe), Item.Get<CombustionGeneratorItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<CombustionGeneratorItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Combustion Generator", typeof(CombustionGeneratorRecipe));
+            this.Initialize(Localizer.DoStr("Combustion Generator"), typeof(CombustionGeneratorRecipe));
             CraftingComponent.AddRecipe(typeof(ElectricMachinistTableObject), this);
         }
     }

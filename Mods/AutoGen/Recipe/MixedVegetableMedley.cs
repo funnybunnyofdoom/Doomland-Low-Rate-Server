@@ -10,6 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.World;
     using Eco.World.Blocks;
     using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
 
     [RequiresSkill(typeof(HomeCookingSkill), 2)] 
     public class MixedVegetableMedleyRecipe : Recipe
@@ -26,7 +27,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CornItem>(typeof(HomeCookingEfficiencySkill), 15, HomeCookingEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<CamasBulbItem>(typeof(HomeCookingEfficiencySkill), 15, HomeCookingEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.Initialize("Mixed Vegetable Medley", typeof(MixedVegetableMedleyRecipe));
+            this.Initialize(Localizer.DoStr("Mixed Vegetable Medley"), typeof(MixedVegetableMedleyRecipe));
             this.CraftMinutes = CreateCraftTimeValue(typeof(MixedVegetableMedleyRecipe), this.UILink(), 2, typeof(HomeCookingSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CastIronStoveObject), this);
         }

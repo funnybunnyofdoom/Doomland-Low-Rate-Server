@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<SteelItem>(typeof(AlloySmeltingEfficiencySkill), 2, AlloySmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SteelPipeRecipe), Item.Get<SteelPipeItem>().UILink(), 4, typeof(AlloySmeltingSpeedSkill));    
-            this.Initialize("Steel Pipe", typeof(SteelPipeRecipe));
+            this.Initialize(Localizer.DoStr("Steel Pipe"), typeof(SteelPipeRecipe));
 
             CraftingComponent.AddRecipe(typeof(BlastFurnaceObject), this);
         }
@@ -57,8 +57,8 @@ namespace Eco.Mods.TechTree
     public partial class SteelPipeItem :
     BlockItem<SteelPipeBlock>
     {
-        public override string FriendlyName { get { return "Steel Pipe"; } } 
-        public override string Description { get { return "A pipe for transporting liquids."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Steel Pipe"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A pipe for transporting liquids."); } }
 
     }
 

@@ -43,9 +43,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Masonry Table"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Masonry Table"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(MasonryTableItem); } } 
+
 
 
         protected override void Initialize()
@@ -66,8 +67,8 @@ namespace Eco.Mods.TechTree
     public partial class MasonryTableItem :
         WorldObjectItem<MasonryTableObject> 
     {
-        public override string FriendlyName { get { return "Masonry Table"; } } 
-        public override string Description  { get { return  "A workstation for hewing and shaping stone into usable objects."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Masonry Table"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A workstation for hewing and shaping stone into usable objects."); } }
 
         static MasonryTableItem()
         {
@@ -97,7 +98,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(MasonryTableRecipe), Item.Get<MasonryTableItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<MasonryTableItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Masonry Table", typeof(MasonryTableRecipe));
+            this.Initialize(Localizer.DoStr("Masonry Table"), typeof(MasonryTableRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }

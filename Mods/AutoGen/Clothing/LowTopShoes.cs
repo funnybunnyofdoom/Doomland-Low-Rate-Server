@@ -21,8 +21,8 @@ namespace Eco.Mods.TechTree
         ClothingItem        
     {
 
-        public override string FriendlyName     { get { return "Low Top Shoes"; } }
-        public override string Description      { get { return "Basic, ordinary, every day, run of the mill, nondescript, conventional, commonplace, humdrum, standard, middle-of-the-road, garden-variety low-top shoes."; } }
+        public override LocString DisplayName         { get { return Localizer.DoStr("Low Top Shoes"); } }
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("Basic, ordinary, every day, run of the mill, nondescript, conventional, commonplace, humdrum, standard, middle-of-the-road, garden-variety low-top shoes."); } }
         public override string Slot             { get { return ClothingSlot.Shoes; } }             
         public override bool Starter            { get { return true ; } }                       
 
@@ -40,10 +40,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<PlantFibersItem>(typeof(ClothesmakingEfficiencySkill), 40, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
+                new CraftingElement<LeatherHideItem>(typeof(ClothesmakingEfficiencySkill), 4, ClothesmakingEfficiencySkill.MultiplicativeStrategy)
             };
             this.CraftMinutes = new ConstantValue(1);
-            this.Initialize("Low Top Shoes", typeof(LowTopShoesRecipe));
+            this.Initialize(Localizer.DoStr("Low Top Shoes"), typeof(LowTopShoesRecipe));
             CraftingComponent.AddRecipe(typeof(TailoringTableObject), this);
         }
     } 

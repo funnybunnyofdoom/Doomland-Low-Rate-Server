@@ -35,8 +35,8 @@ public class BowItem : ToolItem
     public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
     public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
-    public override string FriendlyName { get { return "Bow"; } }
-    public override string Description { get { return Localizer.DoStr("Shoots arrows.  Useful for hunting."); } }
+    public override LocString DisplayName { get { return Localizer.DoStr("Bow"); } }
+    public override LocString DisplayDescription { get { return Localizer.DoStr("Shoots arrows.  Useful for hunting."); } }
     
     public override Item RepairItem { get { return Item.Get<LogItem>(); } }
     public override int FullRepairAmount { get { return 5; } }
@@ -108,7 +108,7 @@ public class ArrowEntity : NetEntity
             else if (other is Player)
             {
                 // arrows look silly sticking in player capsule colliders
-                var s = FormattableStringFactory.Create("You must obtain authorization to shoot {0}.", (other as Player).FriendlyName);
+                var s = FormattableStringFactory.Create("You must obtain authorization to shoot {0}.", (other as Player).DisplayName);
                 (this.Controller as Player).SendTemporaryError(s);
                 this.Destroy();
             }

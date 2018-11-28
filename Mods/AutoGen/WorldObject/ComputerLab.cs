@@ -35,8 +35,8 @@ namespace Eco.Mods.TechTree
     public partial class ComputerLabItem :
         WorldObjectItem<ComputerLabObject> 
     {
-        public override string FriendlyName { get { return "Computer Lab"; } } 
-        public override string Description  { get { return  "A place where you can sit all day and play video games! Or work on expert-level research."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Computer Lab"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A place where you can sit all day and play video games! Or work on expert-level research."); } }
 
         static ComputerLabItem()
         {
@@ -67,7 +67,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(ComputerLabRecipe), Item.Get<ComputerLabItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<ComputerLabItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Computer Lab", typeof(ComputerLabRecipe));
+            this.Initialize(Localizer.DoStr("Computer Lab"), typeof(ComputerLabRecipe));
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
     }

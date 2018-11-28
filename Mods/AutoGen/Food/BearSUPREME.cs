@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class BearSUPREMEItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Bear S U P R E M E"; } }
-        public override string Description                      { get { return "Just because the name has 'bear' in it doesn't mean it actually contains bear."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Bear S U P R E M E"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Just because the name has 'bear' in it doesn't mean it actually contains bear."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 8, Fat = 22, Protein = 20, Vitamins = 10};
         public override float Calories                          { get { return 1200; } }
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<InfusedOilItem>(typeof(CulinaryArtsEfficiencySkill), 5, CulinaryArtsEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(BearSUPREMERecipe), Item.Get<BearSUPREMEItem>().UILink(), 20, typeof(CulinaryArtsSpeedSkill)); 
-            this.Initialize("Bear S U P R E M E", typeof(BearSUPREMERecipe));
+            this.Initialize(Localizer.DoStr("Bear S U P R E M E"), typeof(BearSUPREMERecipe));
             CraftingComponent.AddRecipe(typeof(StoveObject), this);
         }
     }

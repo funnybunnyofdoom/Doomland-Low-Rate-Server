@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<IronIngotItem>(typeof(MetalworkingEfficiencySkill), 2, MetalworkingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(IronPipeRecipe), Item.Get<IronPipeItem>().UILink(), 2, typeof(MetalworkingSpeedSkill));    
-            this.Initialize("Iron Pipe", typeof(IronPipeRecipe));
+            this.Initialize(Localizer.DoStr("Iron Pipe"), typeof(IronPipeRecipe));
 
             CraftingComponent.AddRecipe(typeof(AnvilObject), this);
         }
@@ -57,8 +57,8 @@ namespace Eco.Mods.TechTree
     public partial class IronPipeItem :
     BlockItem<IronPipeBlock>
     {
-        public override string FriendlyName { get { return "Iron Pipe"; } } 
-        public override string Description { get { return "A pipe for transporting liquids."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Iron Pipe"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("A pipe for transporting liquids."); } }
 
     }
 

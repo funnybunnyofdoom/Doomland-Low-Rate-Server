@@ -28,7 +28,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<StoneItem>(typeof(BasicCraftingEfficiencySkill), 10, BasicCraftingEfficiencySkill.MultiplicativeStrategy),   
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(StoneAxeRecipe), this.UILink(), 0.5f, typeof(BasicCraftingSpeedSkill));
-            this.Initialize("Stone Axe", typeof(StoneAxeRecipe));
+            this.Initialize(Localizer.DoStr("Stone Axe"), typeof(StoneAxeRecipe));
             CraftingComponent.AddRecipe(typeof(WorkbenchObject), this);
         }
     }
@@ -38,13 +38,13 @@ namespace Eco.Mods.TechTree
     public partial class StoneAxeItem : AxeItem
     {
 
-        public override string FriendlyName { get { return "Stone Axe"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Stone Axe"); } }
         private static IDynamicValue caloriesBurn = CreateCalorieValue(20, typeof(LoggingEfficiencySkill), typeof(StoneAxeItem), new StoneAxeItem().UILink());
         public override IDynamicValue CaloriesBurn { get { return caloriesBurn; } }
         private static IDynamicValue damage = CreateDamageValue(1, typeof(LoggingDamageSkill), typeof(StoneAxeItem), new StoneAxeItem().UILink());
         public override IDynamicValue Damage { get { return damage; } }
 
-        private static IDynamicValue skilledRepairCost = new SkillModifiedValue(5, BasicCraftingEfficiencySkill.MultiplicativeStrategy, typeof(BasicCraftingEfficiencySkill), Localizer.DoStr("repair cost")); 
+        private static IDynamicValue skilledRepairCost = new ConstantValue(5);  
         public override IDynamicValue SkilledRepairCost { get { return skilledRepairCost; } }
 
 

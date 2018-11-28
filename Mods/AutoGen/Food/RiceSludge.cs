@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     public partial class RiceSludgeItem :
         FoodItem            
     {
-        public override string FriendlyName                     { get { return "Rice Sludge"; } }
-        public override string Description                      { get { return "Sometimes when you try and make rice, you just add too much water. Some people might call this porridge, but that would indicate intention."; } }
+        public override LocString DisplayName                   { get { return Localizer.DoStr("Rice Sludge"); } }
+        public override LocString DisplayDescription            { get { return Localizer.DoStr("Sometimes when you try and make rice, you just add too much water. Some people might call this porridge, but that would indicate intention."); } }
 
         private static Nutrients nutrition = new Nutrients()    { Carbs = 10, Fat = 0, Protein = 1, Vitamins = 2};
         public override float Calories                          { get { return 450; } }
@@ -41,10 +41,10 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<RiceItem>(3)    
+                new CraftingElement<RiceItem>(typeof(CampfireCreationsEfficiencySkill), 3, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)      
             };
             this.CraftMinutes = new ConstantValue(2);     
-            this.Initialize("Rice Sludge", typeof(RiceSludgeRecipe));
+            this.Initialize(Localizer.DoStr("Rice Sludge"), typeof(RiceSludgeRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
     }

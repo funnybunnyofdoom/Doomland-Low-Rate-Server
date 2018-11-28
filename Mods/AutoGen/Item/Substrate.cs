@@ -34,7 +34,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<EpoxyItem>(typeof(ElectronicEngineeringEfficiencySkill), 5, ElectronicEngineeringEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(SubstrateRecipe), Item.Get<SubstrateItem>().UILink(), 5, typeof(ElectronicEngineeringSpeedSkill));    
-            this.Initialize("Substrate", typeof(SubstrateRecipe));
+            this.Initialize(Localizer.DoStr("Substrate"), typeof(SubstrateRecipe));
 
             CraftingComponent.AddRecipe(typeof(ElectronicsAssemblyObject), this);
         }
@@ -47,8 +47,8 @@ namespace Eco.Mods.TechTree
     public partial class SubstrateItem :
     Item                                     
     {
-        public override string FriendlyName { get { return "Substrate"; } } 
-        public override string Description { get { return "The foundation material for complex electronics."; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Substrate"); } } 
+        public override LocString DisplayDescription { get { return Localizer.DoStr("The foundation material for complex electronics."); } }
 
     }
 

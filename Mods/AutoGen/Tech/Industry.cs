@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(EngineerSkill), 0)]    
     public partial class IndustrySkill : Skill
     {
-        public override string FriendlyName { get { return "Industry"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Industry"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class IndustrySkillBook : SkillBook<IndustrySkill, IndustrySkillScroll>
     {
-        public override string FriendlyName { get { return "Industry Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Industry Skill Book"); } }
     }
 
     [Serialized]
     public partial class IndustrySkillScroll : NewSkillScroll<IndustrySkill, IndustrySkillBook>
     {
-        public override string FriendlyName { get { return "Industry Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Industry Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(MechanicsSkill), 0)] 
@@ -56,12 +56,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<SteelItem>(typeof(ResearchEfficiencySkill), 30, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<LumberItem>(typeof(ResearchEfficiencySkill), 50, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<BrickItem>(typeof(ResearchEfficiencySkill), 50, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<BrickItem>(typeof(ResearchEfficiencySkill), 50, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(30);
 
-            this.Initialize("Industry Skill Book", typeof(IndustrySkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Industry Skill Book"), typeof(IndustrySkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }

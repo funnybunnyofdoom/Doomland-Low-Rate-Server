@@ -37,9 +37,10 @@ namespace Eco.Mods.TechTree
         WorldObject,    
         IRepresentsItem
     {
-        public override string FriendlyName { get { return "Wood Sign"; } } 
+        public override LocString DisplayName { get { return Localizer.DoStr("Wood Sign"); } } 
 
         public virtual Type RepresentedItemType { get { return typeof(WoodSignItem); } } 
+
 
 
         protected override void Initialize()
@@ -62,8 +63,8 @@ namespace Eco.Mods.TechTree
     public partial class WoodSignItem :
         WorldObjectItem<WoodSignObject> 
     {
-        public override string FriendlyName { get { return "Wood Sign"; } } 
-        public override string Description  { get { return  "A large sign for all your large text needs!"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Wood Sign"); } } 
+        public override LocString DisplayDescription  { get { return Localizer.DoStr("A large sign for all your large text needs!"); } }
 
         static WoodSignItem()
         {
@@ -92,7 +93,7 @@ namespace Eco.Mods.TechTree
             SkillModifiedValueManager.AddBenefitForObject(typeof(WoodSignRecipe), Item.Get<WoodSignItem>().UILink(), value);
             SkillModifiedValueManager.AddSkillBenefit(Item.Get<WoodSignItem>().UILink(), value);
             this.CraftMinutes = value;
-            this.Initialize("Wood Sign", typeof(WoodSignRecipe));
+            this.Initialize(Localizer.DoStr("Wood Sign"), typeof(WoodSignRecipe));
             CraftingComponent.AddRecipe(typeof(SawmillObject), this);
         }
     }

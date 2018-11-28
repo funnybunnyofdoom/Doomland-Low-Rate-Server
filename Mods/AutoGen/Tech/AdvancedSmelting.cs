@@ -22,8 +22,8 @@ namespace Eco.Mods.TechTree
     [RequiresSkill(typeof(SmithSkill), 0)]    
     public partial class AdvancedSmeltingSkill : Skill
     {
-        public override string FriendlyName { get { return "Advanced Smelting"; } }
-        public override string Description { get { return Localizer.DoStr(""); } }
+        public override LocString DisplayName        { get { return Localizer.DoStr("Advanced Smelting"); } }
+        public override LocString DisplayDescription { get { return Localizer.DoStr(""); } }
 
         public static int[] SkillPointCost = { 1, 1, 1, 1, 1 };
         public override int RequiredPoint { get { return this.Level < this.MaxLevel ? SkillPointCost[this.Level] : 0; } }
@@ -34,13 +34,13 @@ namespace Eco.Mods.TechTree
     [Serialized]
     public partial class AdvancedSmeltingSkillBook : SkillBook<AdvancedSmeltingSkill, AdvancedSmeltingSkillScroll>
     {
-        public override string FriendlyName { get { return "Advanced Smelting Skill Book"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Advanced Smelting Skill Book"); } }
     }
 
     [Serialized]
     public partial class AdvancedSmeltingSkillScroll : NewSkillScroll<AdvancedSmeltingSkill, AdvancedSmeltingSkillBook>
     {
-        public override string FriendlyName { get { return "Advanced Smelting Skill Scroll"; } }
+        public override LocString DisplayName { get { return Localizer.DoStr("Advanced Smelting Skill Scroll"); } }
     }
 
     [RequiresSkill(typeof(SmeltingSkill), 0)] 
@@ -56,12 +56,11 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<CoalItem>(typeof(ResearchEfficiencySkill), 200, ResearchEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<IronIngotItem>(typeof(ResearchEfficiencySkill), 100, ResearchEfficiencySkill.MultiplicativeStrategy),
-                new CraftingElement<BrickItem>(typeof(ResearchEfficiencySkill), 100, ResearchEfficiencySkill.MultiplicativeStrategy),
-				new CraftingElement<PaperItem>(typeof(ResearchEfficiencySkill), 25, ResearchEfficiencySkill.MultiplicativeStrategy)	 
+                new CraftingElement<BrickItem>(typeof(ResearchEfficiencySkill), 100, ResearchEfficiencySkill.MultiplicativeStrategy) 
             };
             this.CraftMinutes = new ConstantValue(30);
 
-            this.Initialize("Advanced Smelting Skill Book", typeof(AdvancedSmeltingSkillBookRecipe));
+            this.Initialize(Localizer.DoStr("Advanced Smelting Skill Book"), typeof(AdvancedSmeltingSkillBookRecipe));
             CraftingComponent.AddRecipe(typeof(ResearchTableObject), this);
         }
     }
