@@ -43,7 +43,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)    
             };
-            this.CraftMinutes = new ConstantValue(2);     
+            this.CraftMinutes = CreateCraftTimeValue(typeof(CharredCamasBulbRecipe), Item.Get<CharredCamasBulbItem>().UILink(), 2, typeof(CampfireCreationsSpeedSkill));  
             this.Initialize(Localizer.DoStr("Charred Camas Bulb"), typeof(CharredCamasBulbRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

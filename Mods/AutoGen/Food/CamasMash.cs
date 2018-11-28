@@ -45,7 +45,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<CamasBulbItem>(typeof(CampfireCreationsEfficiencySkill), 2, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),
                 new CraftingElement<TallowItem>(typeof(CampfireCreationsEfficiencySkill), 1, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),    
             };
-            this.CraftMinutes = new ConstantValue(2);     
+            this.CraftMinutes = CreateCraftTimeValue(typeof(CamasMashRecipe), Item.Get<CamasMashItem>().UILink(), 1, typeof(CampfireCreationsSpeedSkill));     
             this.Initialize(Localizer.DoStr("Camas Mash"), typeof(CamasMashRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

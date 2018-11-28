@@ -44,7 +44,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<FiddleheadsItem>(typeof(CampfireCreationsEfficiencySkill), 6, CampfireCreationsEfficiencySkill.MultiplicativeStrategy)     
             };
-            this.CraftMinutes = new ConstantValue(2);     
+            this.CraftMinutes = CreateCraftTimeValue(typeof(WiltedFiddleheadsRecipe), Item.Get<WiltedFiddleheadsItem>().UILink(), 2, typeof(CampfireCreationsSpeedSkill));   
             this.Initialize(Localizer.DoStr("Wilted Fiddleheads"), typeof(WiltedFiddleheadsRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }

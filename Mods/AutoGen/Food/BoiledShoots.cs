@@ -42,9 +42,9 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<FireweedShootsItem>(2)    
+                new CraftingElement<FireweedShootsItem>(typeof(CampfireCreationsEfficiencySkill), 2, CampfireCreationsEfficiencySkill.MultiplicativeStrategy),     
             };
-            this.CraftMinutes = new ConstantValue(2);     
+            this.CraftMinutes = CreateCraftTimeValue(typeof(BoiledShootsRecipe), Item.Get<BoiledShootsItem>().UILink(), 2, typeof(CampfireCreationsSpeedSkill));    
             this.Initialize(Localizer.DoStr("Boiled Shoots"), typeof(BoiledShootsRecipe));
             CraftingComponent.AddRecipe(typeof(CampfireObject), this);
         }
