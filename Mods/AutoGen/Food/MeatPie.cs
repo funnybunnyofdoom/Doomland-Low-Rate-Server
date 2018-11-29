@@ -25,8 +25,8 @@ namespace Eco.Mods.TechTree
         public override LocString DisplayName                   { get { return Localizer.DoStr("Meat Pie"); } }
         public override LocString DisplayDescription            { get { return Localizer.DoStr("Much like a huckleberry pie, but filled to the brim with succulent meat."); } }
 
-        private static Nutrients nutrition = new Nutrients()    { Carbs = 7, Fat = 11, Protein = 11, Vitamins = 5};
-        public override float Calories                          { get { return 1300; } }
+        private static Nutrients nutrition = new Nutrients()    { Carbs = 8, Fat = 10, Protein = 10, Vitamins = 4};
+        public override float Calories                          { get { return 1500; } }
         public override Nutrients Nutrition                     { get { return nutrition; } }
     }
 
