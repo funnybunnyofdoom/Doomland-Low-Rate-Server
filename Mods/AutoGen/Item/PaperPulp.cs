@@ -32,7 +32,7 @@ namespace Eco.Mods.TechTree
             {
                 new CraftingElement<WoodPulpItem>(typeof(PaperEfficiencySkill), 5, PaperEfficiencySkill.MultiplicativeStrategy), 
             };
-            this.CraftMinutes = CreateCraftTimeValue(typeof(PaperPulpRecipe), Item.Get<PaperPulpItem>().UILink(), 0.25f, typeof(PaperSpeedSkill));    
+            this.CraftMinutes = CreateCraftTimeValue(typeof(PaperPulpRecipe), Item.Get<PaperPulpItem>().UILink(), 0.2f, typeof(PaperSpeedSkill));    
 			this.Initialize(Localizer.DoStr("Paper Pulp"), typeof(PaperPulpRecipe));
 
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
