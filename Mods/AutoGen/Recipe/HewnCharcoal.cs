@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
             };
             this.Ingredients = new CraftingElement[]
             {
-                new CraftingElement<HewnLogItem>(typeof(BasicSmeltingEfficiencySkill), 10, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
+                new CraftingElement<HewnLogItem>(typeof(BasicSmeltingEfficiencySkill), 80, BasicSmeltingEfficiencySkill.MultiplicativeStrategy), 
             };
             this.CraftMinutes = CreateCraftTimeValue(typeof(CharcoalRecipe), Item.Get<CharcoalItem>().UILink(), 1, typeof(BasicSmeltingSpeedSkill));    
             this.Initialize(Localizer.DoStr("Charcoal"), typeof(CharcoalRecipe));
