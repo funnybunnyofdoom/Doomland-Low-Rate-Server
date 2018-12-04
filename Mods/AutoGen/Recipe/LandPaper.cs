@@ -27,7 +27,7 @@ namespace Eco.Mods.TechTree
                 new CraftingElement<PaperItem>(typeof(PaperEfficiencySkill), 500, PaperEfficiencySkill.MultiplicativeStrategy), 
             };
             this.Initialize(Localizer.DoStr("Land Claim Paper"), typeof(LandPaperRecipe));
-            this.CraftMinutes = CreateCraftTimeValue(typeof(LandPaperRecipe), this.UILink(), 0.05f, typeof(PaperSpeedSkill));
+            this.CraftMinutes = CreateCraftTimeValue(typeof(LandPaperRecipe), this.UILink(), 0.5f, typeof(PaperSpeedSkill));
             CraftingComponent.AddRecipe(typeof(CarpentryTableObject), this);
         }
     }
