@@ -73,6 +73,7 @@ typeof(CharcoalItem),
 typeof(ArrowItem),
 typeof(BoardItem),
 typeof(CoalItem),
+			typeof(WoodPelletItem),
         };
 
         private static Type[] segmentTypeList = new Type[] { };

@@ -86,7 +86,8 @@ typeof(LumberItem),
 typeof(CharcoalItem),
 typeof(ArrowItem),
 typeof(BoardItem),
-typeof(CoalItem)
+typeof(CoalItem),
+			typeof(WoodPelletItem),
         };
 
         private SteamTruckObject() { }
