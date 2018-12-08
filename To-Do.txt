@@ -5,7 +5,7 @@
 -Revamp the profession/skill tree to be linear and more compact
 -Add inline icon for Pellets and paper pulp
 -Fix no clothing on players: Players can pick clothing on char gen
-
+-Add wood pellets to all solid fuel objects
 
 Done:
 -Change the items a player starts with. remove clothing
